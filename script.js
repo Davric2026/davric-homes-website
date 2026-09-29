@@ -153,6 +153,10 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const projectCards = document.querySelectorAll(".project-card[data-city]");
 const projectCount = document.querySelector(".project-count");
 const projectGrid = document.querySelector("#project-grid");
+const projectScrollPrompt = document.querySelector("[data-project-scroll-prompt]");
+const projectScrollTrack = document.querySelector("[data-project-scroll-track]");
+const projectScrollCopy = document.querySelector("[data-project-scroll-copy]");
+const projectScrollIndex = document.querySelector("[data-project-scroll-index]");
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -172,6 +176,7 @@ filterButtons.forEach((button) => {
     });
 
     projectGrid?.scrollTo({ left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    window.requestAnimationFrame(syncProjectScrollButtons);
 
     if (projectCount) {
       const place = filter === "all" ? "" : ` in ${filter[0].toUpperCase() + filter.slice(1)}`;
@@ -596,10 +601,35 @@ const projectScrollButtons = document.querySelectorAll("[data-project-scroll]");
 function syncProjectScrollButtons() {
   if (!projectGrid) return;
   const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth;
+  const visibleCards = [...projectGrid.querySelectorAll(".project-card:not([hidden])")];
   projectScrollButtons.forEach((button) => {
     const isPrevious = button.dataset.projectScroll === "previous";
     button.disabled = maxScroll <= 1 || (isPrevious ? projectGrid.scrollLeft <= 1 : projectGrid.scrollLeft >= maxScroll - 1);
   });
+
+  const canScroll = maxScroll > 1 && visibleCards.length > 1;
+  projectScrollPrompt?.classList.toggle("is-visible", canScroll);
+  if (!visibleCards.length) return;
+
+  const gap = Number.parseFloat(getComputedStyle(projectGrid).columnGap) || 0;
+  const cardWidth = visibleCards[0].getBoundingClientRect().width;
+  const step = Math.max(1, cardWidth + gap);
+  const currentIndex = Math.min(visibleCards.length, Math.floor((projectGrid.scrollLeft + gap / 2) / step) + 1);
+  const progress = maxScroll > 0 ? Math.min(100, Math.max(0, (projectGrid.scrollLeft / maxScroll) * 100)) : 100;
+  const remaining = visibleCards.length - currentIndex;
+
+  if (projectScrollTrack) {
+    projectScrollTrack.value = String(Math.round(progress));
+    projectScrollTrack.setAttribute("aria-valuetext", `Project ${currentIndex} of ${visibleCards.length}`);
+  }
+  if (projectScrollCopy) {
+    projectScrollCopy.textContent = remaining > 0
+      ? `${remaining} more ${remaining === 1 ? "development" : "developments"} to explore`
+      : "You are at the end of the portfolio";
+  }
+  if (projectScrollIndex) {
+    projectScrollIndex.textContent = `${String(currentIndex).padStart(2, "0")} / ${String(visibleCards.length).padStart(2, "0")}`;
+  }
 }
 
 projectScrollButtons.forEach((button) => {
@@ -614,6 +644,11 @@ projectScrollButtons.forEach((button) => {
 });
 
 projectGrid?.addEventListener("scroll", () => requestAnimationFrame(syncProjectScrollButtons), { passive: true });
+projectScrollTrack?.addEventListener("input", () => {
+  if (!projectGrid) return;
+  const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth;
+  projectGrid.scrollTo({ left: maxScroll * (Number(projectScrollTrack.value) / 100), behavior: "auto" });
+});
 window.addEventListener("resize", syncProjectScrollButtons);
 syncProjectScrollButtons();
 
@@ -729,7 +764,7 @@ if (storyPage) {
                   <button class="palm-gallery-open" type="button" data-gallery-open data-gallery-index="${index}" data-gallery-src="${item.image}" data-gallery-alt="${item.alt}" data-gallery-caption="${item.caption}" aria-label="View ${item.caption}">
                     <img src="${item.image}" alt="${item.alt}" loading="lazy" />
                     <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(story.gallery.length).padStart(2, "0")} <i>views</i></span>
-                    <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${story.location}</small></span><span class="palm-gallery-arrow" aria-hidden="true">↗</span></span>
+                    <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${story.location}</small></span><span class="palm-gallery-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span>
                   </button>
                 </figure>
               `).join("")}
@@ -881,7 +916,7 @@ if (storyPage) {
             : `<div class="story-editorial story-related-art ${related.artClass}" aria-hidden="true"><span>${related.shortTitle || related.title}</span><i></i><b>${related.number}</b></div>`;
           return `
             <a class="story-related-card" href="project.html?story=${encodeURIComponent(slug)}" aria-label="Read the ${related.title} project story">
-              <div class="story-related-media">${preview}<span class="story-related-arrow" aria-hidden="true">↗</span></div>
+              <div class="story-related-media">${preview}<span class="story-related-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></div>
               <div class="story-related-copy"><p>${related.category}</p><h3>${related.title}</h3><span>${related.location}</span></div>
             </a>
           `;

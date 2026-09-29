@@ -5205,6 +5205,219 @@ html[data-theme="dark"] .inquiry-form select {
 .project-story-page--towers .story-related-heading { margin-bottom: 24px; }
 .project-story-page--towers .story-enquiry-wrap { padding-bottom: clamp(38px, 4vw, 60px); }
 
+/* Use vector arrows so every browser renders the same crisp, non-emoji icon. */
+.ui-arrow {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.13em;
+}
+
+.project-scroll-prompt {
+  display: none;
+  grid-template-columns: minmax(0, 1fr) minmax(86px, 160px) auto;
+  align-items: center;
+  gap: 18px;
+  padding-top: 15px;
+  margin-top: 3px;
+  border-top: 1px solid var(--line-color);
+  color: var(--blue);
+}
+
+.project-scroll-prompt.is-visible {
+  display: grid;
+}
+
+.project-scroll-prompt-copy {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-scroll-prompt-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: var(--white);
+  background: var(--blue);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.project-scroll-prompt-icon .ui-arrow {
+  width: 19px;
+  height: 19px;
+}
+
+.project-scroll-prompt-text {
+  display: grid;
+  gap: 3px;
+}
+
+.project-scroll-prompt-text strong {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.project-scroll-prompt-text small {
+  color: var(--charcoal);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.project-scroll-track {
+  width: 100%;
+  min-width: 86px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+.project-scroll-track::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--line-color);
+}
+
+.project-scroll-track::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--blue);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.project-scroll-track::-moz-range-track {
+  height: 4px;
+  background: var(--line-color);
+}
+
+.project-scroll-track::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.project-scroll-track:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.project-scroll-index {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.image-arrow .ui-arrow { width: 19px; height: 19px; }
+.menu-link-arrow .ui-arrow { width: 21px; height: 21px; }
+.property-lightbox-nav .ui-arrow { width: 1.15em; height: 1.15em; }
+.palm-gallery-arrow .ui-arrow,
+.story-related-arrow .ui-arrow { width: 1em; height: 1em; }
+
+@media (max-width: 1050px) {
+  .projects-section {
+    padding-bottom: 58px;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects-section {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .projects-heading {
+    margin-bottom: 30px;
+  }
+
+  .projects-heading .section-index {
+    margin-bottom: 26px;
+  }
+
+  .project-toolbar {
+    margin-bottom: 14px;
+  }
+
+  .project-grid {
+    grid-auto-columns: 82%;
+    gap: 14px;
+    padding-bottom: 10px;
+  }
+
+  .project-info {
+    padding: 19px 17px 20px;
+  }
+
+  .project-info > p {
+    min-height: 0;
+    margin-bottom: 15px;
+  }
+
+  .project-scroll-prompt {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 12px;
+    padding-top: 12px;
+  }
+
+  .project-scroll-prompt-copy {
+    gap: 9px;
+  }
+
+  .project-scroll-prompt-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .project-scroll-prompt-text strong {
+    font-size: 10px;
+    letter-spacing: 0.055em;
+  }
+
+  .project-scroll-prompt-text small {
+    font-size: 9px;
+  }
+
+  .project-scroll-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .project-scroll-index {
+    font-size: 10px;
+  }
+
+  .portfolio-note {
+    margin-top: 15px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+}
+
 @media (max-width: 760px) {
   .project-story-page--towers .project-story-hero--cinematic { height: min(760px, max(590px, 82svh)); min-height: 590px; }
   .project-story-page--towers .project-story-hero--cinematic .project-story-heading { padding: 32px 24px 60px; }
