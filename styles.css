@@ -5431,3 +5431,35 @@ html[data-theme="dark"] .inquiry-form select {
   .project-story-page--towers .story-related { padding-bottom: 42px; }
   .project-story-page--towers .story-related-heading { margin-bottom: 18px; }
 }
+
+/* Project galleries share the Palm Harbour lightbox presentation in a responsive mosaic. */
+.story-image-gallery--project-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(108px, 10vw, 142px);
+  grid-auto-flow: dense;
+  gap: 12px;
+  margin: 0;
+}
+.story-image-gallery--project-mosaic .palm-gallery-tile { grid-area: auto; grid-column: span 1; grid-row: span 3; }
+.story-image-gallery--project-mosaic .palm-gallery-tile--wide { grid-column: span 2; }
+.story-image-gallery--project-mosaic .palm-gallery-open > img,
+.story-image-gallery--project-mosaic .palm-gallery-tile--1 .palm-gallery-open > img,
+.story-image-gallery--project-mosaic .palm-gallery-tile--2 .palm-gallery-open > img,
+.story-image-gallery--project-mosaic .palm-gallery-tile--3 .palm-gallery-open > img,
+.story-image-gallery--project-mosaic .palm-gallery-tile--4 .palm-gallery-open > img { object-position: center; }
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .story-image-gallery--project-mosaic { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(104px, 13vw, 138px); }
+}
+
+@media (max-width: 760px) {
+  .story-image-gallery--project-mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(72px, 22vw, 116px);
+    gap: 8px;
+    overflow: visible;
+  }
+  .story-image-gallery--project-mosaic .palm-gallery-tile { grid-column: span 1; grid-row: span 3; }
+  .story-image-gallery--project-mosaic .palm-gallery-tile--wide { grid-column: span 2; }
+}

@@ -193,7 +193,18 @@ const projectStories = {
     deck: "Thirteen gated homes gather around a landscaped shared space in Jericho, with room for everyday routines and recreation.",
     price: "On request", formValue: "Pebblebrooks Estate",
     facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Bedrooms", "4 per home"], ["Shared amenities", "Garden mall · badminton court"]],
-    galleryAfter: 1, gallery: [{ image: "assets/pebblebrooks-progress-2.webp", alt: "Pebblebrooks Estate homes under construction with exterior scaffolding in place", caption: "On-site progress · Pebblebrooks Estate", note: "Published construction image" }],
+    galleryAfter: 2, galleryTitle: "A closer look at Pebblebrooks Estate", galleryLabel: "Homes & shared spaces · Jericho, Ibadan", galleryLayout: "project-mosaic",
+    galleryNote: "The architectural visualisations are illustrative. The site photograph shows construction progress.",
+    gallery: [
+      { image: "assets/pebblebrooks-render.webp", alt: "Aerial architectural visualisation of the Pebblebrooks Estate homes and shared courtyard", caption: "The estate", size: "wide" },
+      { image: "assets/pebblebrooks-progress-2.webp", alt: "Pebblebrooks Estate homes under construction with exterior scaffolding in place", caption: "Progress on site", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-01.webp", alt: "Aerial architectural visualisation of modern homes arranged around a shared residential courtyard", caption: "Homes around the courtyard", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-02.webp", alt: "Architectural visualisation of a low-rise home with landscaped front garden", caption: "A home beside the garden", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-03.webp", alt: "Architectural visualisation of contemporary homes with a landscaped driveway", caption: "A garden-facing view", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-04.webp", alt: "Architectural visualisation of a landscaped shared courtyard between modern residences", caption: "The shared courtyard", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", alt: "Aerial architectural visualisation of a residential community with homes facing a central court", caption: "The residential community", size: "wide" },
+      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-06.webp", alt: "Aerial architectural visualisation of a gated group of homes around a shared outdoor space", caption: "Aerial estate view", size: "wide" },
+    ],
     sections: [
       { label: "The setting", heading: "A compact site, planned as a complete address.", paragraphs: [
         "In Jericho, a neighbourhood in Ibadan, Pebblebrooks is planned across approximately 3,218 square metres. The brief brings thirteen homes together behind a gated entrance, with the site plan making room for both private residences and shared outdoor amenities.",
@@ -264,6 +275,15 @@ const projectStories = {
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
     facts: [["Location", "Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
+    galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Completed headquarters · Oluyole, Ibadan", galleryLayout: "project-mosaic",
+    galleryNote: "Completed-building photography, a construction progress photo and architectural visualisations.",
+    gallery: [
+      { image: "assets/davric-towers-completed-2026.png", alt: "Completed Dav-Ric Towers headquarters in Oluyole, Ibadan", caption: "The completed headquarters", size: "wide" },
+      { image: "assets/davric-towers-completed.jpg", alt: "Street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "The street-facing exterior", size: "wide" },
+      { image: "assets/davric-towers-progress-1.webp", alt: "Dav-Ric Towers during construction with scaffolding around the facade", caption: "Construction in progress" },
+      { image: "assets/davric-towers.webp", alt: "Architectural visualisation of Dav-Ric Towers with its red lattice facade", caption: "Architectural visualisation" },
+      { image: "assets/davric-towers/gallery/davric-towers-new-view.webp", alt: "New architectural visualisation of Dav-Ric Towers with the red lattice facade", caption: "A new exterior view" },
+    ],
     sections: [
       { label: "The setting", heading: "A completed landmark in Oluyole, Ibadan.", paragraphs: [
         "Dav-Ric Towers is the Dav-Ric Group headquarters in Oluyole, Ibadan. The updated project photograph shows the completed building at its Ibadan address.",
@@ -284,6 +304,29 @@ const projectStories = {
     deck: "Three home plan options for Living Waters Estate in Ajoda, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
     facts: [["Location", "Ajoda, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
+    galleryAfter: 1, galleryTitle: "A milestone for Living Waters Estate", galleryLabel: "Living Waters Estate · Ajoda, Ibadan", galleryLayout: "project-mosaic",
+    galleryNote: "Project meeting, allocation and signing moments at Living Waters Estate in Ajoda, Ibadan.",
+    gallery: [
+      { image: "assets/ajoda/gallery/living-waters-milestone-01.webp", alt: "Dav-Ric team gathered for a Living Waters Estate project meeting", caption: "The project team", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-02.webp", alt: "Team members present a project document during the Living Waters Estate meeting", caption: "Presenting the agreement", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-03.webp", alt: "Dav-Ric representatives review a document at the Living Waters Estate meeting", caption: "Reviewing the agreement", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-04.webp", alt: "Living Waters Estate project team members standing together after the meeting", caption: "Together at the milestone", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-05.webp", alt: "Project representatives gathered around the table during the Living Waters Estate meeting", caption: "Around the table" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-06.webp", alt: "Representatives discuss project papers together at the table", caption: "A closer discussion", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-07.webp", alt: "Dav-Ric representatives review paperwork together during the project meeting", caption: "Reviewing the project papers", size: "wide" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-08.webp", alt: "Project representatives speak together around the meeting table", caption: "Working through the details" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-09.webp", alt: "Representatives seated together during the Living Waters Estate project meeting", caption: "In conversation" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-10.webp", alt: "Dav-Ric representatives discuss the agreement before signing", caption: "Before the signing" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-11.webp", alt: "A project representative reviews the agreement with a Dav-Ric representative", caption: "A careful review" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-12.webp", alt: "Two representatives review and sign project documents at the table", caption: "Signing the documents" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-13.webp", alt: "Representatives work through the project documents together", caption: "Documents in review" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-14.webp", alt: "Dav-Ric representatives seated with the Living Waters Estate agreement", caption: "The agreement at the table" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-15.webp", alt: "A representative signs a Living Waters Estate project document", caption: "A signature on the agreement" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-16.webp", alt: "Close view of a representative signing project documents", caption: "At the signing table" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-17.webp", alt: "Dav-Ric representatives review paperwork together at the table", caption: "Final document review" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-18.webp", alt: "Representatives discuss the agreement during the project meeting", caption: "A shared review" },
+      { image: "assets/ajoda/gallery/living-waters-milestone-19.webp", alt: "Dav-Ric representatives review and sign documents at the Living Waters Estate meeting", caption: "Moving forward together" },
+    ],
     sections: [
       { label: "The setting", heading: "A new home vision for Living Waters Estate.", paragraphs: [
         "Living Waters Estate is located in Ajoda, Ibadan. The supplied drawings and visualisations show three residential options: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
@@ -758,18 +801,18 @@ if (storyPage) {
               <div><p class="eyebrow eyebrow-dark">${story.galleryLabel}</p><h2>${story.galleryTitle}</h2></div>
               <span class="palm-gallery-total"><span>${String(story.gallery.length).padStart(2, "0")}</span> curated views</span>
             </div>
-            <div class="story-image-gallery story-image-gallery--palm-harbour">
+            <div class="story-image-gallery story-image-gallery--${story.galleryLayout || "palm-harbour"}">
               ${story.gallery.map((item, index) => `
-                <figure class="palm-gallery-tile palm-gallery-tile--${index + 1}">
+                <figure class="palm-gallery-tile palm-gallery-tile--${index + 1}${item.size === "wide" ? " palm-gallery-tile--wide" : ""}">
                   <button class="palm-gallery-open" type="button" data-gallery-open data-gallery-index="${index}" data-gallery-src="${item.image}" data-gallery-alt="${item.alt}" data-gallery-caption="${item.caption}" aria-label="View ${item.caption}">
-                    <img src="${item.image}" alt="${item.alt}" loading="lazy" />
+                    <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async" />
                     <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(story.gallery.length).padStart(2, "0")} <i>views</i></span>
                     <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${story.location}</small></span><span class="palm-gallery-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span>
                   </button>
                 </figure>
               `).join("")}
             </div>
-            <p class="palm-gallery-note">Design imagery shown is illustrative. Final specifications are subject to confirmation.</p>
+            <p class="palm-gallery-note">${story.galleryNote || "Design imagery shown is illustrative. Final specifications are subject to confirmation."}</p>
           </section>
         `
         : (story.gallery || []).map((item) => `
@@ -846,7 +889,7 @@ if (storyPage) {
         body.addEventListener("click", (event) => {
           const button = event.target.closest("[data-gallery-open]");
           if (!button) return;
-          const gallery = button.closest(".story-image-gallery--palm-harbour");
+          const gallery = button.closest(".story-image-gallery");
           currentGallery = [...(gallery?.querySelectorAll("[data-gallery-open]") || [])];
           currentGalleryIndex = Math.max(0, currentGallery.indexOf(button));
           showGalleryImage();
