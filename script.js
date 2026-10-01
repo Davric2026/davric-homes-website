@@ -221,20 +221,20 @@ const projectStories = {
     ],
   },
   "project-beta": {
-    title: "Palm Harbour Estate", number: "02", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
-    image: "assets/palm-harbour/palm-harbour-aerial.jpeg", imageAlt: "Aerial architectural rendering of Palm Harbour Estate in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
-    deck: "A fresh look at Palm Harbour Estate, a residential community in Alalubosa, Ibadan.",
-    price: "On request", formValue: "Palm Harbour Estate",
+    title: "Palm Harbour Estate Phase 1", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
+    image: "assets/palm-harbour/palm-harbour-aerial.jpeg", imageAlt: "Aerial architectural rendering of Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
+    deck: "A fresh look at Palm Harbour Estate Phase 1, a residential community in Alalubosa, Ibadan.",
+    price: "On request", formValue: "Palm Harbour Estate Phase 1",
     facts: [["Location", "Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
-    galleryAfter: 1, galleryTitle: "A closer look at Palm Harbour Estate", galleryLabel: "Explore the estate", gallery: [
-      { image: "assets/palm-harbour/palm-harbour-street-view.jpeg", alt: "Street-facing architectural rendering of homes at Palm Harbour Estate", caption: "The street-facing homes", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate", caption: "Estate entrance", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate", caption: "The estate from above", note: "Architectural visualisation" },
+    galleryAfter: 1, galleryTitle: "A closer look at Palm Harbour Estate Phase 1", galleryLabel: "Explore the estate", gallery: [
+      { image: "assets/palm-harbour/palm-harbour-street-view.jpeg", alt: "Street-facing architectural rendering of homes at Palm Harbour Estate Phase 1", caption: "The street-facing homes", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate Phase 1 residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate Phase 1", caption: "Estate entrance", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate Phase 1", caption: "The estate from above", note: "Architectural visualisation" },
     ],
     sections: [
       { label: "The setting", heading: "A familiar Alalubosa address, with a new name.", paragraphs: [
-        "Palm Harbour Estate is located in Alalubosa, Ibadan. The development brings an existing row of five terrace homes together with a separate five-home phase along the street frontage.",
+        "Palm Harbour Estate Phase 1 is located in Alalubosa, Ibadan. The development brings an existing row of five terrace homes together with a separate five-home phase along the street frontage.",
         "The renderings offer a first look at the estate from above, from the street and at its entrance. Together they give the project a clearer sense of place and architectural character.",
       ] },
       { label: "The homes", heading: "Five G+2 homes meet the street.", paragraphs: [
@@ -270,7 +270,7 @@ const projectStories = {
   },
 
   "davric-towers": {
-    title: "Dav-Ric Towers", number: "04", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
+    title: "Dav-Ric Towers", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
     image: "assets/davric-towers-completed-2026.png", imageAlt: "Completed Dav-Ric Towers building in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
@@ -299,13 +299,13 @@ const projectStories = {
     ],
   },
   ajoda: {
-    title: "Living Waters Estate", number: "05", category: "Residential · Ibadan", location: "Ajoda, Ibadan",
-    image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda, Ibadan", visualNote: "Architectural visualisation · illustrative",
-    deck: "Three home plan options for Living Waters Estate in Ajoda, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
+    title: "Living Waters Estate", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
+    image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
+    deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
-    facts: [["Location", "Ajoda, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
-    galleryAfter: 1, galleryTitle: "A milestone for Living Waters Estate", galleryLabel: "Living Waters Estate · Ajoda, Ibadan", galleryLayout: "project-mosaic",
-    galleryNote: "Project meeting, allocation and signing moments at Living Waters Estate in Ajoda, Ibadan.",
+    facts: [["Location", "Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
+    galleryAfter: 1, galleryTitle: "A milestone for Living Waters Estate", galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan", galleryLayout: "project-mosaic",
+    galleryNote: "Project meeting, allocation and signing moments at Living Waters Estate in Ajoda New Town, Ibadan.",
     gallery: [
       { image: "assets/ajoda/gallery/living-waters-milestone-01.webp", alt: "Dav-Ric team gathered for a Living Waters Estate project meeting", caption: "The project team", size: "wide" },
       { image: "assets/ajoda/gallery/living-waters-milestone-02.webp", alt: "Team members present a project document during the Living Waters Estate meeting", caption: "Presenting the agreement", size: "wide" },
@@ -329,7 +329,7 @@ const projectStories = {
     ],
     sections: [
       { label: "The setting", heading: "A new home vision for Living Waters Estate.", paragraphs: [
-        "Living Waters Estate is located in Ajoda, Ibadan. The supplied drawings and visualisations show three residential options: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
+        "Living Waters Estate is located in Ajoda New Town, Ibadan. The supplied drawings and visualisations show three residential options: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
         "The plans and exterior images below keep each home type easy to review while its project details continue to develop.",
       ] },
       { label: "Building plans", heading: "Three layouts, shown on their own.", paragraphs: [
@@ -465,31 +465,10 @@ const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 const heroScenes = Array.from(document.querySelectorAll("[data-hero-scene]"));
 const heroVideo = document.querySelector("[data-hero-video]");
 const heroSection = heroVideo?.closest(".hero");
-const heroFloatLayers = heroSection?.querySelectorAll("[data-hero-parallax]") || [];
 const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
 let heroInView = false;
 let activeHeroScene = Math.max(0, heroScenes.findIndex((scene) => scene.classList.contains("is-active")));
 let heroSceneTimer;
-
-if (heroSection && finePointerQuery.matches) {
-  heroSection.addEventListener("pointermove", (event) => {
-    if (event.pointerType !== "mouse") return;
-    const bounds = heroSection.getBoundingClientRect();
-    const pointerX = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const pointerY = (event.clientY - bounds.top) / bounds.height - 0.5;
-    heroFloatLayers.forEach((layer) => {
-      const depth = Number(layer.dataset.heroParallax) || 1;
-      layer.style.setProperty("--float-x", `${(pointerX * 20 * depth).toFixed(2)}px`);
-      layer.style.setProperty("--float-y", `${(pointerY * 14 * depth).toFixed(2)}px`);
-    });
-  });
-  heroSection.addEventListener("pointerleave", () => {
-    heroFloatLayers.forEach((layer) => {
-      layer.style.setProperty("--float-x", "0px");
-      layer.style.setProperty("--float-y", "0px");
-    });
-  });
-}
 
 if (finePointerQuery.matches && !reducedMotionQuery.matches) {
   projectCards.forEach((card) => {
