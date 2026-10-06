@@ -192,30 +192,69 @@ const projectStories = {
     image: "assets/pebblebrooks-render.webp", imageAlt: "Architectural concept rendering of the Pebblebrooks Estate homes", visualNote: "Artist’s impression · design visualisation",
     deck: "Thirteen gated homes gather around a landscaped shared space in Jericho, with room for everyday routines and recreation.",
     price: "On request", formValue: "Pebblebrooks Estate",
-    facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Bedrooms", "4 per home"], ["Shared amenities", "Garden mall · badminton court"]],
-    galleryAfter: 2, galleryTitle: "A closer look at Pebblebrooks Estate", galleryLabel: "Homes & shared spaces · Jericho, Ibadan", galleryLayout: "project-mosaic",
-    galleryNote: "The architectural visualisations are illustrative. The site photograph shows construction progress.",
+    facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Semi-detached homes", "6 with one-bedroom basement suites"], ["Site area", "Approx. 3,218 sqm"]],
+    keyFeatures: [
+      { title: "Thirteen homes", detail: "Seven four-bedroom terrace homes and six four-bedroom semi-detached homes are arranged around the shared estate grounds." },
+      { title: "Basement suites", detail: "Each semi-detached home includes a one-bedroom basement apartment. The typical basement plan is 59 sqm." },
+      { title: "Three-level terrace plans", detail: "The typical terrace plan gives 83.5 sqm to the ground floor and 98 sqm each to the first and second floors." },
+      { title: "Resident amenities", detail: "The plans show a landscaped central mall, badminton court, swimming pool, green and play area, gym and outdoor terrace." },
+      { title: "Estate services", detail: "The gatehouse plans label a gas station and generator, plus security, CCTV, general office and facility manager spaces." },
+      { title: "Design and finish", detail: "The brochure describes open plans, large energy-efficient windows, premium flooring and cabinetry, designer kitchen appliances and spa-style bathrooms." },
+    ],
+    galleryAfter: 1, galleryTitle: "Estate and exterior gallery", galleryLabel: "Architectural visualisations · Jericho, Ibadan", galleryLayout: "pebblebrooks-gallery",
+    galleryNote: "Architectural visualisations are illustrative; home layouts, materials and final specifications are subject to confirmation.",
     gallery: [
       { image: "assets/pebblebrooks-render.webp", alt: "Aerial architectural visualisation of the Pebblebrooks Estate homes and shared courtyard", caption: "The estate", size: "wide" },
-      { image: "assets/pebblebrooks-progress-2.webp", alt: "Pebblebrooks Estate homes under construction with exterior scaffolding in place", caption: "Progress on site", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-01.webp", alt: "Aerial architectural visualisation of modern homes arranged around a shared residential courtyard", caption: "Homes around the courtyard", size: "wide" },
-      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-02.webp", alt: "Architectural visualisation of a low-rise home with landscaped front garden", caption: "A home beside the garden", size: "wide" },
-      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-03.webp", alt: "Architectural visualisation of contemporary homes with a landscaped driveway", caption: "A garden-facing view", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-04.webp", alt: "Architectural visualisation of a landscaped shared courtyard between modern residences", caption: "The shared courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", alt: "Aerial architectural visualisation of a residential community with homes facing a central court", caption: "The residential community", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-06.webp", alt: "Aerial architectural visualisation of a gated group of homes around a shared outdoor space", caption: "Aerial estate view", size: "wide" },
     ],
     sections: [
-      { label: "The setting", heading: "A compact site, planned as a complete address.", paragraphs: [
-        "In Jericho, a neighbourhood in Ibadan, Pebblebrooks is planned across approximately 3,218 square metres. The brief brings thirteen homes together behind a gated entrance, with the site plan making room for both private residences and shared outdoor amenities.",
-        "The project is organised around a landscaped central mall. That shared green space gives the estate a clear centre and connects the homes to an outdoor setting within the development.",
+      { label: "The setting", heading: "A complete estate plan for Jericho.", paragraphs: [
+        "Pebblebrooks is planned across approximately 3,218 square metres in Jericho, Ibadan. Its site layout places seven terrace homes and six semi-detached homes around internal access ways and a central landscaped court.",
+        "The same plan marks parking, an ancillary building, a gatehouse and a badminton court. It gives a clear overview of how homes, circulation and shared spaces fit together.",
+      ], galleryLayout: "plans-landscape-single", gallery: [
+        { image: "assets/pebblebrooks/plans/pebblebrooks-site-layout.webp", alt: "Pebblebrooks Estate site layout showing seven terraces, six semi-detached homes, parking, badminton court, ancillary building and gatehouse", caption: "Estate site layout", note: "13 homes · Jericho, Ibadan" },
       ] },
-      { label: "The homes", heading: "Two home types, one shared landscape.", paragraphs: [
-        "The mix includes seven four-bedroom terrace homes, each with a maid’s room, and six four-bedroom semi-detached homes, each with a one-bedroom basement apartment. The two formats give the scheme a varied residential rhythm while keeping the estate focused on a single address.",
-        "A badminton court sits alongside the landscaped mall as a shared amenity. Together, these spaces add an outdoor layer to a project whose defining idea is a small, connected residential community.",
+      { label: "Terrace homes", heading: "Seven four-bedroom homes, planned across three levels.", paragraphs: [
+        "The typical terrace home has an 83.5 sqm ground floor, a 98 sqm first floor and a 98 sqm second floor. The ground level brings together a 31 sqm lounge, dining room, kitchen, pantry, guest WC and a maid’s room with its own bath.",
+        "The upper floors add a family lounge, two bedrooms and a main bedroom with a walk-in closet. Balconies appear on both upper levels in the supplied drawings.",
+      ], galleryLayout: "plans-landscape", gallery: [
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-ground-floor.webp", alt: "Ground floor plan for a typical Pebblebrooks terrace home, 83.5 square metres", caption: "Ground floor", note: "83.5 sqm · lounge, kitchen and maid’s room" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-first-floor.webp", alt: "First floor plan for a typical Pebblebrooks terrace home, 98 square metres", caption: "First floor", note: "98 sqm · family lounge and bedrooms" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-second-floor.webp", alt: "Second floor plan for a typical Pebblebrooks terrace home, 98 square metres", caption: "Second floor", note: "98 sqm · main bedroom and bedroom three" },
+      ] },
+      { label: "Semi-detached homes", heading: "Six homes with a separate one-bedroom basement apartment.", paragraphs: [
+        "The typical semi-detached home is shown with a 59 sqm basement, an 84 sqm ground floor and two 100 sqm upper floors. Each home is described as a four-bedroom residence with a one-bedroom basement apartment.",
+        "The basement plan includes a lounge, kitchen, bath, laundry and store. Above it, the ground floor contains the main living, dining and kitchen spaces; the upper floors add bedrooms, family lounge, cinema room, walk-in closets and balconies.",
+      ], galleryLayout: "plans-landscape-pair", gallery: [
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-basement.webp", alt: "Basement floor plan for a typical Pebblebrooks semi-detached home, 59 square metres", caption: "Basement floor", note: "59 sqm · one-bedroom apartment layout" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-ground-floor.webp", alt: "Ground floor plan for a typical Pebblebrooks semi-detached home, 84 square metres", caption: "Ground floor", note: "84 sqm · living, dining and kitchen" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-first-floor.webp", alt: "First floor plan for a typical Pebblebrooks semi-detached home, 100 square metres", caption: "First floor", note: "100 sqm · bedrooms, lounge and cinema" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-second-floor.webp", alt: "Second floor plan for a typical Pebblebrooks semi-detached home, 100 square metres", caption: "Second floor", note: "100 sqm · main bedroom and bedroom three" },
+      ] },
+      { label: "Shared amenities", heading: "Everyday recreation has its own place.", paragraphs: [
+        "The ancillary building drawings show a ground-floor green and play area beside a swimming pool, with parking and washroom facilities. The first floor contains a 38 sqm gym, while the second floor is arranged as an outdoor terrace and sit-out.",
+        "These spaces complement the badminton court and landscaped central mall shown on the estate layout.",
+      ], galleryLayout: "plans-landscape", gallery: [
+        { image: "assets/pebblebrooks/plans/pebblebrooks-ancillary-ground-floor.webp", alt: "Ground floor plan for the Pebblebrooks ancillary building showing a green and play area, pool, parking and washroom", caption: "Ground floor", note: "Green and play area · pool · parking" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-ancillary-first-floor.webp", alt: "First floor plan for the Pebblebrooks ancillary building showing a 38 square metre gym", caption: "First floor", note: "38 sqm gym" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-ancillary-second-floor.webp", alt: "Second floor plan for the Pebblebrooks ancillary building showing an outdoor terrace and sit-out", caption: "Second floor", note: "Outdoor terrace and sit-out" },
+      ] },
+      { label: "Gatehouse & services", heading: "Security, management and utilities are planned at the entrance.", paragraphs: [
+        "The ground-floor gatehouse plan labels a 7 sqm gas station and a 7 sqm generator space, alongside a bedroom, office and pedestrian gate. The first-floor plan adds a CCTV/security office, storage, a general office and a facility manager’s room.",
+        "The descriptions here follow the room labels in the supplied plans. Ask Dav-Ric Homes to confirm the final operating arrangement for estate services.",
+      ], galleryLayout: "plans-landscape-pair", gallery: [
+        { image: "assets/pebblebrooks/plans/pebblebrooks-gatehouse-ground-floor.webp", alt: "Ground floor gatehouse plan showing a gas station, generator, bedroom, office and pedestrian gate", caption: "Ground floor", note: "Gas station · generator · entrance office" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-gatehouse-first-floor.webp", alt: "First floor gatehouse plan showing CCTV office, storage, general office and facility manager room", caption: "First floor", note: "CCTV · storage · management offices" },
+      ] },
+      { label: "Design & finish", heading: "A contemporary design brief with considered finishes.", paragraphs: [
+        "The brochure describes open floor plans, clean-lined architecture, large energy-efficient windows and a focus on natural light. It also lists premium flooring, countertops and cabinetry, designer kitchen appliances, high-end fixtures and spa-style bathrooms as part of the finish direction.",
+        "Its neighbourhood description emphasises landscaping, green space and a quieter, family-oriented setting. These are brochure statements; confirm final specifications with Dav-Ric Homes.",
       ] },
       { label: "Project update", heading: "Structure is progressing on site.", paragraphs: [
-        "The latest published Dav-Ric update lists structural works as ongoing. The construction image above offers a view of that work in progress; it is not a finished-home photograph.",
+        "The latest published Dav-Ric update lists structural works as ongoing. Construction status can change as the programme advances.",
         "Construction status, availability and pricing can change. Contact Dav-Ric Homes for the latest site update and to arrange a visit before making a decision.",
       ] },
     ],
@@ -226,20 +265,33 @@ const projectStories = {
     deck: "A fresh look at Palm Harbour Estate Phase 1, a residential community in Alalubosa, Ibadan.",
     price: "On request", formValue: "Palm Harbour Estate Phase 1",
     facts: [["Location", "Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
-    galleryAfter: 1, galleryTitle: "A closer look at Palm Harbour Estate Phase 1", galleryLabel: "Explore the estate", gallery: [
+    keyFeatures: [
+      { title: "Two development stages", detail: "The project information lists five existing terrace homes and a separate new phase of five G+2 homes." },
+      { title: "Everyday ground-floor spaces", detail: "The supplied plan shows a living room, dining area, kitchen, laundry, store, guest room and ante room." },
+      { title: "Upper-floor rooms", detail: "The upper plan includes a master bedroom, other bedrooms, toilets, a lounge beside a void and a terrace." },
+      { title: "Alalubosa address", detail: "The estate is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site." },
+    ],
+    galleryAfter: 1, galleryTitle: "Exterior gallery", galleryLabel: "Architectural visualisations · Alalubosa, Ibadan", gallery: [
       { image: "assets/palm-harbour/palm-harbour-street-view.jpeg", alt: "Street-facing architectural rendering of homes at Palm Harbour Estate Phase 1", caption: "The street-facing homes", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate Phase 1 residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate Phase 1", caption: "Estate entrance", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate Phase 1", caption: "The estate from above", note: "Architectural visualisation" },
     ],
     sections: [
-      { label: "The setting", heading: "A familiar Alalubosa address, with a new name.", paragraphs: [
-        "Palm Harbour Estate Phase 1 is located in Alalubosa, Ibadan. The development brings an existing row of five terrace homes together with a separate five-home phase along the street frontage.",
-        "The renderings offer a first look at the estate from above, from the street and at its entrance. Together they give the project a clearer sense of place and architectural character.",
+      { label: "The setting", heading: "An established Alalubosa address with a new phase.", paragraphs: [
+        "Palm Harbour Estate Phase 1 is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site. The published project information lists an existing row of five terrace homes and a separate new phase of five homes.",
+        "The exterior visualisations show the homes, entrance and shared estate setting from several angles.",
       ] },
-      { label: "The homes", heading: "Five G+2 homes meet the street.", paragraphs: [
-        "The new phase is described as five G+2 homes, with a taller, more refined massing shaped towards the street. The published design direction aims to make the frontage feel intentional while responding to the terrace row already on the site.",
-        "The supplied images are architectural visualisations, offering a design view of the homes and estate setting.",
+      { label: "Building plans", heading: "Ground- and upper-floor layouts, together.", paragraphs: [
+        "The supplied ground-floor drawing places the living room and dining area beside the kitchen, with a laundry, store, guest room and ante room. The upper-floor drawing shows a master bedroom, other bedrooms, toilets, a lounge around a void and a terrace.",
+        "The plans illustrate room arrangement and dimensions. Confirm the final layout and specifications with Dav-Ric Homes.",
+      ], galleryLayout: "plans-landscape-pair", gallery: [
+        { image: "assets/palm-harbour/plans/palm-harbour-ground-floor.webp", alt: "Palm Harbour Estate ground-floor plan showing living, dining, kitchen, laundry, store and guest room spaces", caption: "Ground-floor plan", note: "Living · dining · kitchen · guest room" },
+        { image: "assets/palm-harbour/plans/palm-harbour-upper-floor.webp", alt: "Palm Harbour Estate upper-floor plan showing bedrooms, lounge, void, toilets and terrace", caption: "Upper-floor plan", note: "Bedrooms · lounge · terrace" },
+      ] },
+      { label: "The new homes", heading: "Five G+2 homes meet the street.", paragraphs: [
+        "The new phase is described as five G+2 homes, with taller massing shaped towards the street. The published design direction aims to make the frontage feel intentional while responding to the terrace row already on the site.",
+        "The supplied drawings and images are architectural design material; they do not establish final construction specifications.",
       ] },
       { label: "Project update", heading: "Two stages of work are described.", paragraphs: [
         "Dav-Ric’s published update places rear units at carcass stage and the street-frontage phase in development. These notes describe different parts of the project, rather than a single site-wide completion stage.",
@@ -253,6 +305,12 @@ const projectStories = {
     deck: "A luxury terrace concept for Guzape, a sought-after residential neighbourhood in Abuja.",
     price: "On request", formValue: "Guzape Main Project",
     facts: [["Location", "Guzape, Abuja"], ["Site area", "Approx. 1,667 sqm"], ["Development", "Luxury terraces"], ["Stage", "Concept design"]],
+    keyFeatures: [
+      { title: "Guzape, Abuja", detail: "The proposed residential development is located in Guzape, Abuja, FCT." },
+      { title: "Approx. 1,667 sqm", detail: "Published project information gives the site area as approximately 1,667 square metres." },
+      { title: "Luxury terrace brief", detail: "The current project listing identifies luxury terrace homes as the intended development type." },
+      { title: "Concept stage", detail: "The scheme is listed at concept design stage; unit mix, amenities and final specifications are not yet confirmed." },
+    ],
     sections: [
       { label: "The setting", heading: "A residential concept for Guzape, Abuja.", paragraphs: [
         "Guzape is planned as a luxury terrace development in Abuja. The published project information places the site at approximately 1,667 square metres and lists the scheme at concept design stage.",
@@ -275,12 +333,17 @@ const projectStories = {
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
     facts: [["Location", "Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
+    keyFeatures: [
+      { title: "Group headquarters", detail: "Dav-Ric Towers serves as the Dav-Ric Group headquarters in Oluyole, Ibadan." },
+      { title: "Commercial building", detail: "The completed project is presented as a commercial building in the Dav-Ric portfolio." },
+      { title: "Red lattice facade", detail: "The exterior combines a bold red lattice screen with glazed openings and darker solid forms." },
+      { title: "Completed", detail: "The portfolio lists Dav-Ric Towers as complete and its availability as sold." },
+    ],
     galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Completed headquarters · Oluyole, Ibadan", galleryLayout: "project-mosaic",
-    galleryNote: "Completed-building photography, a construction progress photo and architectural visualisations.",
+    galleryNote: "Completed-building photography and architectural visualisations.",
     gallery: [
       { image: "assets/davric-towers-completed-2026.png", alt: "Completed Dav-Ric Towers headquarters in Oluyole, Ibadan", caption: "The completed headquarters", size: "wide" },
       { image: "assets/davric-towers-completed.jpg", alt: "Street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "The street-facing exterior", size: "wide" },
-      { image: "assets/davric-towers-progress-1.webp", alt: "Dav-Ric Towers during construction with scaffolding around the facade", caption: "Construction in progress" },
       { image: "assets/davric-towers.webp", alt: "Architectural visualisation of Dav-Ric Towers with its red lattice facade", caption: "Architectural visualisation" },
       { image: "assets/davric-towers/gallery/davric-towers-new-view.webp", alt: "New architectural visualisation of Dav-Ric Towers with the red lattice facade", caption: "A new exterior view" },
     ],
@@ -304,6 +367,12 @@ const projectStories = {
     deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
     facts: [["Location", "Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
+    keyFeatures: [
+      { title: "Three-bedroom home", detail: "A three-bedroom home plan is supplied for Living Waters Estate." },
+      { title: "Two-bedroom home", detail: "A separate two-bedroom home plan and exterior visualisation are supplied." },
+      { title: "Flat-roof option", detail: "The portfolio also includes a two-bedroom flat-roof design." },
+      { title: "Ajoda New Town", detail: "Living Waters Estate is located in Ajoda New Town, Ibadan." },
+    ],
     galleryAfter: 1, galleryTitle: "A milestone for Living Waters Estate", galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan", galleryLayout: "project-mosaic",
     galleryNote: "Project meeting, allocation and signing moments at Living Waters Estate in Ajoda New Town, Ibadan.",
     gallery: [
@@ -685,6 +754,7 @@ if (storyPage) {
   const visual = storyPage.querySelector("[data-story-visual]");
   const visualNote = storyPage.querySelector("[data-story-visual-note]");
   const facts = storyPage.querySelector("[data-story-facts]");
+  const keyFeatures = storyPage.querySelector("[data-story-key-features]");
   const price = storyPage.querySelector("[data-story-price]");
   const priceLabel = storyPage.querySelector("[data-story-price-label]");
   const priceBox = storyPage.querySelector("[data-story-price-box]");
@@ -772,6 +842,20 @@ if (storyPage) {
       facts.innerHTML = story.facts.map(([label, value]) => `<div class="story-fact"><dt>${label}</dt><dd>${value}</dd></div>`).join("");
     }
 
+    if (keyFeatures && story.keyFeatures?.length) {
+      keyFeatures.hidden = false;
+      keyFeatures.innerHTML = [
+        '<div class="story-key-features-heading">',
+        '<p class="eyebrow eyebrow-dark">Project specification</p>',
+        '<h2 id="story-key-features-title">Key features</h2>',
+        '<p>Project details gathered from the published project information, drawings and brochure.</p>',
+        '</div>',
+        '<div class="story-key-features-grid">',
+        story.keyFeatures.map((feature, index) => `<article class="story-key-feature"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3><p>${feature.detail}</p></article>`).join(""),
+        '</div>',
+      ].join("");
+    }
+
     if (body) {
       const galleryMarkup = story.galleryTitle
         ? `
@@ -816,19 +900,33 @@ if (storyPage) {
         if (!section.gallery?.length) return;
         const gallery = document.createElement("div");
         gallery.className = "story-image-gallery story-image-gallery--" + (section.galleryLayout || "single");
+        gallery.dataset.storyReveal = "";
+        gallery.setAttribute("role", "group");
+        gallery.setAttribute("aria-label", section.heading + " image gallery");
 
-        section.gallery.forEach((item) => {
+        section.gallery.forEach((item, itemIndex) => {
           const figure = document.createElement("figure");
           figure.className = "story-image-spread";
           figure.dataset.storyReveal = "";
 
           const frame = document.createElement("div");
           frame.className = "story-image-frame";
+          const openButton = document.createElement("button");
+          openButton.type = "button";
+          openButton.className = "story-gallery-open";
+          openButton.dataset.galleryOpen = "";
+          openButton.dataset.galleryIndex = String(itemIndex);
+          openButton.dataset.gallerySrc = item.image;
+          openButton.dataset.galleryAlt = item.alt;
+          openButton.dataset.galleryCaption = item.caption;
+          openButton.setAttribute("aria-label", "View " + item.caption);
           const image = document.createElement("img");
           image.src = item.image;
           image.alt = item.alt;
           image.loading = "lazy";
-          frame.append(image);
+          image.decoding = "async";
+          openButton.append(image);
+          frame.append(openButton);
 
           const caption = document.createElement("figcaption");
           const captionTitle = document.createElement("span");
@@ -886,7 +984,7 @@ if (storyPage) {
         });
       }
 
-      const storyWords = [story.deck, ...story.sections.flatMap((section) => [section.heading, ...section.paragraphs])].join(" ").trim().split(/\s+/).filter(Boolean).length;
+      const storyWords = [story.deck, ...story.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...(story.keyFeatures || []).flatMap((feature) => [feature.title, feature.detail])].join(" ").trim().split(/\s+/).filter(Boolean).length;
       if (readingTime) readingTime.textContent = `${Math.max(1, Math.ceil(storyWords / 220))} min read`;
       if (chapterNav) {
         chapterNav.innerHTML = `<span class="story-chapter-nav-label">In this story</span>${story.sections.map((section, index) => `<a href="#story-chapter-${index + 1}" data-story-chapter-link="${index + 1}"><span>${String(index + 1).padStart(2, "0")}</span>${section.label}</a>`).join("")}`;
