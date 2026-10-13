@@ -884,6 +884,71 @@ h2 span {
   transform: scaleX(1);
 }
 
+.people-section {
+  padding-block: clamp(88px, 10vw, 138px);
+}
+
+.people-heading {
+  display: grid;
+  grid-template-columns: 0.78fr 1.3fr 0.92fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 72px;
+}
+
+.people-heading .section-index { margin-bottom: 48px; }
+.people-heading .eyebrow { margin-bottom: 18px; }
+.people-heading h2 { font-size: clamp(46px, 5.5vw, 73px); }
+.people-heading h2 span { color: var(--charcoal); }
+.people-intro { max-width: 320px; margin: 52px 0 0 auto; color: var(--charcoal); font-size: 14px; }
+
+.people-group-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-color);
+}
+.people-group-heading > span { color: var(--gold-ink); font-family: var(--display); font-size: 12px; font-weight: 700; }
+.people-group-heading h3 { margin: 0; font-size: clamp(22px, 2.5vw, 31px); letter-spacing: -.04em; }
+.people-group-intro { margin: -10px 0 22px 28px; color: var(--charcoal); font-size: 13px; }
+.people-group--delivery { margin-top: 68px; padding-top: 48px; border-top: 1px solid var(--line-color); }
+
+.people-grid { display: grid; gap: 12px; }
+.people-grid--leadership { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.people-grid--delivery { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.people-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid var(--line-color); background: var(--paper); }
+.people-card-media {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1.25 / 1;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, rgb(190 144 56 / 18%), transparent 48%), linear-gradient(145deg, #e1ddd4, #f8f7f3 62%, #ddd8cd);
+}
+.people-card-initials {
+  display: grid;
+  width: clamp(66px, 7.1vw, 90px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 38%);
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--black);
+  font-family: var(--display);
+  font-size: clamp(20px, 2.1vw, 27px);
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.people-card-body { display: flex; flex: 1; flex-direction: column; padding: 19px clamp(14px, 1.6vw, 22px) 22px; }
+.people-card-role { margin: 0 0 7px; color: var(--gold-ink); font-size: 9px; font-weight: 700; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
+.people-card-body h4 { margin: 0 0 10px; font-size: clamp(15px, 1.4vw, 18px); letter-spacing: -.035em; line-height: 1.25; }
+.people-card-body > p:last-child:not(.people-card-role) { margin: 0; color: var(--charcoal); font-size: 11px; line-height: 1.65; }
+.people-grid--delivery .people-card-body { min-height: 110px; }
+.people-grid--delivery .people-card-role { margin-bottom: 12px; }
+.people-grid--delivery .people-card-body h4 { margin-top: auto; font-size: clamp(13px, 1.15vw, 16px); }
+
 .projects-section {
   padding-block: clamp(96px, 11vw, 158px) clamp(96px, 11vw, 152px);
 }
@@ -2170,6 +2235,13 @@ html:not(.js) [data-reveal] {
     gap: 31px;
     margin-bottom: 49px;
   }
+
+  .people-heading { grid-template-columns: 1fr; gap: 27px; margin-bottom: 52px; }
+  .people-heading .section-index { margin-bottom: 12px; }
+  .people-heading h2 { font-size: clamp(43px, 11vw, 63px); }
+  .people-intro { margin: 0; }
+  .people-grid--leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .people-grid--delivery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .approach-heading h2 {
     font-size: clamp(43px, 11vw, 63px);
@@ -4334,6 +4406,12 @@ html[data-theme="dark"] .inquiry-form select {
   .desktop-nav { display: none; }
   .menu-toggle { display: flex; }
   .header-actions { margin-left: auto; }
+  .people-heading { grid-template-columns: 1fr; gap: 27px; margin-bottom: 52px; }
+  .people-heading .section-index { margin-bottom: 12px; }
+  .people-heading h2 { font-size: clamp(43px, 7.5vw, 63px); }
+  .people-intro { margin: 0; }
+  .people-grid--leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .people-grid--delivery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
@@ -4350,6 +4428,13 @@ html[data-theme="dark"] .inquiry-form select {
   .hero-caption .hero-credit { font-size: 8px; }
   .hero-bottomline,
   .hero-scroll-cue { display: none; }
+  .people-section { padding-block: 86px; }
+  .people-grid--delivery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .people-group--delivery { margin-top: 52px; padding-top: 40px; }
+  .people-group-heading { gap: 11px; }
+  .people-card-body { padding: 15px 13px 18px; }
+  .people-card-body > p:last-child:not(.people-card-role) { font-size: 10px; }
+  .people-grid--delivery .people-card-body { min-height: 116px; }
   .contact-callout-inner { align-items: flex-start; flex-direction: column; gap: 23px; }
   .project-story-hero { grid-template-columns: 1fr; }
   .project-story-heading { min-height: 430px; padding: 54px 24px; }
