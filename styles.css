@@ -627,6 +627,7 @@ h2 span {
   margin-bottom: 23px;
 }
 
+.intro-heading h1,
 .intro-heading h2,
 .approach-heading h2,
 .projects-heading h2,
@@ -636,10 +637,12 @@ h2 span {
   line-height: 0.99;
 }
 
+.intro-heading h1,
 .intro-heading h2 {
   max-width: 670px;
 }
 
+.intro-heading h1 span,
 .intro-heading h2 span {
   color: var(--charcoal);
 }
@@ -2157,6 +2160,7 @@ html:not(.js) [data-reveal] {
     margin-bottom: 17px;
   }
 
+.intro-heading h1,
 .intro-heading h2,
 .approach-heading h2,
 .projects-heading h2,
