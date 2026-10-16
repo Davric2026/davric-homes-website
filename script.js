@@ -190,15 +190,20 @@ const projectStories = {
   "pebblebrooks-estate": {
     title: "Pebblebrooks Estate", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
     image: "assets/pebblebrooks-render.webp", imageAlt: "Architectural concept rendering of the Pebblebrooks Estate homes", visualNote: "Artist’s impression · design visualisation",
-    deck: "Thirteen gated homes gather around a landscaped shared space in Jericho, with room for everyday routines and recreation.",
+    deck: "13 gated homes in Jericho, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.",
     price: "On request", formValue: "Pebblebrooks Estate",
     facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Semi-detached homes", "6 with one-bedroom basement suites"], ["Site area", "Approx. 3,218 sqm"]],
+    keyFeaturesLead: "13 homes, secured for everyday living.",
+    keyFeaturesIntro: "Central gas, estate security and a close Jericho landmark lead the offer.",
     keyFeatures: [
-      { title: "Thirteen homes", detail: "Seven four-bedroom terrace homes and six four-bedroom semi-detached homes are arranged around the shared estate grounds." },
+      { title: "Central gas system", detail: "A central gas system serves the estate, making convenient everyday cooking a defining part of the Pebblebrooks offer.", priority: true },
+      { title: "Gated estate security", detail: "The estate plans include controlled access, security and CCTV, with dedicated gatehouse and security office spaces.", priority: true },
+      { title: "Close to the Police Commissioner’s Residence", detail: "Pebblebrooks is in Jericho, close to the Police Commissioner’s Residence, a notable nearby landmark.", priority: true },
+      { title: "13 homes", detail: "Seven four-bedroom terrace homes and six four-bedroom semi-detached homes are arranged around the shared estate grounds." },
       { title: "Basement suites", detail: "Each semi-detached home includes a one-bedroom basement apartment. The typical basement plan is 59 sqm." },
       { title: "Three-level terrace plans", detail: "The typical terrace plan gives 83.5 sqm to the ground floor and 98 sqm each to the first and second floors." },
       { title: "Resident amenities", detail: "The plans show a landscaped central mall, badminton court, swimming pool, green and play area, gym and outdoor terrace." },
-      { title: "Estate services", detail: "The gatehouse plans label a gas station and generator, plus security, CCTV, general office and facility manager spaces." },
+      { title: "Estate services", detail: "The gatehouse plans identify generator space, a general office and facility manager spaces alongside estate security services." },
       { title: "Design and finish", detail: "The brochure describes open plans, large energy-efficient windows, premium flooring and cabinetry, designer kitchen appliances and spa-style bathrooms." },
     ],
     galleryAfter: 1, galleryTitle: "Estate and exterior gallery", galleryLabel: "Architectural visualisations · Jericho, Ibadan", galleryLayout: "pebblebrooks-gallery",
@@ -329,7 +334,7 @@ const projectStories = {
 
   "davric-towers": {
     title: "Dav-Ric Towers", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
-    image: "assets/davric-towers-completed-2026.png", imageAlt: "Completed Dav-Ric Towers building in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
+    image: "assets/davric-towers-real.jpg", imageAlt: "Real exterior photograph of completed Dav-Ric Towers in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
     facts: [["Location", "Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
@@ -342,7 +347,7 @@ const projectStories = {
     galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Completed headquarters · Oluyole, Ibadan", galleryLayout: "project-mosaic",
     galleryNote: "Completed-building photography and architectural visualisations.",
     gallery: [
-      { image: "assets/davric-towers-completed-2026.png", alt: "Completed Dav-Ric Towers headquarters in Oluyole, Ibadan", caption: "The completed headquarters", size: "wide" },
+      { image: "assets/davric-towers-real.jpg", alt: "Real street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "Dav-Ric Towers · completed exterior", size: "wide" },
       { image: "assets/davric-towers-completed.jpg", alt: "Street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "The street-facing exterior", size: "wide" },
       { image: "assets/davric-towers.webp", alt: "Architectural visualisation of Dav-Ric Towers with its red lattice facade", caption: "Architectural visualisation" },
       { image: "assets/davric-towers/gallery/davric-towers-new-view.webp", alt: "New architectural visualisation of Dav-Ric Towers with the red lattice facade", caption: "A new exterior view" },
@@ -423,7 +428,7 @@ const projectStories = {
 
 document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const formNote = inquiryForm.querySelector(".form-note");
-  const emailInquiryButton = inquiryForm.querySelector("[data-email-inquiry]");
+  const whatsappInquiryButton = inquiryForm.querySelector("[data-whatsapp-inquiry]");
   const interestSelect = inquiryForm.querySelector('[name="interest"]');
   const projectSlug = new URLSearchParams(window.location.search).get("project");
   const requestedStory = projectStories[projectSlug];
@@ -447,20 +452,20 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
 
   inquiryForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const { lines } = getEnquiryMessage();
-    const whatsappUrl = `https://wa.me/2349134000494?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-    if (formNote) formNote.textContent = "A WhatsApp message is ready in a new tab. Review the details there and tap Send.";
+    const { formData, lines } = getEnquiryMessage();
+    const subject = `Dav-Ric Homes enquiry — ${formData.get("interest")}`;
+    const emailUrl = `mailto:kuteyi.vincent@davricgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = emailUrl;
+    if (formNote) formNote.textContent = "Your email app is ready with this enquiry addressed to kuteyi.vincent@davricgroup.com. Review it and tap Send.";
   });
 
-  if (emailInquiryButton) {
-    emailInquiryButton.addEventListener("click", () => {
+  if (whatsappInquiryButton) {
+    whatsappInquiryButton.addEventListener("click", () => {
       if (!inquiryForm.reportValidity()) return;
-      const { formData, lines } = getEnquiryMessage();
-      const subject = `Dav-Ric Homes enquiry — ${formData.get("interest")}`;
-      const emailUrl = `mailto:info@davricgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-      window.location.href = emailUrl;
-      if (formNote) formNote.textContent = "Your email app is ready with this enquiry. Review it before sending.";
+      const { lines } = getEnquiryMessage();
+      const whatsappUrl = `https://wa.me/2349134000494?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      if (formNote) formNote.textContent = "A WhatsApp message is ready in a new tab. Review the details there and tap Send.";
     });
   }
 });
@@ -847,13 +852,31 @@ if (storyPage) {
       keyFeatures.innerHTML = [
         '<div class="story-key-features-heading">',
         '<p class="eyebrow eyebrow-dark">Project specification</p>',
-        '<h2 id="story-key-features-title">Key features</h2>',
-        '<p>Project details gathered from the published project information, drawings and brochure.</p>',
+        `<h2 id="story-key-features-title">${story.keyFeaturesLead || "Key features"}</h2>`,
+        `<p>${story.keyFeaturesIntro || "Project details gathered from the published project information, drawings and brochure."}</p>`,
         '</div>',
         '<div class="story-key-features-grid">',
-        story.keyFeatures.map((feature, index) => `<article class="story-key-feature"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3><p>${feature.detail}</p></article>`).join(""),
+        story.keyFeatures.map((feature, index) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3><p>${feature.detail}</p></article>`).join(""),
         '</div>',
       ].join("");
+
+      const featureCards = keyFeatures.querySelectorAll(".story-key-feature[data-reveal]");
+      if ("IntersectionObserver" in window && !reducedMotion) {
+        const featureObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+        featureCards.forEach((card, index) => {
+          card.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 75}ms`);
+          featureObserver.observe(card);
+        });
+      } else {
+        featureCards.forEach((card) => card.classList.add("is-visible"));
+      }
     }
 
     if (body) {
