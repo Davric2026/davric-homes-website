@@ -1069,6 +1069,6 @@ if (storyPage) {
     document.title = "Project stories — Dav-Ric Homes";
     title.textContent = Object.keys(projectStories).length + " projects. Two cities.";
     if (deck) deck.textContent = "Choose a Dav-Ric Homes development to explore its place, design and current published details.";
-    if (body) body.innerHTML = '<p>Visit the <a href="index.html#developments">developments page</a> to choose a project story.</p>';
+    if (body) body.innerHTML = '<p>Visit the <a href="/#developments">developments page</a> to choose a project story.</p>';
   }
 }
