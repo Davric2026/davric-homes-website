@@ -787,7 +787,7 @@ if (storyPage) {
       if (priceLabel) priceLabel.textContent = story.price === "SOLD" ? "Availability" : "Price";
       if (priceBox) priceBox.classList.toggle("is-sold", story.price === "SOLD");
     }
-    if (enquiryLink) enquiryLink.href = `contact.html?project=${encodeURIComponent(storySlug)}`;
+    if (enquiryLink) enquiryLink.href = `/contact?project=${encodeURIComponent(storySlug)}`;
 
     if (visual && story.video && story.image) {
       const hero = storyPage.querySelector(".project-story-hero");
@@ -1058,7 +1058,7 @@ if (storyPage) {
             ? `<img src="${related.image}" alt="" loading="lazy" />`
             : `<div class="story-editorial story-related-art ${related.artClass}" aria-hidden="true"><span>${related.shortTitle || related.title}</span><i></i><b>${related.number}</b></div>`;
           return `
-            <a class="story-related-card" href="project.html?story=${encodeURIComponent(slug)}" aria-label="Read the ${related.title} project story">
+            <a class="story-related-card" href="/project?story=${encodeURIComponent(slug)}" aria-label="Read the ${related.title} project story">
               <div class="story-related-media">${preview}<span class="story-related-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></div>
               <div class="story-related-copy"><p>${related.category}</p><h3>${related.title}</h3><span>${related.location}</span></div>
             </a>
