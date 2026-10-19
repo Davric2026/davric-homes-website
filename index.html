@@ -5,17 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f6f3" />
     <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png?v=homes-logo" />
+    <link rel="canonical" href="https://davrichomes.com/" />
     <meta
       name="description"
-      content="Explore five Dav-Ric Homes projects across Ibadan and Abuja, including residential homes and Dav-Ric Towers."
+      content="Discover residential homes and developments by Dav-Ric Homes in Ibadan and Abuja, including Pebblebrooks Estate, Living Waters Estate and Dav-Ric Towers."
     />
-    <meta property="og:title" content="Dav-Ric Homes — Crafting Homes. Building Legacies." />
+    <meta property="og:site_name" content="Dav-Ric Homes" />
+    <meta property="og:title" content="Dav-Ric Homes | Homes &amp; Developments in Ibadan, Nigeria" />
     <meta
       property="og:description"
       content="Thoughtful homes and places to live, shaped by competence, care and a lasting design vision."
     />
     <meta property="og:type" content="website" />
-    <title>Dav-Ric Homes — Crafting Homes. Building Legacies.</title>
+    <meta property="og:url" content="https://davrichomes.com/" />
+    <meta property="og:image" content="https://davrichomes.com/assets/pebblebrooks-render.webp" />
+    <meta property="og:image:alt" content="Architectural visualisation of Pebblebrooks Estate in Jericho, Ibadan" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dav-Ric Homes | Homes &amp; Developments in Ibadan, Nigeria" />
+    <meta name="twitter:description" content="Discover residential homes and developments by Dav-Ric Homes in Ibadan and Abuja." />
+    <meta name="twitter:image" content="https://davrichomes.com/assets/pebblebrooks-render.webp" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://davrichomes.com/#organization",
+            "name": "Dav-Ric Homes",
+            "url": "https://davrichomes.com/",
+            "description": "The real estate development arm of Dav-Ric Group, creating homes and residential developments.",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://davrichomes.com/assets/davric-mark.png"
+            },
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "Dav-Ric Group",
+              "url": "https://www.davricgroup.com/"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Block 34, Plot 17, Alaafin Avenue, Oluyole Estate",
+              "addressLocality": "Ibadan",
+              "addressRegion": "Oyo",
+              "addressCountry": "NG"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+2349134000494",
+              "email": "info@davricgroup.com",
+              "contactType": "customer enquiries",
+              "availableLanguage": "English"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://davrichomes.com/#website",
+            "url": "https://davrichomes.com/",
+            "name": "Dav-Ric Homes",
+            "publisher": { "@id": "https://davrichomes.com/#organization" },
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
+    <title>Dav-Ric Homes | Homes &amp; Developments in Ibadan, Nigeria</title>
     <script>
       try {
         const savedTheme = localStorage.getItem("davric-theme");
@@ -169,7 +223,7 @@
 
           <div class="project-grid" id="project-grid">
             <article class="project-card project-card-feature" data-city="ibadan" data-reveal>
-              <a class="project-image" href="/project?story=pebblebrooks-estate" aria-label="Read the Pebblebrooks Estate project story">
+              <a class="project-image" href="/projects/pebblebrooks-estate" aria-label="Read the Pebblebrooks Estate project story">
                 <img src="assets/pebblebrooks-render.webp" alt="Architectural visualisation of a modern gated residential estate" loading="lazy" />
                 <span class="image-label">Architectural visualisation</span>
                 <span class="image-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
@@ -180,12 +234,12 @@
                 <p>A private 13-home community with terrace and semi-detached residences around a landscaped central court.</p>
                 <div class="project-facts"><span>7 terrace homes</span><span>6 semi-detached homes</span><span>1-bed basement suites</span></div>
                 <div class="project-price-tag"><span>Price</span><strong>On request</strong></div>
-                <a class="project-details-button" href="/project?story=pebblebrooks-estate">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+                <a class="project-details-button" href="/projects/pebblebrooks-estate">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
               </div>
             </article>
 
             <article class="project-card project-card-editorial project-card-ajoda" data-city="ibadan" data-reveal>
-              <a class="project-image" href="/project?story=ajoda" aria-label="Read the Living Waters Estate project story">
+              <a class="project-image" href="/projects/living-waters-estate" aria-label="Read the Living Waters Estate project story">
                 <img src="assets/ajoda/ajoda-three-bedroom-vision.png" alt="Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan" loading="lazy" />
                 <span class="image-label">Residential · Ajoda New Town, Ibadan</span>
                 <span class="image-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
@@ -196,7 +250,7 @@
                 <p>Three home plan options for Living Waters Estate in Ajoda New Town, with two-bedroom, flat-roof and three-bedroom designs.</p>
                 <div class="project-facts"><span>3-bedroom home</span><span>2-bedroom home</span><span>Flat-roof option</span></div>
                 <div class="project-price-tag"><span>Price</span><strong>On request</strong></div>
-                <a class="project-details-button" href="/project?story=ajoda">View home plans <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+                <a class="project-details-button" href="/projects/living-waters-estate">View home plans <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
               </div>
             </article>
 
@@ -208,12 +262,12 @@
                 <p>A considered terrace development in one of Abuja’s most prestigious residential neighbourhoods.</p>
                 <div class="project-facts"><span>Concept design</span><span>Luxury tier</span><span>G+2</span></div>
                 <div class="project-price-tag"><span>Price</span><strong>On request</strong></div>
-                <a class="project-details-button" href="/project?story=guzape">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+                <a class="project-details-button" href="/projects/guzape-abuja">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
               </div>
             </article>
 
             <article class="project-card project-card-editorial project-card-palm" data-city="ibadan" data-reveal>
-              <a class="project-image" href="/project?story=project-beta" aria-label="Explore Palm Harbour Estate Phase 1 gallery and story in Alalubosa, Ibadan">
+              <a class="project-image" href="/projects/palm-harbour-estate-phase-1" aria-label="Explore Palm Harbour Estate Phase 1 gallery and story in Alalubosa, Ibadan">
                 <img src="assets/palm-harbour/palm-harbour-aerial.jpeg" alt="Aerial view of Palm Harbour Estate Phase 1 in Alalubosa, Ibadan" loading="lazy" />
                 <span class="palm-card-photo-count"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>04 views</span>
                 <span class="image-label">Palm Harbour Estate Phase 1 · Alalubosa</span>
@@ -225,12 +279,12 @@
                 <p>A welcoming residential community in Alalubosa, with distinctive homes around a shared estate setting.</p>
                 <div class="project-facts"><span>5 existing terraces</span><span>5 new homes</span><span>G+2</span></div>
                 <div class="project-price-tag"><span>Price</span><strong>On request</strong></div>
-                <a class="project-details-button" href="/project?story=project-beta">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+                <a class="project-details-button" href="/projects/palm-harbour-estate-phase-1">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
               </div>
             </article>
 
             <article class="project-card project-card-feature project-card-towers" data-city="ibadan" data-reveal>
-              <a class="project-image" href="/project?story=davric-towers" aria-label="Read the Dav-Ric Towers project story">
+              <a class="project-image" href="/projects/davric-towers" aria-label="Read the Dav-Ric Towers project story">
                 <img src="assets/davric-towers-real.jpg" alt="Street-facing photograph of the completed Dav-Ric Towers in Oluyole, Ibadan" loading="lazy" />
                 <span class="image-label">Completed</span>
                 <span class="image-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
@@ -241,7 +295,7 @@
                 <p>The completed Dav-Ric Group headquarters, bringing the company’s architectural identity to its Oluyole, Ibadan address.</p>
                 <div class="project-facts"><span>Group headquarters</span><span>Oluyole</span></div>
                 <div class="project-price-tag is-sold"><span>Availability</span><strong>SOLD</strong></div>
-                <a class="project-details-button" href="/project?story=davric-towers">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+                <a class="project-details-button" href="/projects/davric-towers">Read project story <span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
               </div>
             </article>
           </div>

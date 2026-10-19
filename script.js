@@ -188,7 +188,7 @@ filterButtons.forEach((button) => {
 
 const projectStories = {
   "pebblebrooks-estate": {
-    title: "Pebblebrooks Estate", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
+    title: "Pebblebrooks Estate", seoTitle: "Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes", seoDescription: "Explore 13 gated homes in Jericho, Ibadan, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
     image: "assets/pebblebrooks-render.webp", imageAlt: "Architectural concept rendering of the Pebblebrooks Estate homes", visualNote: "Artist’s impression · design visualisation",
     deck: "13 gated homes in Jericho, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.",
     price: "On request", formValue: "Pebblebrooks Estate",
@@ -263,7 +263,7 @@ const projectStories = {
     ],
   },
   "project-beta": {
-    title: "Palm Harbour Estate Phase 1", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
+    title: "Palm Harbour Estate Phase 1", seoTitle: "Palm Harbour Estate Phase 1 | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate Phase 1 in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
     image: "assets/palm-harbour/palm-harbour-aerial.jpeg", imageAlt: "Aerial architectural rendering of Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
     deck: "A fresh look at Palm Harbour Estate Phase 1, a residential community in Alalubosa, Ibadan.",
     price: "On request", formValue: "Palm Harbour Estate Phase 1",
@@ -305,7 +305,7 @@ const projectStories = {
     ],
   },
   guzape: {
-    title: "Guzape · Abuja", number: "03", category: "Luxury residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
+    title: "Guzape · Abuja", seoTitle: "Guzape Residential Project | Dav-Ric Homes", seoDescription: "Explore the Dav-Ric Homes luxury terrace concept in Guzape, Abuja, with its current design brief and published project details.", number: "03", category: "Luxury residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
     artClass: "story-art-guzape", visualNote: "Indicative design direction · subject to change",
     deck: "A luxury terrace concept for Guzape, a sought-after residential neighbourhood in Abuja.",
     price: "On request", formValue: "Guzape Main Project",
@@ -333,7 +333,7 @@ const projectStories = {
   },
 
   "davric-towers": {
-    title: "Dav-Ric Towers", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
+    title: "Dav-Ric Towers", seoTitle: "Dav-Ric Towers | Oluyole, Ibadan | Dav-Ric Homes", seoDescription: "Visit Dav-Ric Towers, the completed Dav-Ric Group headquarters in Oluyole, Ibadan, and view exterior photography and project details.", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
     image: "assets/davric-towers-real.jpg", imageAlt: "Real exterior photograph of completed Dav-Ric Towers in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
@@ -367,7 +367,7 @@ const projectStories = {
     ],
   },
   ajoda: {
-    title: "Living Waters Estate", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
+    title: "Living Waters Estate", seoTitle: "Living Waters Estate | Ajoda New Town, Ibadan", seoDescription: "Explore three home plan options for Living Waters Estate in Ajoda New Town, Ibadan, including three-bedroom, two-bedroom and flat-roof designs.", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
     image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
     deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
@@ -750,7 +750,17 @@ syncProjectScrollButtons();
 
 const storyPage = document.querySelector("[data-project-story]");
 if (storyPage) {
-  const storySlug = new URLSearchParams(window.location.search).get("story");
+  const projectRouteSlugs = {
+    "pebblebrooks-estate": "pebblebrooks-estate",
+    ajoda: "living-waters-estate",
+    guzape: "guzape-abuja",
+    "project-beta": "palm-harbour-estate-phase-1",
+    "davric-towers": "davric-towers",
+  };
+  const storyRouteSlug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
+  const storySlug = storyRouteSlug
+    ? Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
+    : new URLSearchParams(window.location.search).get("story");
   const story = projectStories[storySlug];
   const title = storyPage.querySelector("[data-story-title]");
   const meta = storyPage.querySelector("[data-story-meta]");
@@ -773,9 +783,53 @@ if (storyPage) {
     const isDavricTowers = storySlug === "davric-towers";
     storyPage.classList.toggle("project-story-page--towers", isDavricTowers);
     if (isDavricTowers) visualNote?.remove();
-    document.title = `${story.title} — Dav-Ric Homes`;
+    const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
+    const pageDescription = story.seoDescription || story.deck;
+    const routeSlug = projectRouteSlugs[storySlug] || storySlug;
+    const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(routeSlug)}`;
+    const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/davric-towers-real.jpg");
+    const imageUrl = new URL(imagePath, `${window.location.origin}/`).href;
+    document.title = pageTitle;
     const descriptionMeta = document.querySelector('meta[name="description"]');
-    if (descriptionMeta) descriptionMeta.content = story.deck;
+    if (descriptionMeta) descriptionMeta.content = pageDescription;
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.rel = "canonical";
+      document.head.append(canonicalLink);
+    }
+    canonicalLink.href = pageUrl;
+    const updateMeta = (selector, content) => {
+      const element = document.querySelector(selector);
+      if (element) element.content = content;
+    };
+    updateMeta('meta[property="og:title"]', pageTitle);
+    updateMeta('meta[property="og:description"]', pageDescription);
+    updateMeta('meta[property="og:url"]', pageUrl);
+    updateMeta('meta[property="og:image"]', imageUrl);
+    updateMeta('meta[property="og:image:alt"]', story.imageAlt || story.title);
+    updateMeta('meta[name="twitter:title"]', pageTitle);
+    updateMeta('meta[name="twitter:description"]', pageDescription);
+    updateMeta('meta[name="twitter:image"]', imageUrl);
+    let projectStructuredData = document.getElementById("project-structured-data");
+    if (!projectStructuredData) {
+      projectStructuredData = document.createElement("script");
+      projectStructuredData.id = "project-structured-data";
+      projectStructuredData.type = "application/ld+json";
+    }
+    projectStructuredData.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      name: pageTitle,
+      description: pageDescription,
+      url: pageUrl,
+      primaryImageOfPage: { "@type": "ImageObject", url: imageUrl },
+      isPartOf: { "@type": "WebSite", name: "Dav-Ric Homes", url: "https://davrichomes.com/" },
+      publisher: { "@type": "Organization", name: "Dav-Ric Homes", url: "https://davrichomes.com/" },
+      inLanguage: "en",
+    });
+    if (!projectStructuredData.isConnected) document.head.append(projectStructuredData);
     if (title) title.textContent = story.title;
     if (meta) meta.textContent = story.number + " / " + String(Object.keys(projectStories).length).padStart(2, "0") + " · " + story.category;
     if (deck) deck.textContent = story.deck;
@@ -1058,7 +1112,7 @@ if (storyPage) {
             ? `<img src="${related.image}" alt="" loading="lazy" />`
             : `<div class="story-editorial story-related-art ${related.artClass}" aria-hidden="true"><span>${related.shortTitle || related.title}</span><i></i><b>${related.number}</b></div>`;
           return `
-            <a class="story-related-card" href="/project?story=${encodeURIComponent(slug)}" aria-label="Read the ${related.title} project story">
+            <a class="story-related-card" href="/projects/${encodeURIComponent(projectRouteSlugs[slug] || slug)}" aria-label="Read the ${related.title} project story">
               <div class="story-related-media">${preview}<span class="story-related-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></div>
               <div class="story-related-copy"><p>${related.category}</p><h3>${related.title}</h3><span>${related.location}</span></div>
             </a>
