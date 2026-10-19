@@ -213,7 +213,6 @@ const projectStories = {
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-01.webp", alt: "Aerial architectural visualisation of modern homes arranged around a shared residential courtyard", caption: "Homes around the courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-04.webp", alt: "Architectural visualisation of a landscaped shared courtyard between modern residences", caption: "The shared courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", alt: "Aerial architectural visualisation of a residential community with homes facing a central court", caption: "The residential community", size: "wide" },
-      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-06.webp", alt: "Aerial architectural visualisation of a gated group of homes around a shared outdoor space", caption: "Aerial estate view", size: "wide" },
     ],
     sections: [
       { label: "The setting", heading: "A complete estate plan for Jericho.", paragraphs: [
@@ -281,6 +280,7 @@ const projectStories = {
       { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate Phase 1 residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate Phase 1", caption: "Estate entrance", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate Phase 1", caption: "The estate from above", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/alalubosa-aerial-estate.webp", alt: "Aerial architectural visualisation of homes and shared grounds in Alalubosa, Ibadan", caption: "Aerial estate view", note: "Architectural visualisation · Alalubosa, Ibadan" },
     ],
     sections: [
       { label: "The setting", heading: "An established Alalubosa address with a new phase.", paragraphs: [
