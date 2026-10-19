@@ -210,7 +210,6 @@ const projectStories = {
     galleryNote: "Architectural visualisations are illustrative; home layouts, materials and final specifications are subject to confirmation.",
     gallery: [
       { image: "assets/pebblebrooks-render.webp", alt: "Aerial architectural visualisation of the Pebblebrooks Estate homes and shared courtyard", caption: "The estate", size: "wide" },
-      { image: "assets/pebblebrooks/gallery/pebblebrooks-home-01.webp", alt: "Aerial architectural visualisation of modern homes arranged around a shared residential courtyard", caption: "Homes around the courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-04.webp", alt: "Architectural visualisation of a landscaped shared courtyard between modern residences", caption: "The shared courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", alt: "Aerial architectural visualisation of a residential community with homes facing a central court", caption: "The residential community", size: "wide" },
     ],
@@ -280,6 +279,7 @@ const projectStories = {
       { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate Phase 1 residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate Phase 1", caption: "Estate entrance", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate Phase 1", caption: "The estate from above", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/alalubosa-terrace-homes.webp", alt: "Street-facing architectural visualisation of terrace homes at Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", caption: "Terrace homes", note: "Architectural visualisation · Alalubosa, Ibadan" },
       { image: "assets/palm-harbour/alalubosa-aerial-estate.webp", alt: "Aerial architectural visualisation of homes and shared grounds in Alalubosa, Ibadan", caption: "Aerial estate view", note: "Architectural visualisation · Alalubosa, Ibadan" },
     ],
     sections: [
