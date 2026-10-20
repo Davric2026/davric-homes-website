@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#10284d" />
+    <title>Coming Soon | Dav-Ric Homes</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --navy: #10284d;
+        --navy-deep: #091a34;
+        --gold: #c49a43;
+        --paper: #f4f1e9;
+        --ink: #18263a;
+        --muted: #687384;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 28px;
+        background:
+          radial-gradient(ellipse at 80% 15%, rgba(196, 154, 67, .12), transparent 32%),
+          linear-gradient(135deg, var(--paper), #e9e5db);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        width: min(100%, 1020px);
+        min-height: 590px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 270px;
+        overflow: hidden;
+        background: #fffefa;
+        border: 1px solid rgba(16, 40, 77, .12);
+        box-shadow: 0 28px 80px rgba(16, 40, 77, .14);
+      }
+
+      .message {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(32px, 7vw, 76px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--navy);
+        text-decoration: none;
+      }
+
+      .brand-mark { width: 54px; height: 40px; color: var(--gold); }
+      .brand-name { display: grid; gap: 2px; letter-spacing: .2em; }
+      .brand-name strong { font-size: 17px; letter-spacing: .16em; }
+      .brand-name span { font-size: 10px; font-weight: 700; }
+
+      .copy { max-width: 650px; padding: 68px 0 76px; }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 25px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 34px; height: 1px; background: var(--gold); content: ""; }
+
+      h1 {
+        margin: 0;
+        color: var(--navy);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(54px, 8.5vw, 100px);
+        font-weight: 400;
+        letter-spacing: -.055em;
+        line-height: .98;
+      }
+
+      h1 span { color: var(--gold); }
+      .description {
+        max-width: 470px;
+        margin: 26px 0 0;
+        color: #526074;
+        font-size: clamp(16px, 2vw, 19px);
+        line-height: 1.75;
+      }
+
+      .locations {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--navy);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+      .locations i { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+      .side {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 34px;
+        overflow: hidden;
+        background:
+          linear-gradient(155deg, rgba(16, 40, 77, .83), rgba(9, 26, 52, .98)),
+          var(--navy);
+        color: white;
+      }
+
+      .side::before,
+      .side::after {
+        position: absolute;
+        border: 1px solid rgba(196, 154, 67, .42);
+        content: "";
+        transform: rotate(45deg);
+      }
+      .side::before { width: 270px; height: 270px; top: -68px; right: -135px; }
+      .side::after { width: 180px; height: 180px; top: -22px; right: -90px; }
+
+      .side-number {
+        position: relative;
+        margin: 0 0 16px;
+        color: var(--gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 76px;
+        line-height: 1;
+      }
+      .side-copy { position: relative; margin: 0; color: rgba(255,255,255,.76); font-size: 13px; line-height: 1.7; }
+
+      footer { color: #7a8390; font-size: 11px; letter-spacing: .03em; }
+
+      @media (max-width: 720px) {
+        body { padding: 0; }
+        main { min-height: 100vh; grid-template-columns: 1fr; border: 0; }
+        .message { min-height: 76vh; padding: 30px 26px; }
+        .copy { padding: 60px 0; }
+        .side { min-height: 24vh; padding: 24px 26px; }
+        .side-number { margin-bottom: 8px; font-size: 48px; }
+        .side::before { top: -118px; }
+        .side::after { top: -78px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="message" aria-labelledby="coming-soon-title">
+        <a class="brand" href="#" aria-label="Dav-Ric Homes">
+          <svg class="brand-mark" viewBox="0 0 120 80" fill="none" aria-hidden="true">
+            <path d="M8 56 57 22l53 34M32 56h54" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand-name"><strong>DAV-RIC</strong><span>HOMES</span></span>
+        </a>
+
+        <div class="copy">
+          <p class="eyebrow">Real estate, thoughtfully made</p>
+          <h1 id="coming-soon-title">Coming<br />soon<span>.</span></h1>
+          <p class="description">We’re preparing the next chapter of Dav-Ric Homes. Our website will be back soon.</p>
+        </div>
+
+        <div class="locations" aria-label="Serving Ibadan and Abuja">
+          <span>Ibadan</span><i aria-hidden="true"></i><span>Abuja</span>
+        </div>
+      </section>
+
+      <aside class="side" aria-label="Dav-Ric Homes">
+        <p class="side-number">01</p>
+        <p class="side-copy">Thoughtful homes.<br />Lasting legacies.</p>
+      </aside>
+    </main>
+  </body>
+</html>
