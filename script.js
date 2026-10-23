@@ -150,9 +150,18 @@ window.addEventListener("resize", queueScrollMeterUpdate);
 updateScrollMeter();
 
 const projectFilterForm = document.querySelector("#project-filters");
+const projectFilterDisclosure = document.querySelector("#project-filter-disclosure");
+const mobileProjectFilterQuery = window.matchMedia("(max-width: 720px)");
 const projectCards = document.querySelectorAll(".project-card[data-city]");
 const projectCount = document.querySelector(".project-count");
 const projectEmptyState = document.querySelector("[data-project-empty]");
+
+const syncProjectFilterDisclosure = () => {
+  if (projectFilterDisclosure) projectFilterDisclosure.open = !mobileProjectFilterQuery.matches;
+};
+
+syncProjectFilterDisclosure();
+mobileProjectFilterQuery.addEventListener("change", syncProjectFilterDisclosure);
 
 function applyProjectFilters() {
   if (!projectFilterForm) return;
@@ -194,6 +203,7 @@ function applyProjectFilters() {
 projectFilterForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   applyProjectFilters();
+  if (mobileProjectFilterQuery.matches && projectFilterDisclosure) projectFilterDisclosure.open = false;
 });
 projectFilterForm?.addEventListener("reset", () => {
   window.requestAnimationFrame(applyProjectFilters);
