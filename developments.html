@@ -85,8 +85,8 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=featured-pages-20261022" />
-    <script src="script.js?v=featured-pages-20261022" defer></script>
+    <link rel="stylesheet" href="styles.css?v=nav-dropdowns-20261023" />
+    <script src="script.js?v=nav-dropdowns-20261023" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -118,7 +118,25 @@
         </a>
 
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#developments" aria-current="page">Developments</a>
+          <details class="desktop-nav-dropdown">
+  <summary aria-current="page">Properties</summary>
+  <div class="desktop-nav-dropdown-menu">
+    <a href="/developments#developments">All properties</a>
+    <a href="/developments?type=residential#developments">Residential</a>
+    <a href="/developments?type=commercial#developments">Commercial</a>
+  </div>
+</details>
+<details class="desktop-nav-dropdown">
+  <summary>Homes Listing</summary>
+  <div class="desktop-nav-dropdown-menu">
+    <a href="/#featured-properties">Featured homes</a>
+    <a href="/developments?type=residential#developments">Browse all homes</a>
+    <a href="/projects/pebblebrooks-estate">Pebblebrooks Estate</a>
+    <a href="/projects/living-waters-estate">Living Waters Estate</a>
+    <a href="/projects/palm-harbour-estate-phase-1">Palm Harbour Estate Phase 1</a>
+    <a href="/projects/guzape-abuja">Guzape Abuja</a>
+  </div>
+</details>
           <a href="/about#story">About Dav-Ric</a>
           <a href="/about#people">Our people</a><a href="/media">Media</a>
           <a href="/contact">Contact</a>
@@ -145,11 +163,11 @@
           <p class="menu-location">Ibadan <span>·</span> Abuja <span>·</span> Ontario</p>
         </div>
         <div class="menu-links">
-          <a href="#developments"><span class="menu-link-index">01</span><span>Developments</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
-          <a href="/about#approach"><span class="menu-link-index">02</span><span>Our approach</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
-          <a href="/about#story"><span class="menu-link-index">03</span><span>About Dav-Ric</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
-          <a href="/about#people"><span class="menu-link-index">04</span><span>Our people</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
-          <a href="/media"><span class="menu-link-index">05</span><span>Media</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+          <a href="#developments"><span class="menu-link-index">01</span><span>Properties</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a><a href="/#featured-properties"><span class="menu-link-index">02</span><span>Homes Listing</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+          <a href="/about#approach"><span class="menu-link-index">03</span><span>Our approach</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+          <a href="/about#story"><span class="menu-link-index">04</span><span>About Dav-Ric</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+          <a href="/about#people"><span class="menu-link-index">05</span><span>Our people</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
+          <a href="/media"><span class="menu-link-index">06</span><span>Media</span><span class="menu-link-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
           <a class="nav-cta" href="/contact"><span>Speak to an expert</span><span aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a>
         </div>
         <div class="menu-footer">
@@ -315,7 +333,7 @@
         </div>
         <div class="footer-column">
           <p class="footer-heading">Explore</p>
-          <a href="#developments">Developments</a>
+          <a href="#developments">Properties</a>
           <a href="/about#approach">Our approach</a>
           <a href="/about#story">About Dav-Ric</a>
           <a href="/about#people">Our people</a><a href="/media">Media</a>

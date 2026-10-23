@@ -6826,3 +6826,77 @@ html[data-theme="dark"] .inquiry-form select {
   .media-album-cover img,
   .media-album-action span:last-child { transition: none; }
 }
+
+/* Header dropdowns for property types and direct home listings. */
+.desktop-nav > .desktop-nav-dropdown {
+  position: relative;
+  color: var(--blue);
+}
+.desktop-nav-dropdown > summary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding-block: 12px;
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+.desktop-nav-dropdown > summary::-webkit-details-marker { display: none; }
+.desktop-nav-dropdown > summary::after {
+  width: 0;
+  height: 0;
+  border-top: 5px solid currentColor;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+  transition: transform 180ms ease;
+}
+.desktop-nav-dropdown[open] > summary::after { transform: rotate(180deg); }
+.desktop-nav-dropdown > summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.desktop-nav-dropdown-menu {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 4px);
+  left: -14px;
+  display: grid;
+  min-width: 220px;
+  gap: 3px;
+  padding: 8px;
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 16px 36px rgb(13 40 87 / 15%);
+  animation: nav-dropdown-in 160ms var(--ease) both;
+}
+.desktop-nav-dropdown-menu a,
+.desktop-nav .desktop-nav-dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 7px;
+  color: var(--charcoal);
+  font-size: 12px;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+.desktop-nav .desktop-nav-dropdown-menu a::after { content: none; }
+.desktop-nav-dropdown-menu a:hover,
+.desktop-nav-dropdown-menu a:focus-visible {
+  color: var(--blue);
+  background: var(--mist);
+}
+html[data-theme="dark"] .desktop-nav > .desktop-nav-dropdown { color: var(--white); }
+html[data-theme="dark"] .desktop-nav-dropdown-menu a:hover,
+html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(--white); }
+@keyframes nav-dropdown-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-nav-dropdown > summary::after { transition: none; }
+  .desktop-nav-dropdown-menu { animation: none; }
+}
+@media (min-width: 941px) and (max-width: 1120px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header-actions { margin-left: auto; }
+}

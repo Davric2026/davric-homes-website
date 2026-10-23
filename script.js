@@ -64,6 +64,30 @@ if (arrivedFromPageTransition) {
 
 const menuButton = document.querySelector(".menu-toggle");
 const primaryNav = document.querySelector(".primary-nav");
+const desktopNavDropdowns = [...document.querySelectorAll(".desktop-nav-dropdown")];
+
+desktopNavDropdowns.forEach((dropdown) => {
+  dropdown.addEventListener("toggle", () => {
+    if (!dropdown.open) return;
+    desktopNavDropdowns.forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) otherDropdown.open = false;
+    });
+  });
+});
+
+document.addEventListener("click", (event) => {
+  desktopNavDropdowns.forEach((dropdown) => {
+    if (dropdown.open && !dropdown.contains(event.target)) dropdown.open = false;
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const openDropdown = desktopNavDropdowns.find((dropdown) => dropdown.open);
+  if (!openDropdown) return;
+  openDropdown.open = false;
+  openDropdown.querySelector("summary")?.focus();
+});
 
 function setMenuOpen(open, returnFocus = false) {
   if (!menuButton || !primaryNav) return;
@@ -155,6 +179,16 @@ const mobileProjectFilterQuery = window.matchMedia("(max-width: 720px)");
 const projectCards = document.querySelectorAll(".project-card[data-city]");
 const projectCount = document.querySelector(".project-count");
 const projectEmptyState = document.querySelector("[data-project-empty]");
+
+if (projectFilterForm) {
+  const requestedFilters = new URLSearchParams(window.location.search);
+  ["location", "type", "bedrooms", "availability"].forEach((name) => {
+    const requestedValue = requestedFilters.get(name);
+    const control = projectFilterForm.elements.namedItem(name);
+    if (!requestedValue || !(control instanceof HTMLSelectElement)) return;
+    if ([...control.options].some((option) => option.value === requestedValue)) control.value = requestedValue;
+  });
+}
 
 const syncProjectFilterDisclosure = () => {
   if (projectFilterDisclosure) projectFilterDisclosure.open = !mobileProjectFilterQuery.matches;
