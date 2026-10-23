@@ -149,43 +149,120 @@ window.addEventListener("scroll", queueScrollMeterUpdate, { passive: true });
 window.addEventListener("resize", queueScrollMeterUpdate);
 updateScrollMeter();
 
-const filterButtons = document.querySelectorAll(".filter-button");
+const projectFilterForm = document.querySelector("#project-filters");
 const projectCards = document.querySelectorAll(".project-card[data-city]");
 const projectCount = document.querySelector(".project-count");
-const projectGrid = document.querySelector("#project-grid");
-const projectScrollPrompt = document.querySelector("[data-project-scroll-prompt]");
-const projectScrollTrack = document.querySelector("[data-project-scroll-track]");
-const projectScrollCopy = document.querySelector("[data-project-scroll-copy]");
-const projectScrollIndex = document.querySelector("[data-project-scroll-index]");
+const projectEmptyState = document.querySelector("[data-project-empty]");
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    let visible = 0;
+function applyProjectFilters() {
+  if (!projectFilterForm) return;
+  const values = new FormData(projectFilterForm);
+  const location = values.get("location");
+  const type = values.get("type");
+  const bedrooms = values.get("bedrooms");
+  const availability = values.get("availability");
+  const minPrice = String(values.get("priceMin") || "").trim();
+  const maxPrice = String(values.get("priceMax") || "").trim();
+  let visible = 0;
 
-    filterButtons.forEach((item) => {
-      const active = item === button;
-      item.classList.toggle("is-active", active);
-      item.setAttribute("aria-pressed", String(active));
-    });
+  projectCards.forEach((card) => {
+    const cardBedrooms = (card.dataset.bedrooms || "").split(",").filter(Boolean);
+    const price = Number(card.dataset.price);
+    let show = (location === "all" || card.dataset.city === location)
+      && (type === "all" || card.dataset.type === type)
+      && (bedrooms === "all" || cardBedrooms.includes(bedrooms))
+      && (availability === "all" || card.dataset.availability === availability);
 
-    projectCards.forEach((card) => {
-      const show = filter === "all" || card.dataset.city === filter;
-      card.hidden = !show;
-      if (show) visible += 1;
-    });
-
-    projectGrid?.scrollTo({ left: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    window.requestAnimationFrame(syncProjectScrollButtons);
-
-    if (projectCount) {
-      const place = filter === "all" ? "" : ` in ${filter[0].toUpperCase() + filter.slice(1)}`;
-      const noun = visible === 1 ? "property development" : "property developments";
-      projectCount.textContent = `Showing ${visible} ${noun}${place}`;
+    if (show && (minPrice || maxPrice)) {
+      show = Number.isFinite(price) && price > 0
+        && (!minPrice || price >= Number(minPrice))
+        && (!maxPrice || price <= Number(maxPrice));
     }
+
+    card.hidden = !show;
+    if (show) visible += 1;
   });
+
+  const noun = visible === 1 ? "development" : "developments";
+  if (projectCount) projectCount.textContent = "Showing " + visible + " " + noun;
+  if (projectEmptyState) projectEmptyState.hidden = visible > 0;
+  const hasFilters = location !== "all" || type !== "all" || bedrooms !== "all"
+    || availability !== "all" || Boolean(minPrice || maxPrice);
+  projectFilterForm.querySelector(".project-clear-button").hidden = !hasFilters;
+}
+
+projectFilterForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  applyProjectFilters();
+});
+projectFilterForm?.addEventListener("reset", () => {
+  window.requestAnimationFrame(applyProjectFilters);
+});
+applyProjectFilters();
+
+document.querySelectorAll("[data-project-gallery]").forEach((gallery) => {
+  const image = gallery.querySelector(".project-image img");
+  const counter = gallery.querySelector("[data-project-image-index]");
+  if (!image) return;
+
+  let photos = [];
+  try {
+    photos = JSON.parse(gallery.dataset.projectPhotos || "[]");
+  } catch {
+    photos = [];
+  }
+  if (!photos.length) return;
+
+  let activePhoto = 0;
+  const showPhoto = () => {
+    const photo = photos[activePhoto];
+    image.src = photo.src;
+    image.alt = photo.alt || "";
+    if (counter) counter.textContent = String(activePhoto + 1).padStart(2, "0") + " / " + String(photos.length).padStart(2, "0");
+  };
+  gallery.querySelectorAll("[data-project-gallery-step]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const step = Number(button.dataset.projectGalleryStep) || 1;
+      activePhoto = (activePhoto + step + photos.length) % photos.length;
+      showPhoto();
+    });
+  });
+  showPhoto();
 });
 
+const savedProjectKey = "davric-saved-projects";
+let savedProjectSlugs = [];
+try {
+  const storedProjects = JSON.parse(window.localStorage.getItem(savedProjectKey) || "[]");
+  if (Array.isArray(storedProjects)) savedProjectSlugs = storedProjects;
+} catch {
+  savedProjectSlugs = [];
+}
+
+document.querySelectorAll("[data-project-save]").forEach((button) => {
+  const slug = button.dataset.projectSlug;
+  const syncSavedState = () => {
+    const isSaved = savedProjectSlugs.includes(slug);
+    button.classList.toggle("is-saved", isSaved);
+    button.setAttribute("aria-pressed", String(isSaved));
+    const label = slug.replaceAll("-", " ");
+    button.setAttribute("aria-label", (isSaved ? "Remove saved " : "Save ") + label);
+  };
+  syncSavedState();
+  button.addEventListener("click", () => {
+    savedProjectSlugs = savedProjectSlugs.includes(slug)
+      ? savedProjectSlugs.filter((savedSlug) => savedSlug !== slug)
+      : [...savedProjectSlugs, slug];
+    try {
+      window.localStorage.setItem(savedProjectKey, JSON.stringify(savedProjectSlugs));
+    } catch {
+      // Keep the save button usable for this session if local storage is unavailable.
+    }
+    syncSavedState();
+  });
+});
 const projectStories = {
   "pebblebrooks-estate": {
     title: "Pebblebrooks Estate", seoTitle: "Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes", seoDescription: "Explore 13 gated homes in Jericho, Ibadan, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
@@ -692,62 +769,6 @@ reducedMotionQuery.addEventListener?.("change", (event) => {
   syncHeroVideoPlayback();
 });
 
-const projectScrollButtons = document.querySelectorAll("[data-project-scroll]");
-
-function syncProjectScrollButtons() {
-  if (!projectGrid) return;
-  const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth;
-  const visibleCards = [...projectGrid.querySelectorAll(".project-card:not([hidden])")];
-  projectScrollButtons.forEach((button) => {
-    const isPrevious = button.dataset.projectScroll === "previous";
-    button.disabled = maxScroll <= 1 || (isPrevious ? projectGrid.scrollLeft <= 1 : projectGrid.scrollLeft >= maxScroll - 1);
-  });
-
-  const canScroll = maxScroll > 1 && visibleCards.length > 1;
-  projectScrollPrompt?.classList.toggle("is-visible", canScroll);
-  if (!visibleCards.length) return;
-
-  const gap = Number.parseFloat(getComputedStyle(projectGrid).columnGap) || 0;
-  const cardWidth = visibleCards[0].getBoundingClientRect().width;
-  const step = Math.max(1, cardWidth + gap);
-  const currentIndex = Math.min(visibleCards.length, Math.floor((projectGrid.scrollLeft + gap / 2) / step) + 1);
-  const progress = maxScroll > 0 ? Math.min(100, Math.max(0, (projectGrid.scrollLeft / maxScroll) * 100)) : 100;
-  const remaining = visibleCards.length - currentIndex;
-
-  if (projectScrollTrack) {
-    projectScrollTrack.value = String(Math.round(progress));
-    projectScrollTrack.setAttribute("aria-valuetext", `Project ${currentIndex} of ${visibleCards.length}`);
-  }
-  if (projectScrollCopy) {
-    projectScrollCopy.textContent = remaining > 0
-      ? `${remaining} more ${remaining === 1 ? "development" : "developments"} to explore`
-      : "You are at the end of the portfolio";
-  }
-  if (projectScrollIndex) {
-    projectScrollIndex.textContent = `${String(currentIndex).padStart(2, "0")} / ${String(visibleCards.length).padStart(2, "0")}`;
-  }
-}
-
-projectScrollButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!projectGrid) return;
-    const firstVisibleCard = projectGrid.querySelector(".project-card:not([hidden])");
-    const gap = Number.parseFloat(getComputedStyle(projectGrid).columnGap) || 0;
-    const step = firstVisibleCard ? firstVisibleCard.getBoundingClientRect().width + gap : projectGrid.clientWidth * 0.8;
-    const direction = button.dataset.projectScroll === "previous" ? -1 : 1;
-    projectGrid.scrollBy({ left: direction * step, behavior: reducedMotionQuery.matches ? "auto" : "smooth" });
-  });
-});
-
-projectGrid?.addEventListener("scroll", () => requestAnimationFrame(syncProjectScrollButtons), { passive: true });
-projectScrollTrack?.addEventListener("input", () => {
-  if (!projectGrid) return;
-  const maxScroll = projectGrid.scrollWidth - projectGrid.clientWidth;
-  projectGrid.scrollTo({ left: maxScroll * (Number(projectScrollTrack.value) / 100), behavior: "auto" });
-});
-window.addEventListener("resize", syncProjectScrollButtons);
-syncProjectScrollButtons();
-
 const storyPage = document.querySelector("[data-project-story]");
 if (storyPage) {
   const projectRouteSlugs = {
@@ -1123,6 +1144,6 @@ if (storyPage) {
     document.title = "Project stories — Dav-Ric Homes";
     title.textContent = Object.keys(projectStories).length + " projects. Two cities.";
     if (deck) deck.textContent = "Choose a Dav-Ric Homes development to explore its place, design and current published details.";
-    if (body) body.innerHTML = '<p>Visit the <a href="/#developments">developments page</a> to choose a project story.</p>';
+    if (body) body.innerHTML = '<p>Visit the <a href="/developments">developments page</a> to choose a project story.</p>';
   }
 }
