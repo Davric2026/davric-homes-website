@@ -829,6 +829,7 @@ if (storyPage) {
     : new URLSearchParams(window.location.search).get("story");
   const story = projectStories[storySlug];
   const title = storyPage.querySelector("[data-story-title]");
+  const heading = storyPage.querySelector(".project-story-heading");
   const meta = storyPage.querySelector("[data-story-meta]");
   const deck = storyPage.querySelector("[data-story-deck]");
   const image = storyPage.querySelector("[data-story-image]");
@@ -897,16 +898,13 @@ if (storyPage) {
     });
     if (!projectStructuredData.isConnected) document.head.append(projectStructuredData);
     if (title) title.textContent = story.title;
+    if (title && priceBox && heading) title.insertAdjacentElement("afterend", priceBox);
     if (meta) meta.textContent = story.number + " / " + String(Object.keys(projectStories).length).padStart(2, "0") + " · " + story.category;
     if (deck) deck.textContent = story.deck;
     if (visualNote) visualNote.textContent = story.visualNote;
-    if (storySlug === "davric-towers") {
-      priceBox?.remove();
-    } else {
-      if (price) price.textContent = story.price || "On request";
-      if (priceLabel) priceLabel.textContent = story.price === "SOLD" ? "Availability" : "Price";
-      if (priceBox) priceBox.classList.toggle("is-sold", story.price === "SOLD");
-    }
+    if (price) price.textContent = story.price || "On request";
+    if (priceLabel) priceLabel.textContent = story.price === "SOLD" ? "Availability" : "Price";
+    if (priceBox) priceBox.classList.toggle("is-sold", story.price === "SOLD");
     if (enquiryLink) enquiryLink.href = `/contact?project=${encodeURIComponent(storySlug)}`;
 
     if (visual && story.video && story.image) {
@@ -1028,6 +1026,17 @@ if (storyPage) {
           </figure>
         `).join("");
 
+      if (galleryMarkup) {
+        const openingGallery = document.createElement("div");
+        openingGallery.className = "project-story-gallery-top shell";
+        if (!story.galleryTitle) {
+          openingGallery.setAttribute("role", "region");
+          openingGallery.setAttribute("aria-label", "Project image gallery");
+        }
+        openingGallery.innerHTML = galleryMarkup;
+        storyPage.querySelector(".project-story-hero")?.insertAdjacentElement("afterend", openingGallery);
+      }
+
       body.innerHTML = story.sections.map((section, index) => `
         <section class="story-section" id="story-chapter-${index + 1}" data-story-section data-story-reveal>
           <p class="story-chapter-index"><span>${String(index + 1).padStart(2, "0")}</span><span>${section.label}</span></p>
@@ -1036,7 +1045,6 @@ if (storyPage) {
             ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
           </div>
         </section>
-        ${story.galleryAfter === index + 1 ? galleryMarkup : ""}
       `).join("");
 
       story.sections.forEach((section, index) => {
@@ -1133,7 +1141,7 @@ if (storyPage) {
         chapterNav.innerHTML = `<span class="story-chapter-nav-label">In this story</span>${story.sections.map((section, index) => `<a href="#story-chapter-${index + 1}" data-story-chapter-link="${index + 1}"><span>${String(index + 1).padStart(2, "0")}</span>${section.label}</a>`).join("")}`;
       }
 
-      const storyReveals = body.querySelectorAll("[data-story-reveal]");
+      const storyReveals = storyPage.querySelectorAll("[data-story-reveal]");
       const chapterSections = body.querySelectorAll("[data-story-section]");
       const chapterLinks = chapterNav?.querySelectorAll("[data-story-chapter-link]") || [];
       const setActiveChapter = (index) => {

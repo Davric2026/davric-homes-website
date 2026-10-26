@@ -946,12 +946,12 @@ h2 span {
   letter-spacing: .04em;
 }
 .people-card-body { display: flex; flex: 1; flex-direction: column; padding: 19px clamp(14px, 1.6vw, 22px) 22px; }
-.people-card-role { margin: 7px 0 0; color: var(--gold-ink); font-size: 9px; font-weight: 700; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
-.people-card-body h4 { margin: 0; font-size: clamp(15px, 1.4vw, 18px); letter-spacing: -.035em; line-height: 1.25; }
+.people-card-role { margin: 7px 0 0; color: var(--gold-ink); font-size: 10px; font-weight: 700; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
+.people-card-body h4 { margin: 0; font-size: clamp(16px, 1.45vw, 19px); letter-spacing: -.035em; line-height: 1.25; }
 .people-card-body > p:last-child:not(.people-card-role) { margin: 0; color: var(--charcoal); font-size: 11px; line-height: 1.65; }
 .people-grid--delivery .people-card-body { min-height: 110px; }
 .people-grid--delivery .people-card-role { margin-top: 7px; }
-.people-grid--delivery .people-card-body h4 { margin-top: 0; margin-bottom: 0; font-size: clamp(13px, 1.15vw, 16px); }
+.people-grid--delivery .people-card-body h4 { margin-top: 0; margin-bottom: 0; font-size: clamp(14px, 1.2vw, 17px); }
 
 .projects-section {
   padding-block: clamp(96px, 11vw, 158px) clamp(96px, 11vw, 152px);
@@ -4259,6 +4259,12 @@ html[data-theme="dark"] .inquiry-form select {
 .project-story-heading h1 { margin: 0 0 25px; font-size: clamp(48px, 6.1vw, 90px); line-height: .94; }
 .project-story-heading h1 em { color: var(--gold); font-style: normal; }
 .project-story-heading .story-meta { margin: 0 0 22px; color: var(--gold); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+.project-story-heading > .story-price { width: min(100%, 430px); max-width: none; margin: 0 0 22px; background: rgb(255 255 255 / 8%); }
+.project-story-heading > .story-price > span { color: rgb(255 255 255 / 68%); }
+.project-story-heading > .story-price > strong { color: var(--white); }
+.project-story-heading > .story-price.is-sold { border-left-color: var(--gold); background: rgb(255 255 255 / 8%); }
+.project-story-heading > .story-price.is-sold > span { color: rgb(255 255 255 / 68%); }
+.project-story-heading > .story-price.is-sold > strong { color: var(--white); }
 .project-story-deck { max-width: 510px; margin: 0; color: rgb(255 255 255 / 74%); font-size: clamp(15px, 1.5vw, 18px); line-height: 1.65; }
 .story-back-link { display: inline-flex; align-items: center; gap: 11px; margin-top: 32px; color: var(--white); font-size: 12px; }
 .story-back-link span { color: var(--gold); }
@@ -4377,7 +4383,7 @@ html[data-theme="dark"] .inquiry-form select {
 
 .project-story-details {
   display: grid;
-  grid-template-columns: minmax(180px, .6fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(36px, 7vw, 108px);
   padding-block: clamp(58px, 8vw, 108px);
 }
