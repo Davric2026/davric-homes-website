@@ -6646,6 +6646,81 @@ html[data-theme="dark"] .inquiry-form select {
 
 /* Media archive: captioned collections that open to their full photo groups. */
 .media-page { overflow: clip; }
+
+/* Property cards: green primary actions and clearer type at every viewport. */
+.featured-property-gallery { aspect-ratio: 1.38 / 1; }
+.featured-property-badge { font-size: 12px; }
+.featured-property-info { padding: 21px 20px 19px; }
+.featured-property-topline { font-size: 12px; }
+.featured-property-location { color: var(--charcoal); font-size: 14px; font-weight: 800; }
+.featured-property-location svg { flex: 0 0 auto; width: 15px; height: 15px; }
+.featured-property-info h3 {
+  font-size: clamp(21px, 1.75vw, 25px);
+  line-height: 1.24;
+}
+.featured-property-facts {
+  min-height: 46px;
+  color: var(--charcoal);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.featured-property-price > span { font-size: 12px; }
+.featured-property-price strong { font-size: 20px; }
+.featured-property-actions .button {
+  min-height: 46px;
+  font-size: 14px;
+}
+.featured-property-actions .button-blue {
+  border-color: #4e801d;
+  color: #fff;
+  background: #4e801d;
+}
+.featured-property-actions .button-blue:hover {
+  border-color: #3b6814;
+  background: #3b6814;
+  box-shadow: 0 8px 18px rgb(61 105 20 / 20%);
+}
+.featured-property-actions .button-outline {
+  border-color: var(--line-color);
+  color: var(--black);
+  background: var(--surface);
+}
+.developments-page .project-meta { font-size: 13.5px; }
+.developments-page .project-meta span:last-child { color: var(--charcoal); font-weight: 800; }
+.developments-page .project-info > p {
+  color: var(--charcoal);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.developments-page .project-facts span {
+  color: var(--charcoal);
+  font-size: 13px;
+}
+.developments-page .project-actions .project-details-button {
+  border-color: #4e801d;
+  color: #fff;
+  background: #4e801d;
+}
+.developments-page .project-actions .project-details-button:hover {
+  border-color: #3b6814;
+  background: #3b6814;
+  box-shadow: 0 8px 20px rgb(61 105 20 / 20%);
+}
+.developments-page .project-actions .project-enquire-button { font-size: 14px; }
+@media (max-width: 620px) {
+  .featured-property-info { padding: 19px 17px 17px; }
+  .featured-property-topline { font-size: 12px; }
+  .featured-property-location { font-size: 14px; }
+  .featured-property-info h3 { font-size: clamp(21px, 5.8vw, 24px); }
+  .featured-property-facts { min-height: 0; font-size: 15px; }
+  .featured-property-price strong { font-size: 20px; }
+  .featured-property-actions { gap: 10px; }
+  .featured-property-actions .button { min-height: 46px; font-size: 14px; }
+  .developments-page .project-info { padding: 17px 16px 3px; }
+  .developments-page .project-meta { font-size: 13px; }
+  .developments-page .project-info > p { font-size: 15px; }
+  .developments-page .project-facts span { padding: 7px 10px; font-size: 12.5px; }
+}
 .media-archive { padding-block: clamp(42px, 5.5vw, 72px); }
 .media-archive-heading {
   display: grid;

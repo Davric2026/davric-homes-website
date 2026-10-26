@@ -512,12 +512,12 @@ const projectStories = {
     galleryTitle: "The Living Waters home collection", galleryLabel: "Home plans and design visuals · Ajoda New Town, Ibadan", galleryLayout: "living-waters-gallery",
     galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
     gallery: [
-      { image: "assets/ajoda/ajoda-three-bedroom-plan.png", alt: "Architectural floor plan for the three-bedroom Living Waters Estate home", caption: "Three-bedroom plan", type: "plan" },
-      { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters Estate home", caption: "Two-bedroom plan", type: "plan" },
-      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof plan", type: "plan" },
       { image: "assets/ajoda/ajoda-three-bedroom-vision.png", alt: "Exterior visualisation of the three-bedroom Living Waters Estate home", caption: "Three-bedroom home" },
       { image: "assets/ajoda/ajoda-two-bedroom-vision.png", alt: "Exterior visualisation of the two-bedroom Living Waters Estate home", caption: "Two-bedroom home" },
       { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-vision.png", alt: "Exterior visualisation of the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof home" },
+      { image: "assets/ajoda/ajoda-three-bedroom-plan.png", alt: "Architectural floor plan for the three-bedroom Living Waters Estate home", caption: "Three-bedroom plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters Estate home", caption: "Two-bedroom plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof plan", type: "plan" },
     ],
     facts: [["Location", "Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
     keyFeatures: [
@@ -551,6 +551,7 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const requestedStory = projectStories[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
   if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "Pebblebrooks Estate · 2-bedroom home";
+  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "Pebblebrooks Estate · 3-bedroom home";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
