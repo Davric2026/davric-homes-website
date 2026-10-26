@@ -1002,13 +1002,7 @@ if (storyPage) {
     }
 
     if (body) {
-      const seenStoryImages = new Set(story.image ? [story.image] : []);
-      const uniqueStoryImages = (items = []) => items.filter((item) => {
-        if (!item?.image || seenStoryImages.has(item.image)) return false;
-        seenStoryImages.add(item.image);
-        return true;
-      });
-      const storyGallery = uniqueStoryImages(story.gallery || []);
+      const storyGallery = story.gallery || [];
       const galleryMarkup = story.galleryTitle
         ? `
           <section class="palm-gallery-section" data-story-reveal aria-label="${story.galleryTitle}">
@@ -1061,15 +1055,14 @@ if (storyPage) {
       `).join("");
 
       story.sections.forEach((section, index) => {
-        const sectionGallery = uniqueStoryImages(section.gallery || []);
-        if (!sectionGallery.length) return;
+        if (!section.gallery?.length) return;
         const gallery = document.createElement("div");
         gallery.className = "story-image-gallery story-image-gallery--" + (section.galleryLayout || "single");
         gallery.dataset.storyReveal = "";
         gallery.setAttribute("role", "group");
         gallery.setAttribute("aria-label", section.heading + " image gallery");
 
-        sectionGallery.forEach((item, itemIndex) => {
+        section.gallery.forEach((item, itemIndex) => {
           const figure = document.createElement("figure");
           figure.className = "story-image-spread";
           figure.dataset.storyReveal = "";
