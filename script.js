@@ -270,6 +270,13 @@ document.querySelectorAll("[data-project-gallery]").forEach((gallery) => {
   } catch {
     photos = [];
   }
+  const seenPhotoSources = new Set();
+  photos = photos.filter((photo) => {
+    const source = String(photo?.src || "").trim();
+    if (!source || seenPhotoSources.has(source)) return false;
+    seenPhotoSources.add(source);
+    return true;
+  });
   if (!photos.length) return;
 
   let activePhoto = 0;
@@ -280,10 +287,11 @@ document.querySelectorAll("[data-project-gallery]").forEach((gallery) => {
     if (counter) counter.textContent = String(activePhoto + 1).padStart(2, "0") + " / " + String(photos.length).padStart(2, "0");
   };
   gallery.querySelectorAll("[data-project-gallery-step]").forEach((button) => {
+    button.hidden = photos.length < 2;
     button.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      const step = Number(button.dataset.projectGalleryStep) || 1;
+      const step = Math.sign(Number(button.dataset.projectGalleryStep)) || 1;
       activePhoto = (activePhoto + step + photos.length) % photos.length;
       showPhoto();
     });
@@ -550,8 +558,8 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const projectSlug = new URLSearchParams(window.location.search).get("project");
   const requestedStory = projectStories[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
-  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "Pebblebrooks Estate · 2-bedroom home";
-  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "Pebblebrooks Estate · 3-bedroom home";
+  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "2 Bedroom Home";
+  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "3 Bedroom Home";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
@@ -994,19 +1002,26 @@ if (storyPage) {
     }
 
     if (body) {
+      const seenStoryImages = new Set(story.image ? [story.image] : []);
+      const uniqueStoryImages = (items = []) => items.filter((item) => {
+        if (!item?.image || seenStoryImages.has(item.image)) return false;
+        seenStoryImages.add(item.image);
+        return true;
+      });
+      const storyGallery = uniqueStoryImages(story.gallery || []);
       const galleryMarkup = story.galleryTitle
         ? `
           <section class="palm-gallery-section" data-story-reveal aria-label="${story.galleryTitle}">
             <div class="palm-gallery-heading">
               <div><p class="eyebrow eyebrow-dark">${story.galleryLabel}</p><h2>${story.galleryTitle}</h2></div>
-              <span class="palm-gallery-total"><span>${String(story.gallery.length).padStart(2, "0")}</span> curated views</span>
+              <span class="palm-gallery-total"><span>${String(storyGallery.length).padStart(2, "0")}</span> curated views</span>
             </div>
             <div class="story-image-gallery story-image-gallery--${story.galleryLayout || "palm-harbour"}">
-              ${story.gallery.map((item, index) => `
+              ${storyGallery.map((item, index) => `
                 <figure class="palm-gallery-tile palm-gallery-tile--${index + 1}${item.size === "wide" ? " palm-gallery-tile--wide" : ""}${item.type === "plan" ? " palm-gallery-tile--plan" : ""}">
                   <button class="palm-gallery-open" type="button" data-gallery-open data-gallery-index="${index}" data-gallery-src="${item.image}" data-gallery-alt="${item.alt}" data-gallery-caption="${item.caption}" aria-label="View ${item.caption}">
                     <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async" />
-                    <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(story.gallery.length).padStart(2, "0")} <i>views</i></span>
+                    <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(storyGallery.length).padStart(2, "0")} <i>views</i></span>
                     <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${story.location}</small></span><span class="palm-gallery-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span>
                   </button>
                 </figure>
@@ -1015,7 +1030,7 @@ if (storyPage) {
             <p class="palm-gallery-note">${story.galleryNote || "Design imagery shown is illustrative. Final specifications are subject to confirmation."}</p>
           </section>
         `
-        : (story.gallery || []).map((item) => `
+        : storyGallery.map((item) => `
           <figure class="story-image-spread" data-story-reveal>
             <div class="story-image-frame"><img src="${item.image}" alt="${item.alt}" loading="lazy" /></div>
             <figcaption><span>${item.caption}</span><span>${item.note}</span></figcaption>
@@ -1046,14 +1061,15 @@ if (storyPage) {
       `).join("");
 
       story.sections.forEach((section, index) => {
-        if (!section.gallery?.length) return;
+        const sectionGallery = uniqueStoryImages(section.gallery || []);
+        if (!sectionGallery.length) return;
         const gallery = document.createElement("div");
         gallery.className = "story-image-gallery story-image-gallery--" + (section.galleryLayout || "single");
         gallery.dataset.storyReveal = "";
         gallery.setAttribute("role", "group");
         gallery.setAttribute("aria-label", section.heading + " image gallery");
 
-        section.gallery.forEach((item, itemIndex) => {
+        sectionGallery.forEach((item, itemIndex) => {
           const figure = document.createElement("figure");
           figure.className = "story-image-spread";
           figure.dataset.storyReveal = "";
@@ -1116,7 +1132,13 @@ if (storyPage) {
           const button = event.target.closest("[data-gallery-open]");
           if (!button) return;
           const gallery = button.closest(".story-image-gallery");
-          currentGallery = [...(gallery?.querySelectorAll("[data-gallery-open]") || [])];
+          const seenGallerySources = new Set();
+          currentGallery = [...(gallery?.querySelectorAll("[data-gallery-open]") || [])].filter((item) => {
+            const source = item.dataset.gallerySrc;
+            if (!source || seenGallerySources.has(source)) return false;
+            seenGallerySources.add(source);
+            return true;
+          });
           currentGalleryIndex = Math.max(0, currentGallery.indexOf(button));
           showGalleryImage();
           propertyLightbox.showModal();
