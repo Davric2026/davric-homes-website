@@ -349,6 +349,7 @@ const projectStories = {
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-04.webp", alt: "Architectural visualisation of a landscaped shared courtyard between modern residences", caption: "The shared courtyard", size: "wide" },
       { image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", alt: "Aerial architectural visualisation of a residential community with homes facing a central court", caption: "The residential community", size: "wide" },
     ],
+    pairedSections: [6, 7],
     sections: [
       { label: "The setting", heading: "A complete estate plan for Jericho.", paragraphs: [
         "Pebblebrooks is planned across approximately 3,218 square metres in Jericho, Ibadan. Its site layout places seven terrace homes and six semi-detached homes around internal access ways and a central landscaped court.",
@@ -418,6 +419,7 @@ const projectStories = {
       { image: "assets/palm-harbour/alalubosa-terrace-homes.webp", alt: "Street-facing architectural visualisation of terrace homes at Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", caption: "Terrace homes", note: "Architectural visualisation · Alalubosa, Ibadan" },
       { image: "assets/palm-harbour/alalubosa-aerial-estate.webp", alt: "Aerial architectural visualisation of homes and shared grounds in Alalubosa, Ibadan", caption: "Aerial estate view", note: "Architectural visualisation · Alalubosa, Ibadan" },
     ],
+    pairedSections: [3, 4],
     sections: [
       { label: "The setting", heading: "An established Alalubosa address with a new phase.", paragraphs: [
         "Palm Harbour Estate Phase 1 is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site. The published project information lists an existing row of five terrace homes and a separate new phase of five homes.",
@@ -507,6 +509,16 @@ const projectStories = {
     image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
     deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
+    galleryTitle: "The Living Waters home collection", galleryLabel: "Home plans and design visuals · Ajoda New Town, Ibadan", galleryLayout: "living-waters-gallery",
+    galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
+    gallery: [
+      { image: "assets/ajoda/ajoda-three-bedroom-plan.png", alt: "Architectural floor plan for the three-bedroom Living Waters Estate home", caption: "Three-bedroom plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters Estate home", caption: "Two-bedroom plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-three-bedroom-vision.png", alt: "Exterior visualisation of the three-bedroom Living Waters Estate home", caption: "Three-bedroom home" },
+      { image: "assets/ajoda/ajoda-two-bedroom-vision.png", alt: "Exterior visualisation of the two-bedroom Living Waters Estate home", caption: "Two-bedroom home" },
+      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-vision.png", alt: "Exterior visualisation of the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof home" },
+    ],
     facts: [["Location", "Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
     keyFeatures: [
       { title: "Three-bedroom home", detail: "A three-bedroom home plan is supplied for Living Waters Estate." },
@@ -517,23 +529,15 @@ const projectStories = {
     sections: [
       { label: "The setting", heading: "A new home vision for Living Waters Estate.", paragraphs: [
         "Living Waters Estate is located in Ajoda New Town, Ibadan. The supplied drawings and visualisations show three residential options: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
-        "The plans and exterior images below keep each home type easy to review while its project details continue to develop.",
+        "The gallery above pairs each home plan with its exterior direction, making the three options easy to compare.",
       ] },
       { label: "Building plans", heading: "Three layouts, shown on their own.", paragraphs: [
         "The architectural drawings set out the three-bedroom plan, two-bedroom plan and two-bedroom flat-roof plan as separate images, apart from the exterior visualisations.",
         "These are the supplied plan drawings. Confirm final specifications and availability with Dav-Ric Homes.",
-      ], galleryLayout: "plans", gallery: [
-        { image: "assets/ajoda/ajoda-three-bedroom-plan.png", alt: "Architectural floor plan for the three-bedroom Living Waters Estate home", caption: "Three-bedroom home", note: "Building plan" },
-        { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters Estate home", caption: "Two-bedroom home", note: "Building plan" },
-        { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters Estate home", caption: "Two-bedroom flat-roof home", note: "Building plan" },
       ] },
       { label: "The vision", heading: "Exterior concepts for each home type.", paragraphs: [
         "The visualisations pair each layout with an exterior direction. They show the three-bedroom design, the two-bedroom home and the flat-roof option as distinct ways of imagining the Living Waters Estate homes.",
         "These images illustrate design intent; final appearance and specifications should be confirmed with Dav-Ric Homes.",
-      ], galleryLayout: "vision", gallery: [
-        { image: "assets/ajoda/ajoda-three-bedroom-vision.png", alt: "Exterior visualisation of the three-bedroom Living Waters Estate home", caption: "Three-bedroom home", note: "Architectural visualisation" },
-        { image: "assets/ajoda/ajoda-two-bedroom-vision.png", alt: "Exterior visualisation of the two-bedroom Living Waters Estate home", caption: "Two-bedroom home", note: "Architectural visualisation" },
-        { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-vision.png", alt: "Exterior visualisation of the two-bedroom flat-roof Living Waters Estate home", caption: "Two-bedroom flat-roof home", note: "Architectural visualisation" },
       ] },
     ],
   },
@@ -998,7 +1002,7 @@ if (storyPage) {
             </div>
             <div class="story-image-gallery story-image-gallery--${story.galleryLayout || "palm-harbour"}">
               ${story.gallery.map((item, index) => `
-                <figure class="palm-gallery-tile palm-gallery-tile--${index + 1}${item.size === "wide" ? " palm-gallery-tile--wide" : ""}">
+                <figure class="palm-gallery-tile palm-gallery-tile--${index + 1}${item.size === "wide" ? " palm-gallery-tile--wide" : ""}${item.type === "plan" ? " palm-gallery-tile--plan" : ""}">
                   <button class="palm-gallery-open" type="button" data-gallery-open data-gallery-index="${index}" data-gallery-src="${item.image}" data-gallery-alt="${item.alt}" data-gallery-caption="${item.caption}" aria-label="View ${item.caption}">
                     <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async" />
                     <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(story.gallery.length).padStart(2, "0")} <i>views</i></span>
@@ -1028,8 +1032,10 @@ if (storyPage) {
         storyPage.querySelector(".project-story-hero")?.insertAdjacentElement("afterend", openingGallery);
       }
 
+      const pairedSections = new Set(story.pairedSections || []);
+      body.classList.toggle("has-paired-sections", pairedSections.size > 0);
       body.innerHTML = story.sections.map((section, index) => `
-        <section class="story-section" id="story-chapter-${index + 1}" data-story-section data-story-reveal>
+        <section class="story-section${pairedSections.has(index + 1) ? " story-section--paired" : ""}" id="story-chapter-${index + 1}" data-story-section data-story-reveal>
           <p class="story-chapter-index"><span>${String(index + 1).padStart(2, "0")}</span><span>${section.label}</span></p>
           <div class="story-section-copy">
             <h2>${section.heading}</h2>
