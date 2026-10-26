@@ -971,6 +971,32 @@ if (storyPage) {
     }
 
     if (keyFeatures && story.keyFeatures?.length) {
+      const featureIcon = (title) => {
+        const label = String(title || "").toLowerCase();
+        let shape = '<path d="M8 43V14a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v29M8 18h32M14 18v25m9-25v25m9-25v25m8-25v25M5 43h38" />';
+
+        if (/road|drainage|pav|street|access/.test(label)) {
+          shape = '<path d="M7 44 18 4m23 40L30 4" /><path d="M24 8v5m0 8v6m0 8v5" />';
+        } else if (/gas|power|water|utility|electric/.test(label)) {
+          shape = '<path d="m27 4-16 23h12l-2 17 16-24H25l2-16Z" />';
+        } else if (/amenit|golf|leisure|resident|gym|pool|play|lifestyle/.test(label)) {
+          shape = '<circle cx="18" cy="10" r="4" /><path d="m17 15-4 11 8 5 7 12m-15-17-8 9m8-9 10-4m-2 0 8-7m-6 11 8 8M5 43h38" />';
+        } else if (/location|address|proximity|near|residence|police|jericho|ibadan|abuja|landmark/.test(label)) {
+          shape = '<path d="M24 43s14-12.4 14-24a14 14 0 1 0-28 0c0 11.6 14 24 14 24Z" /><circle cx="24" cy="19" r="4.5" />';
+        } else if (/home|house|bedroom|terrace|bungalow|residential|floor|suite/.test(label)) {
+          shape = '<path d="m5 22 19-16 19 16M11 20v22h26V20M20 42V28h8v14M14 26h3m14 0h3" />';
+        } else if (/finish|design|facade|concept|plan/.test(label)) {
+          shape = '<path d="m8 36 22-28 10 8-22 28H8v-8Z" /><path d="m25 14 10 8M8 36l10 8M6 44h36" />';
+        } else if (/completed|stage|phase|project|development/.test(label)) {
+          shape = '<path d="M8 43V10h32v33M4 43h40M14 17h5m10 0h5M14 25h5m10 0h5M14 33h5m10 0h5" /><path d="M21 43V8a3 3 0 0 1 6 0v35" />';
+        } else if (/building|commercial|headquarters|estate services|office/.test(label)) {
+          shape = '<path d="M8 43V10h32v33M4 43h40M14 17h5m10 0h5M14 25h5m10 0h5M14 33h5m10 0h5" />';
+        } else if (/security|gate|controlled|cctv/.test(label)) {
+          shape = '<path d="M8 43V14a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v29M8 18h32M14 18v25m9-25v25m9-25v25m8-25v25M5 43h38" />';
+        }
+
+        return `<svg class="story-key-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${shape}</svg>`;
+      };
       keyFeatures.hidden = false;
       keyFeatures.innerHTML = [
         '<div class="story-key-features-heading">',
@@ -978,7 +1004,7 @@ if (storyPage) {
         `<h2 id="story-key-features-title">${story.keyFeaturesLead || "Key features"}</h2>`,
         '</div>',
         '<div class="story-key-features-grid">',
-        story.keyFeatures.map((feature, index) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3></article>`).join(""),
+        story.keyFeatures.map((feature) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom">${featureIcon(feature.title)}<h3>${feature.title}</h3>${feature.detail ? `<p>${feature.detail}</p>` : ""}</article>`).join(""),
         '</div>',
       ].join("");
 

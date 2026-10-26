@@ -6725,6 +6725,163 @@ html[data-theme="dark"] .inquiry-form select {
   .developments-page .project-info > p { font-size: 15px; }
   .developments-page .project-facts span { padding: 7px 10px; font-size: 12.5px; }
 }
+
+/* Align featured home details and keep the estate name intact at every width. */
+.featured-property-card {
+  min-width: 0;
+  border-radius: 30px;
+}
+.featured-property-info {
+  border: 1px solid color-mix(in srgb, var(--line-color) 68%, transparent);
+  box-shadow: 0 12px 32px rgb(24 39 61 / 6%);
+  transition: border-color 260ms ease, box-shadow 320ms ease, background-color 260ms ease;
+}
+.featured-property-card:hover .featured-property-info {
+  border-color: color-mix(in srgb, var(--blue) 22%, var(--line-color));
+  box-shadow: 0 18px 40px rgb(24 39 61 / 10%);
+}
+.featured-property-topline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: initial;
+  align-items: start;
+  gap: 7px;
+  min-height: 50px;
+}
+.featured-property-topline > span:first-child,
+.featured-property-location {
+  grid-column: 1;
+}
+.featured-property-location {
+  max-width: 100%;
+  line-height: 1.3;
+  text-align: left;
+}
+.featured-property-info h3 {
+  min-height: 1.24em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+/* Project feature cards follow the icon-led, centered reference layout. */
+.story-key-features {
+  --story-feature-accent: #356454;
+  display: block;
+  padding-block: clamp(44px, 6vw, 82px);
+}
+.story-key-features-heading {
+  max-width: 780px;
+  margin: 0 0 clamp(24px, 3vw, 38px);
+}
+.story-key-features-heading .eyebrow { margin: 0 0 12px; }
+.story-key-features-heading h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(30px, 4vw, 50px);
+  letter-spacing: -.035em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.story-key-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  border: 0;
+  background: transparent;
+}
+.story-key-features .story-key-feature,
+.story-key-features .story-key-feature--priority {
+  display: flex;
+  min-width: 0;
+  min-height: 256px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(24px, 3vw, 38px) clamp(17px, 2.4vw, 32px);
+  border: 1px solid rgb(53 100 84 / 42%);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgb(26 46 39 / 5%);
+  color: var(--black);
+  text-align: center;
+  transition: border-color 240ms ease, box-shadow 280ms ease, transform 300ms var(--ease), background-color 240ms ease;
+}
+.story-key-feature-icon {
+  display: block;
+  width: 62px;
+  height: 62px;
+  flex: 0 0 auto;
+  margin: 0 auto 22px;
+  color: var(--story-feature-accent);
+}
+.story-key-features .story-key-feature h3 {
+  max-width: 25ch;
+  margin: 0;
+  color: var(--black);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.story-key-features .story-key-feature p {
+  max-width: 34ch;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: clamp(14.5px, 1.35vw, 17px);
+  line-height: 1.58;
+}
+.story-key-features .story-key-feature--priority > span { display: none; }
+.story-key-features .story-key-feature[data-reveal] { transition-delay: var(--reveal-delay, 0ms); }
+.story-key-features .story-key-feature:hover {
+  border-color: var(--story-feature-accent);
+  box-shadow: 0 14px 32px rgb(26 46 39 / 10%);
+  transform: translateY(-3px);
+}
+.project-story-heading h1,
+.project-story-hero--cinematic .project-story-heading h1 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+.project-story-hero--cinematic .project-story-heading h1 {
+  font-size: clamp(62px, 8vw, 140px);
+}
+
+html[data-theme="dark"] .story-key-features {
+  --story-feature-accent: #8bb6a6;
+}
+html[data-theme="dark"] .story-key-features .story-key-feature,
+html[data-theme="dark"] .story-key-features .story-key-feature--priority {
+  border-color: rgb(139 182 166 / 45%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 16%);
+}
+
+@media (max-width: 760px) {
+  .project-story-hero--cinematic .project-story-heading h1 {
+    font-size: clamp(46px, 11vw, 78px);
+  }
+  .story-key-features { padding-block: 40px; }
+  .story-key-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story-key-features .story-key-feature,
+  .story-key-features .story-key-feature--priority { min-height: 238px; }
+}
+
+@media (max-width: 540px) {
+  .story-key-features-heading { margin-bottom: 22px; }
+  .story-key-features-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .story-key-features .story-key-feature,
+  .story-key-features .story-key-feature--priority {
+    min-height: 0;
+    padding: 25px 20px 27px;
+  }
+  .story-key-feature-icon { width: 54px; height: 54px; margin-bottom: 16px; }
+  .story-key-features .story-key-feature p { margin-top: 12px; }
+}
 .media-archive { padding-block: clamp(42px, 5.5vw, 72px); }
 .media-archive-heading {
   display: grid;
