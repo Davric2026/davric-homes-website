@@ -226,7 +226,7 @@ function applyProjectFilters() {
     if (show) visible += 1;
   });
 
-  const noun = visible === 1 ? "development" : "developments";
+  const noun = visible === 1 ? "property" : "properties";
   if (projectCount) projectCount.textContent = "Showing " + visible + " " + noun;
   if (projectEmptyState) projectEmptyState.hidden = visible > 0;
   const hasFilters = location !== "all" || type !== "all" || bedrooms !== "all"
@@ -554,6 +554,7 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const projectSlug = new URLSearchParams(window.location.search).get("project");
   const requestedStory = projectStories[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
+  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "Pebblebrooks Estate · 2-bedroom home";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
