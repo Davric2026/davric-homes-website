@@ -73,6 +73,21 @@ desktopNavDropdowns.forEach((dropdown) => {
       if (otherDropdown !== dropdown) otherDropdown.open = false;
     });
   });
+
+  dropdown.addEventListener("pointerenter", (event) => {
+    if (event.pointerType !== "touch" && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      dropdown.open = true;
+    }
+  });
+  dropdown.addEventListener("pointerleave", () => {
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !dropdown.contains(document.activeElement)) {
+      dropdown.open = false;
+    }
+  });
+  dropdown.addEventListener("focusin", () => { dropdown.open = true; });
+  dropdown.addEventListener("focusout", (event) => {
+    if (!dropdown.contains(event.relatedTarget) && !dropdown.matches(":hover")) dropdown.open = false;
+  });
 });
 
 document.addEventListener("click", (event) => {
@@ -498,29 +513,6 @@ const projectStories = {
       { title: "Two-bedroom home", detail: "A separate two-bedroom home plan and exterior visualisation are supplied." },
       { title: "Flat-roof option", detail: "The portfolio also includes a two-bedroom flat-roof design." },
       { title: "Ajoda New Town", detail: "Living Waters Estate is located in Ajoda New Town, Ibadan." },
-    ],
-    galleryAfter: 1, galleryTitle: "A milestone for Living Waters Estate", galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan", galleryLayout: "project-mosaic",
-    galleryNote: "Project meeting, allocation and signing moments at Living Waters Estate in Ajoda New Town, Ibadan.",
-    gallery: [
-      { image: "assets/ajoda/gallery/living-waters-milestone-01.webp", alt: "Dav-Ric team gathered for a Living Waters Estate project meeting", caption: "The project team", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-02.webp", alt: "Team members present a project document during the Living Waters Estate meeting", caption: "Presenting the agreement", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-03.webp", alt: "Dav-Ric representatives review a document at the Living Waters Estate meeting", caption: "Reviewing the agreement", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-04.webp", alt: "Living Waters Estate project team members standing together after the meeting", caption: "Together at the milestone", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-05.webp", alt: "Project representatives gathered around the table during the Living Waters Estate meeting", caption: "Around the table" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-06.webp", alt: "Representatives discuss project papers together at the table", caption: "A closer discussion", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-07.webp", alt: "Dav-Ric representatives review paperwork together during the project meeting", caption: "Reviewing the project papers", size: "wide" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-08.webp", alt: "Project representatives speak together around the meeting table", caption: "Working through the details" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-09.webp", alt: "Representatives seated together during the Living Waters Estate project meeting", caption: "In conversation" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-10.webp", alt: "Dav-Ric representatives discuss the agreement before signing", caption: "Before the signing" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-11.webp", alt: "A project representative reviews the agreement with a Dav-Ric representative", caption: "A careful review" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-12.webp", alt: "Two representatives review and sign project documents at the table", caption: "Signing the documents" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-13.webp", alt: "Representatives work through the project documents together", caption: "Documents in review" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-14.webp", alt: "Dav-Ric representatives seated with the Living Waters Estate agreement", caption: "The agreement at the table" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-15.webp", alt: "A representative signs a Living Waters Estate project document", caption: "A signature on the agreement" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-16.webp", alt: "Close view of a representative signing project documents", caption: "At the signing table" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-17.webp", alt: "Dav-Ric representatives review paperwork together at the table", caption: "Final document review" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-18.webp", alt: "Representatives discuss the agreement during the project meeting", caption: "A shared review" },
-      { image: "assets/ajoda/gallery/living-waters-milestone-19.webp", alt: "Dav-Ric representatives review and sign documents at the Living Waters Estate meeting", caption: "Moving forward together" },
     ],
     sections: [
       { label: "The setting", heading: "A new home vision for Living Waters Estate.", paragraphs: [
@@ -971,10 +963,9 @@ if (storyPage) {
         '<div class="story-key-features-heading">',
         '<p class="eyebrow eyebrow-dark">Project specification</p>',
         `<h2 id="story-key-features-title">${story.keyFeaturesLead || "Key features"}</h2>`,
-        `<p>${story.keyFeaturesIntro || "Project details gathered from the published project information, drawings and brochure."}</p>`,
         '</div>',
         '<div class="story-key-features-grid">',
-        story.keyFeatures.map((feature, index) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3><p>${feature.detail}</p></article>`).join(""),
+        story.keyFeatures.map((feature, index) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom"><span>${String(index + 1).padStart(2, "0")}</span><h3>${feature.title}</h3></article>`).join(""),
         '</div>',
       ].join("");
 
@@ -1135,7 +1126,7 @@ if (storyPage) {
         });
       }
 
-      const storyWords = [story.deck, ...story.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...(story.keyFeatures || []).flatMap((feature) => [feature.title, feature.detail])].join(" ").trim().split(/\s+/).filter(Boolean).length;
+      const storyWords = [story.deck, ...story.sections.flatMap((section) => [section.heading, ...section.paragraphs]), ...(story.keyFeatures || []).map((feature) => feature.title)].join(" ").trim().split(/\s+/).filter(Boolean).length;
       if (readingTime) readingTime.textContent = `${Math.max(1, Math.ceil(storyWords / 220))} min read`;
       if (chapterNav) {
         chapterNav.innerHTML = `<span class="story-chapter-nav-label">In this story</span>${story.sections.map((section, index) => `<a href="#story-chapter-${index + 1}" data-story-chapter-link="${index + 1}"><span>${String(index + 1).padStart(2, "0")}</span>${section.label}</a>`).join("")}`;
