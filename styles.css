@@ -6651,7 +6651,7 @@ html[data-theme="dark"] .inquiry-form select {
 /* Media archive: captioned collections that open to their full photo groups. */
 .media-page { overflow: clip; }
 
-/* Property cards: green primary actions and clearer type at every viewport. */
+/* Property cards: Dav-Ric blue primary actions and clearer type at every viewport. */
 .featured-property-gallery { aspect-ratio: 1.38 / 1; }
 .featured-property-badge { font-size: 12px; }
 .featured-property-info { padding: 21px 20px 19px; }
@@ -6675,14 +6675,14 @@ html[data-theme="dark"] .inquiry-form select {
   font-size: 14px;
 }
 .featured-property-actions .button-blue {
-  border-color: #4e801d;
+  border-color: var(--blue);
   color: #fff;
-  background: #4e801d;
+  background: var(--blue);
 }
 .featured-property-actions .button-blue:hover {
-  border-color: #3b6814;
-  background: #3b6814;
-  box-shadow: 0 8px 18px rgb(61 105 20 / 20%);
+  border-color: #18386b;
+  background: #18386b;
+  box-shadow: 0 8px 18px rgb(17 49 99 / 20%);
 }
 .featured-property-actions .button-outline {
   border-color: var(--line-color);
