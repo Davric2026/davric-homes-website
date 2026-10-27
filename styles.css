@@ -920,7 +920,8 @@ h2 span {
 
 .people-grid { display: grid; gap: 12px; }
 .people-grid--leadership { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.people-grid--delivery { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.people-grid--delivery { display: flex; flex-wrap: wrap; justify-content: center; }
+.people-grid--delivery > .people-card { flex: 0 1 calc((100% - 24px) / 3); }
 .people-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 1px solid var(--line-color); background: var(--paper); }
 .people-card-media {
   position: relative;
@@ -2251,8 +2252,6 @@ html:not(.js) [data-reveal] {
   .people-heading h2 { font-size: clamp(47.41px, 12.13vw, 69.46px); }
   .people-intro { margin: 0; }
   .people-grid--leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .people-grid--delivery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
   .approach-heading h2 {
     font-size: clamp(47.41px, 12.13vw, 69.46px);
   }
@@ -4433,7 +4432,6 @@ html[data-theme="dark"] .inquiry-form select {
   .people-heading h2 { font-size: clamp(47.41px, 8.27vw, 69.46px); }
   .people-intro { margin: 0; }
   .people-grid--leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .people-grid--delivery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
@@ -4453,6 +4451,8 @@ html[data-theme="dark"] .inquiry-form select {
   .people-section { padding-block: 86px; }
   .people-grid--leadership,
   .people-grid--delivery { grid-template-columns: minmax(0, 1fr); }
+  .people-grid--delivery { display: grid; }
+  .people-grid--delivery > .people-card { grid-column: 1; }
   .people-group--delivery { margin-top: 52px; padding-top: 40px; }
   .people-group-heading { gap: 11px; }
   .people-card-body { padding: 15px 13px 18px; }
