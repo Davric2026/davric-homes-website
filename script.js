@@ -337,18 +337,20 @@ const projectStories = {
     deck: "13 gated homes in Jericho, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.",
     price: "On request", formValue: "Pebblebrooks Estate",
     facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Semi-detached homes", "6 with one-bedroom basement suites"], ["Site area", "Approx. 3,218 sqm"]],
-    keyFeaturesLead: "13 homes, secured for everyday living.",
-    keyFeaturesIntro: "Central gas, estate security and a close Jericho landmark lead the offer.",
+    keyFeaturesLead: "Designed for slow, easy living.",
     keyFeatures: [
-      { title: "Central gas system", detail: "A central gas system serves the estate, making convenient everyday cooking a defining part of the Pebblebrooks offer.", priority: true },
-      { title: "Gated estate security", detail: "The estate plans include controlled access, security and CCTV, with dedicated gatehouse and security office spaces.", priority: true },
-      { title: "Close to the Police Commissioner’s Residence", detail: "Pebblebrooks is in Jericho, close to the Police Commissioner’s Residence, a notable nearby landmark.", priority: true },
-      { title: "13 homes", detail: "Seven four-bedroom terrace homes and six four-bedroom semi-detached homes are arranged around the shared estate grounds." },
-      { title: "Basement suites", detail: "Each semi-detached home includes a one-bedroom basement apartment. The basement plan is 59 sqm." },
-      { title: "Three-level terrace plans", detail: "The terrace plan gives 83.5 sqm to the ground floor and 98 sqm each to the first and second floors." },
-      { title: "Resident amenities", detail: "The plans show a landscaped central mall, badminton court, swimming pool, green and play area, gym and outdoor terrace." },
-      { title: "Estate services", detail: "The gatehouse plans identify generator space, a general office and facility manager spaces alongside estate security services." },
-      { title: "Design and finish", detail: "The brochure describes open plans, large energy-efficient windows, premium flooring and cabinetry, designer kitchen appliances and spa-style bathrooms." },
+      { title: "Central gas reticulation system", priority: true },
+      { title: "Swimming pool", priority: true },
+      { title: "Badminton court", priority: true },
+      { title: "24/7 security & CCTV" },
+      { title: "Modern kitchen" },
+      { title: "Large windows" },
+      { title: "Outdoor terrace / sit-out" },
+      { title: "Gym" },
+      { title: "Green playground" },
+      { title: "Ample parking" },
+      { title: "Ensuite bathrooms" },
+      { title: "Large balconies" },
     ],
     galleryAfter: 1, galleryTitle: "Estate and exterior gallery", galleryLabel: "Architectural visualisations · Jericho, Ibadan", galleryLayout: "pebblebrooks-gallery",
     galleryNote: "Architectural visualisations are illustrative; home layouts, materials and final specifications are subject to confirmation.",
@@ -449,29 +451,40 @@ const projectStories = {
     ],
   },
   guzape: {
-    title: "Guzape · Abuja", seoTitle: "Guzape Residential Project | Dav-Ric Homes", seoDescription: "Explore the Dav-Ric Homes luxury terrace concept in Guzape, Abuja, with its current design brief and published project details.", number: "03", category: "Luxury residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
-    artClass: "story-art-guzape", visualNote: "Indicative design direction · subject to change",
-    deck: "A luxury terrace concept for Guzape, a sought-after residential neighbourhood in Abuja.",
+    title: "Guzape · Abuja", seoTitle: "Guzape Main Project | Abuja | Dav-Ric Homes", seoDescription: "Explore the Guzape, Abuja terrace-home concept through its four-home site layout, three-level floor plans and architectural visualisations.", number: "03", category: "Residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
+    image: "assets/guzape/guzape-terrace-row-hero.jpg", imageAlt: "Architectural visualisation of a terrace-home row for the Guzape project in Abuja", visualNote: "Concept visualisation · subject to final design",
+    deck: "A terrace-home concept for Guzape, Abuja, presented through a four-home site layout, three-level plans and exterior visualisations.",
     price: "On request", formValue: "Guzape Main Project",
-    facts: [["Location", "Guzape, Abuja"], ["Site area", "Approx. 1,667 sqm"], ["Development", "Luxury terraces"], ["Stage", "Concept design"]],
+    facts: [["Location", "Guzape, Abuja"], ["Site area", "Approx. 1,667 sqm"], ["Homes shown", "4 terrace homes"], ["Plans", "Ground · first · second floors"], ["Stage", "Concept design"]],
     keyFeatures: [
-      { title: "Guzape, Abuja", detail: "The proposed residential development is located in Guzape, Abuja, FCT." },
-      { title: "Approx. 1,667 sqm", detail: "Published project information gives the site area as approximately 1,667 square metres." },
-      { title: "Luxury terrace brief", detail: "The current project listing identifies luxury terrace homes as the intended development type." },
-      { title: "Concept stage", detail: "The scheme is listed at concept design stage; unit mix, amenities and final specifications are not yet confirmed." },
+      { title: "Guzape, Abuja" },
+      { title: "Approx. 1,667 sqm" },
+      { title: "Four-home site layout" },
+      { title: "Three-level floor plans" },
+      { title: "Terrace home designs" },
+      { title: "Concept design" },
+    ],
+    galleryTitle: "Guzape project presentation", galleryLabel: "Terrace homes · Guzape, Abuja", galleryLayout: "project-mosaic",
+    galleryNote: "Concept plans and architectural visualisations from the Abuja project presentation.",
+    gallery: [
+      { image: "assets/guzape/guzape-three-floor-plans.png", alt: "Ground, first and second floor plans for the Guzape terrace homes", caption: "Three-level floor plans", type: "plan", size: "wide" },
+      { image: "assets/guzape/guzape-site-layout.jpg", alt: "Site layout showing four terrace homes in Guzape", caption: "Four-home site layout", type: "plan", size: "wide" },
+      { image: "assets/guzape/guzape-aerial-view.jpg", alt: "Aerial architectural visualisation of the Guzape terrace development", caption: "Aerial view" },
+      { image: "assets/guzape/guzape-terrace-home-render.jpg", alt: "Exterior architectural visualisation of a Guzape terrace home", caption: "Terrace home design" },
+      { image: "assets/guzape/guzape-street-elevation.jpg", alt: "Street elevation visualisation of the Guzape terrace homes", caption: "Street elevation" },
     ],
     sections: [
-      { label: "The setting", heading: "A residential concept for Guzape, Abuja.", paragraphs: [
-        "Guzape is planned as a luxury terrace development in Abuja. The published project information places the site at approximately 1,667 square metres and lists the scheme at concept design stage.",
-        "At this point, the project is best understood through its location, intended residential type and evolving design direction. The concept will need to develop further before every detail can be treated as final.",
+      { label: "The setting", heading: "A terrace-home concept for Guzape, Abuja.", paragraphs: [
+        "The Abuja presentation shows a proposed terrace-home development in Guzape, with a site layout for four homes and floor plans across the ground, first and second floors.",
+        "The project is listed at concept design stage. The presentation communicates an architectural direction and does not confirm final construction specifications or approvals.",
       ] },
-      { label: "Design direction", heading: "An early design story, still taking shape.", paragraphs: [
-        "Dav-Ric’s broader design language includes carefully composed volumes, red-lattice screens, sculpted stone forms and rooftop pergolas. Those references help explain the architectural vocabulary behind the portfolio, while the Guzape concept remains subject to its own design development.",
-        "The artwork on this page is an abstract editorial visual, not a project rendering. It is intentionally used in place of unverified architectural imagery.",
+      { label: "Design direction", heading: "A street-facing terrace design.", paragraphs: [
+        "The presentation pairs an aerial view and street elevation with exterior views of the terrace homes. Together, they show the proposed massing, balconies, roof terraces and arrival sequence.",
+        "These are concept visualisations; confirm the latest approved designs and specifications with Dav-Ric Homes.",
       ] },
-      { label: "What to know", heading: "Treat the current information as a concept brief.", paragraphs: [
-        "The public project listing identifies Guzape as a concept-stage development. It does not establish a final specification, construction timetable, handover date or current availability.",
-        "For a useful next conversation, ask the Dav-Ric Homes team for the latest design material, the current development stage and any confirmed timing or sales information.",
+      { label: "What to know", heading: "Plans and visuals for the current concept.", paragraphs: [
+        "The supplied drawings show ground, first and second floor plans alongside a four-home site layout. They provide an overview of the concept rather than a final specification.",
+        "Ask the Dav-Ric Homes team for current project status, confirmed details, availability and any updates to the presentation.",
       ] },
     ],
   },
@@ -959,6 +972,9 @@ if (storyPage) {
       seoDescription: selectedHomeType.pageDescription,
       image: baseStory.image,
       imageAlt: baseStory.imageAlt,
+      keyFeatures: requestedHomeType === "semi-detached"
+        ? [...baseStory.keyFeatures, { title: "Dedicated cinema" }]
+        : baseStory.keyFeatures,
       visualNote: `${selectedHomeType.title} · Pebblebrooks Estate, Jericho, Ibadan`,
       category: `${baseStory.category} · ${selectedHomeType.title}`,
       galleryLabel: "Pebblebrooks Estate · Jericho, Ibadan",
@@ -1124,15 +1140,15 @@ if (storyPage) {
         const label = String(title || "").toLowerCase();
         let shape = '<path d="M8 43V14a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v29M8 18h32M14 18v25m9-25v25m9-25v25m8-25v25M5 43h38" />';
 
-        if (/road|drainage|pav|street|access/.test(label)) {
+        if (/road|drainage|pav|street|access|parking/.test(label)) {
           shape = '<path d="M7 44 18 4m23 40L30 4" /><path d="M24 8v5m0 8v6m0 8v5" />';
         } else if (/gas|power|water|utility|electric/.test(label)) {
           shape = '<path d="m27 4-16 23h12l-2 17 16-24H25l2-16Z" />';
-        } else if (/amenit|golf|leisure|resident|gym|pool|play|lifestyle/.test(label)) {
+        } else if (/amenit|golf|leisure|resident|gym|pool|play|lifestyle|badminton|cinema|court|sport|terrace|sit.?out/.test(label)) {
           shape = '<circle cx="18" cy="10" r="4" /><path d="m17 15-4 11 8 5 7 12m-15-17-8 9m8-9 10-4m-2 0 8-7m-6 11 8 8M5 43h38" />';
         } else if (/location|address|proximity|near|residence|police|jericho|ibadan|abuja|landmark/.test(label)) {
           shape = '<path d="M24 43s14-12.4 14-24a14 14 0 1 0-28 0c0 11.6 14 24 14 24Z" /><circle cx="24" cy="19" r="4.5" />';
-        } else if (/home|house|bedroom|terrace|bungalow|residential|floor|suite/.test(label)) {
+        } else if (/home|house|bedroom|terrace|bungalow|residential|floor|suite|kitchen|window|bath|balcony/.test(label)) {
           shape = '<path d="m5 22 19-16 19 16M11 20v22h26V20M20 42V28h8v14M14 26h3m14 0h3" />';
         } else if (/finish|design|facade|concept|plan/.test(label)) {
           shape = '<path d="m8 36 22-28 10 8-22 28H8v-8Z" /><path d="m25 14 10 8M8 36l10 8M6 44h36" />';
