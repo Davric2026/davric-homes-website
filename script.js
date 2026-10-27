@@ -409,7 +409,7 @@ const projectStories = {
   },
   "project-beta": {
     title: "Palm Harbour Estate Phase 1", seoTitle: "Palm Harbour Estate Phase 1 | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate Phase 1 in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
-    image: "assets/palm-harbour/palm-harbour-aerial.jpeg", imageAlt: "Aerial architectural rendering of Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
+    image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", imageAlt: "Palm Harbour Estate Phase 1 contemporary terrace homes viewed from the street in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
     deck: "A fresh look at Palm Harbour Estate Phase 1, a residential community in Alalubosa, Ibadan.",
     price: "On request", formValue: "Palm Harbour Estate Phase 1",
     facts: [["Location", "Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
@@ -420,12 +420,10 @@ const projectStories = {
       { title: "Alalubosa address", detail: "The estate is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site." },
     ],
     galleryAfter: 1, galleryTitle: "Exterior gallery", galleryLabel: "Architectural visualisations · Alalubosa, Ibadan", gallery: [
-      { image: "assets/palm-harbour/palm-harbour-street-view.jpeg", alt: "Street-facing architectural rendering of homes at Palm Harbour Estate Phase 1", caption: "The street-facing homes", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-homes.jpeg", alt: "Architectural rendering of the Palm Harbour Estate Phase 1 residential homes", caption: "A closer view of the homes", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-entrance.jpeg", alt: "Entrance and perimeter view of Palm Harbour Estate Phase 1", caption: "Estate entrance", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-aerial.jpeg", alt: "Aerial rendering showing the homes and shared estate grounds at Palm Harbour Estate Phase 1", caption: "The estate from above", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/alalubosa-terrace-homes.webp", alt: "Street-facing architectural visualisation of terrace homes at Palm Harbour Estate Phase 1 in Alalubosa, Ibadan", caption: "Terrace homes", note: "Architectural visualisation · Alalubosa, Ibadan" },
-      { image: "assets/palm-harbour/alalubosa-aerial-estate.webp", alt: "Aerial architectural visualisation of homes and shared grounds in Alalubosa, Ibadan", caption: "Aerial estate view", note: "Architectural visualisation · Alalubosa, Ibadan" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", alt: "Palm Harbour Estate Phase 1 terrace homes viewed from the street with residents arriving", caption: "A welcoming street front", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-02.jpeg", alt: "A row of Palm Harbour Estate Phase 1 homes at sunset", caption: "The terrace row at sunset", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-03.jpeg", alt: "Palm Harbour Estate Phase 1 homes and landscaped entrances", caption: "Homes and landscaped entries", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-04.jpeg", alt: "Palm Harbour Estate Phase 1 front elevation at dusk", caption: "An evening view of the homes", note: "Architectural visualisation" },
     ],
     pairedSections: [3, 4],
     sections: [
@@ -550,6 +548,83 @@ const projectStories = {
     ],
   },
 };
+
+const mediaProjectAlbums = document.querySelector("[data-media-project-albums]");
+if (mediaProjectAlbums) {
+  const escapeMediaMarkup = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character]);
+  const mediaRouteSlugs = {
+    "pebblebrooks-estate": "pebblebrooks-estate",
+    ajoda: "living-waters-estate",
+    guzape: "guzape-abuja",
+    "project-beta": "palm-harbour-estate-phase-1",
+    "davric-towers": "davric-towers",
+  };
+  const albumMarkup = Object.entries(projectStories)
+    .sort(([, first], [, second]) => Number(first.number) - Number(second.number))
+    .map(([slug, story]) => {
+      const seenImages = new Set(story.image ? [story.image] : []);
+      const projectImages = [
+        ...(story.gallery || []),
+        ...(story.sections || []).flatMap((section) => section.gallery || []),
+      ].filter((item) => {
+        if (!item?.image || seenImages.has(item.image)) return false;
+        seenImages.add(item.image);
+        return true;
+      });
+      if (!projectImages.length && story.image) {
+        projectImages.push({
+          image: story.image,
+          alt: story.imageAlt || story.title,
+          caption: story.visualNote || story.title,
+        });
+      }
+      if (!projectImages.length) return "";
+      const isPlanImage = (item) => item.type === "plan" || /\b(plan|layout)\b/i.test(`${item.caption || ""} ${item.alt || ""} ${item.image || ""}`);
+
+      const count = projectImages.length;
+      const previewImages = projectImages.slice(0, 3);
+      const previewLayout = previewImages.length === 1
+        ? "media-project-preview--one"
+        : previewImages.length === 2 ? "media-project-preview--two" : "media-project-preview--three";
+      const previewMarkup = previewImages.map((item, index) => `
+        <figure class="${isPlanImage(item) ? "media-project-preview-item--plan" : ""}">
+          <img src="${escapeMediaMarkup(item.image)}" alt="${escapeMediaMarkup(item.alt || item.caption || story.title)}" loading="lazy" decoding="async" />
+          <figcaption><small>${escapeMediaMarkup(story.number)} · ${escapeMediaMarkup(story.location)}</small><strong>${escapeMediaMarkup(item.caption || "Project view")}</strong><span>${String(index + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}</span></figcaption>
+        </figure>
+      `).join("");
+      const galleryMarkup = projectImages.map((item) => `
+        <figure class="${isPlanImage(item) ? "media-project-gallery-item--plan" : ""}">
+          <img src="${escapeMediaMarkup(item.image)}" alt="${escapeMediaMarkup(item.alt || item.caption || story.title)}" loading="lazy" decoding="async" />
+          <figcaption><small>${escapeMediaMarkup(story.title)} · ${escapeMediaMarkup(story.location)}</small><strong>${escapeMediaMarkup(item.caption || "Project view")}</strong><span>${escapeMediaMarkup(item.note || (item.type === "plan" ? "Home plan" : "Project visualisation"))}</span></figcaption>
+        </figure>
+      `).join("");
+      const projectTitle = escapeMediaMarkup(story.galleryTitle || story.title);
+      const projectDescription = escapeMediaMarkup(story.deck || story.galleryNote || "Explore the images from this Dav-Ric project.");
+      const projectLabel = escapeMediaMarkup(`${story.number} · ${story.category} · ${story.location}`);
+      const routeSlug = mediaRouteSlugs[slug] || slug;
+
+      return `
+        <details class="media-album media-album--project">
+          <summary class="media-album-summary media-album-summary--project">
+            <div class="media-project-preview ${previewLayout}" role="group" aria-label="${escapeMediaMarkup(`Preview of ${story.title} project images`)}">${previewMarkup}</div>
+            <div class="media-album-copy"><p class="eyebrow">${projectLabel}</p><h4>${projectTitle}</h4><p>${projectDescription}</p><span class="media-album-action">Explore all ${count} views <span aria-hidden="true">↗</span></span></div>
+          </summary>
+          <div class="media-album-content">
+            <div class="media-image-grid media-image-grid--captioned media-project-gallery">${galleryMarkup}</div>
+            <a class="media-project-link" href="/projects/${escapeMediaMarkup(routeSlug)}">Read the ${escapeMediaMarkup(story.title)} project story <span aria-hidden="true">↗</span></a>
+          </div>
+        </details>
+      `;
+    })
+    .join("");
+  mediaProjectAlbums.innerHTML = albumMarkup;
+}
 
 document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const formNote = inquiryForm.querySelector(".form-note");
