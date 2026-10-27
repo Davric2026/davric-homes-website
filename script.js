@@ -367,7 +367,7 @@ const projectStories = {
       ], galleryLayout: "plans-landscape-single", gallery: [
         { image: "assets/pebblebrooks/plans/pebblebrooks-site-layout.webp", alt: "Pebblebrooks Estate site layout showing seven terraces, six semi-detached homes, parking, badminton court, ancillary building and gatehouse", caption: "Estate site layout", note: "13 homes · Jericho, Ibadan" },
       ] },
-      { label: "Terrace homes", heading: "Seven four-bedroom homes, planned across three levels.", paragraphs: [
+      { label: "Terrace homes", heading: "7 units of four-bedroom homes, planned across three levels.", paragraphs: [
         "The terrace home has an 83.5 sqm ground floor, a 98 sqm first floor and a 98 sqm second floor. The ground level brings together a 31 sqm lounge, dining room, kitchen, pantry, guest WC and a maid’s room with its own bath.",
         "The upper floors add a family lounge, two bedrooms and a main bedroom with a walk-in closet. Balconies appear on both upper levels in the supplied drawings.",
       ], galleryLayout: "plans-landscape", gallery: [
@@ -375,7 +375,7 @@ const projectStories = {
         { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-first-floor.webp", alt: "First floor plan for a Pebblebrooks terrace home, 98 square metres", caption: "First floor", note: "98 sqm · family lounge and bedrooms" },
         { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-second-floor.webp", alt: "Second floor plan for a Pebblebrooks terrace home, 98 square metres", caption: "Second floor", note: "98 sqm · main bedroom and bedroom three" },
       ] },
-      { label: "Semi-detached homes", heading: "Six homes with a separate one-bedroom basement apartment.", paragraphs: [
+      { label: "Semi-detached homes", heading: "6 units with a separate one-bedroom basement apartment.", paragraphs: [
         "The semi-detached home is shown with a 59 sqm basement, an 84 sqm ground floor and two 100 sqm upper floors. Each home is described as a four-bedroom residence with a one-bedroom basement apartment.",
         "The basement plan includes a lounge, kitchen, bath, laundry and store. Above it, the ground floor contains the main living, dining and kitchen spaces; the upper floors add bedrooms, family lounge, cinema room, walk-in closets and balconies.",
       ], galleryLayout: "plans-landscape-pair", gallery: [
