@@ -7652,6 +7652,38 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   background: var(--mist);
 }
 
+.palm-gallery-section--plans-landscape-pair .palm-gallery-heading h2 {
+  max-width: 900px;
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height: 1.02;
+}
+
+.palm-gallery-section--plans-landscape-pair .story-image-gallery--plans-landscape-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: clamp(220px, 25vw, 340px);
+  grid-auto-flow: row;
+  gap: clamp(10px, 1.2vw, 16px);
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+}
+
+.palm-gallery-section--plans-landscape-pair .palm-gallery-tile {
+  grid-area: auto;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid rgb(23 21 20 / 10%);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.palm-gallery-section--plans-landscape-pair .palm-gallery-open > img {
+  box-sizing: border-box;
+  padding: clamp(12px, 1.8vw, 24px);
+  object-fit: contain;
+  background: #fff;
+}
+
 .desktop-nav {
   gap: clamp(12px, 1.8vw, 25px);
   padding-inline: clamp(10px, 1.8vw, 28px);
@@ -7677,6 +7709,19 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: clamp(180px, 52vw, 250px);
     gap: 9px;
+  }
+
+  .palm-gallery-section--plans-landscape-pair .palm-gallery-heading h2 {
+    max-width: 100%;
+    font-size: clamp(34px, 8vw, 48px);
+  }
+
+  .palm-gallery-section--plans-landscape-pair .story-image-gallery--plans-landscape-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(150px, 44vw, 230px);
+    grid-auto-flow: row;
+    gap: 8px;
+    overflow: visible;
   }
 
   .site-footer {

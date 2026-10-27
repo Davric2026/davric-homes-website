@@ -1178,7 +1178,7 @@ if (storyPage) {
       const storyGallery = uniqueStoryImages(story.gallery || []);
       const galleryMarkup = story.galleryTitle
         ? `
-          <section class="palm-gallery-section" data-story-reveal aria-label="${story.galleryTitle}">
+          <section class="palm-gallery-section palm-gallery-section--${story.galleryLayout || "palm-harbour"}" data-story-reveal aria-label="${story.galleryTitle}">
             <div class="palm-gallery-heading">
               <div><p class="eyebrow eyebrow-dark">${story.galleryLabel}</p><h2>${story.galleryTitle}</h2></div>
               <span class="palm-gallery-total"><span>${String(storyGallery.length).padStart(2, "0")}</span> curated views</span>
