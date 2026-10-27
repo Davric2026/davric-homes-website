@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/projects/pebblebrooks-terrace-home",
-      "destination": "/projects/pebblebrooks-estate.html"
+      "destination": "/projects/pebblebrooks-estate"
     },
     {
       "source": "/projects/pebblebrooks-semi-detached-building",
-      "destination": "/projects/pebblebrooks-estate.html"
+      "destination": "/projects/pebblebrooks-estate"
     }
   ]
 }
