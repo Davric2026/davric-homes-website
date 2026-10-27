@@ -549,6 +549,31 @@ const projectStories = {
   },
 };
 
+const pebblebrooksHomeTypes = {
+  terrace: {
+    title: "Terrace Home",
+    sectionLabel: "Terrace homes",
+    galleryTitle: "Terrace home plans",
+    contactSlug: "pebblebrooks-two-bedroom",
+    formValue: "Terrace home · Pebblebrooks Estate",
+    pageTitle: "Terrace Home at Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes",
+    pageDescription: "Explore the terrace home plans and shared estate features at Pebblebrooks Estate in Jericho, Ibadan.",
+    deck: "A four-bedroom terrace home with plans across three levels, set within Pebblebrooks Estate in Jericho, Ibadan, and its shared community features.",
+    facts: [["Bedrooms", "4"], ["Floor levels", "Ground · first · second"], ["Plan areas", "83.5 · 98 · 98 sqm"]],
+  },
+  "semi-detached": {
+    title: "Semi-detached Building",
+    sectionLabel: "Semi-detached homes",
+    galleryTitle: "Semi-detached building plans",
+    contactSlug: "pebblebrooks-three-bedroom",
+    formValue: "Semi-detached building · Pebblebrooks Estate",
+    pageTitle: "Semi-detached Building at Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes",
+    pageDescription: "Explore the semi-detached home plans and shared estate features at Pebblebrooks Estate in Jericho, Ibadan.",
+    deck: "A four-bedroom semi-detached building with a separate one-bedroom basement apartment, set within Pebblebrooks Estate in Jericho, Ibadan.",
+    facts: [["Bedrooms", "4 + 1 basement suite"], ["Floor levels", "Basement · ground · first · second"], ["Plan areas", "59 · 84 · 100 · 100 sqm"]],
+  },
+};
+
 const mediaProjectAlbums = document.querySelector("[data-media-project-albums]");
 if (mediaProjectAlbums) {
   const escapeMediaMarkup = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
@@ -633,8 +658,8 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const projectSlug = new URLSearchParams(window.location.search).get("project");
   const requestedStory = projectStories[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
-  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "2 Bedroom Home";
-  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "3 Bedroom Home";
+  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "Terrace home · Pebblebrooks Estate";
+  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "Semi-detached building · Pebblebrooks Estate";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
@@ -907,7 +932,37 @@ if (storyPage) {
   const storySlug = storyRouteSlug
     ? Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
     : new URLSearchParams(window.location.search).get("story");
-  const story = projectStories[storySlug];
+  const requestedHomeType = new URLSearchParams(window.location.search).get("home");
+  const selectedHomeType = storySlug === "pebblebrooks-estate"
+    ? pebblebrooksHomeTypes[requestedHomeType]
+    : null;
+  const baseStory = projectStories[storySlug];
+  const selectedHomeSection = selectedHomeType
+    ? baseStory?.sections.find((section) => section.label === selectedHomeType.sectionLabel)
+    : null;
+  const story = selectedHomeType && selectedHomeSection
+    ? {
+      ...baseStory,
+      ...selectedHomeType,
+      seoTitle: selectedHomeType.pageTitle,
+      seoDescription: selectedHomeType.pageDescription,
+      image: baseStory.image,
+      imageAlt: baseStory.imageAlt,
+      visualNote: `${selectedHomeType.title} · Pebblebrooks Estate, Jericho, Ibadan`,
+      category: `${baseStory.category} · ${selectedHomeType.title}`,
+      galleryLabel: "Pebblebrooks Estate · Jericho, Ibadan",
+      galleryLayout: selectedHomeSection.galleryLayout,
+      galleryNote: "Plan drawings supplied for the Pebblebrooks Estate home type. Confirm final specifications with Dav-Ric Homes.",
+      gallery: selectedHomeSection.gallery.map((item) => ({ ...item, type: "plan" })),
+      sections: baseStory.sections
+        .filter((section) => !["Terrace homes", "Semi-detached homes"].includes(section.label)
+          || section.label === selectedHomeType.sectionLabel)
+        .map((section) => section.label === selectedHomeType.sectionLabel
+          ? { ...section, label: selectedHomeType.title, gallery: [] }
+          : section),
+      pairedSections: [5, 6],
+    }
+    : baseStory;
   const title = storyPage.querySelector("[data-story-title]");
   const heading = storyPage.querySelector(".project-story-heading");
   const meta = storyPage.querySelector("[data-story-meta]");
@@ -933,7 +988,7 @@ if (storyPage) {
     const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
     const pageDescription = story.seoDescription || story.deck;
     const routeSlug = projectRouteSlugs[storySlug] || storySlug;
-    const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(routeSlug)}`;
+    const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(routeSlug)}${selectedHomeType ? `?home=${encodeURIComponent(requestedHomeType)}` : ""}`;
     const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/davric-towers-real.jpg");
     const imageUrl = new URL(imagePath, `${window.location.origin}/`).href;
     document.title = pageTitle;
@@ -985,7 +1040,7 @@ if (storyPage) {
     if (price) price.textContent = story.price || "On request";
     if (priceLabel) priceLabel.textContent = story.price === "SOLD" ? "Availability" : "Price";
     if (priceBox) priceBox.classList.toggle("is-sold", story.price === "SOLD");
-    if (enquiryLink) enquiryLink.href = `/contact?project=${encodeURIComponent(storySlug)}`;
+    if (enquiryLink) enquiryLink.href = `/contact?project=${encodeURIComponent(selectedHomeType?.contactSlug || storySlug)}`;
 
     if (visual && story.video && story.image) {
       const hero = storyPage.querySelector(".project-story-hero");
@@ -1079,7 +1134,7 @@ if (storyPage) {
         `<h2 id="story-key-features-title">${story.keyFeaturesLead || "Key features"}</h2>`,
         '</div>',
         '<div class="story-key-features-grid">',
-        story.keyFeatures.map((feature) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom">${featureIcon(feature.title)}<h3>${feature.title}</h3>${feature.detail ? `<p>${feature.detail}</p>` : ""}</article>`).join(""),
+        story.keyFeatures.map((feature) => `<article class="story-key-feature${feature.priority ? " story-key-feature--priority" : ""}" data-reveal="zoom">${featureIcon(feature.title)}<h3>${feature.title}</h3></article>`).join(""),
         '</div>',
       ].join("");
 
