@@ -344,8 +344,8 @@ const projectStories = {
       { title: "Gated estate security", detail: "The estate plans include controlled access, security and CCTV, with dedicated gatehouse and security office spaces.", priority: true },
       { title: "Close to the Police Commissioner’s Residence", detail: "Pebblebrooks is in Jericho, close to the Police Commissioner’s Residence, a notable nearby landmark.", priority: true },
       { title: "13 homes", detail: "Seven four-bedroom terrace homes and six four-bedroom semi-detached homes are arranged around the shared estate grounds." },
-      { title: "Basement suites", detail: "Each semi-detached home includes a one-bedroom basement apartment. The typical basement plan is 59 sqm." },
-      { title: "Three-level terrace plans", detail: "The typical terrace plan gives 83.5 sqm to the ground floor and 98 sqm each to the first and second floors." },
+      { title: "Basement suites", detail: "Each semi-detached home includes a one-bedroom basement apartment. The basement plan is 59 sqm." },
+      { title: "Three-level terrace plans", detail: "The terrace plan gives 83.5 sqm to the ground floor and 98 sqm each to the first and second floors." },
       { title: "Resident amenities", detail: "The plans show a landscaped central mall, badminton court, swimming pool, green and play area, gym and outdoor terrace." },
       { title: "Estate services", detail: "The gatehouse plans identify generator space, a general office and facility manager spaces alongside estate security services." },
       { title: "Design and finish", detail: "The brochure describes open plans, large energy-efficient windows, premium flooring and cabinetry, designer kitchen appliances and spa-style bathrooms." },
@@ -366,21 +366,21 @@ const projectStories = {
         { image: "assets/pebblebrooks/plans/pebblebrooks-site-layout.webp", alt: "Pebblebrooks Estate site layout showing seven terraces, six semi-detached homes, parking, badminton court, ancillary building and gatehouse", caption: "Estate site layout", note: "13 homes · Jericho, Ibadan" },
       ] },
       { label: "Terrace homes", heading: "Seven four-bedroom homes, planned across three levels.", paragraphs: [
-        "The typical terrace home has an 83.5 sqm ground floor, a 98 sqm first floor and a 98 sqm second floor. The ground level brings together a 31 sqm lounge, dining room, kitchen, pantry, guest WC and a maid’s room with its own bath.",
+        "The terrace home has an 83.5 sqm ground floor, a 98 sqm first floor and a 98 sqm second floor. The ground level brings together a 31 sqm lounge, dining room, kitchen, pantry, guest WC and a maid’s room with its own bath.",
         "The upper floors add a family lounge, two bedrooms and a main bedroom with a walk-in closet. Balconies appear on both upper levels in the supplied drawings.",
       ], galleryLayout: "plans-landscape", gallery: [
-        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-ground-floor.webp", alt: "Ground floor plan for a typical Pebblebrooks terrace home, 83.5 square metres", caption: "Ground floor", note: "83.5 sqm · lounge, kitchen and maid’s room" },
-        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-first-floor.webp", alt: "First floor plan for a typical Pebblebrooks terrace home, 98 square metres", caption: "First floor", note: "98 sqm · family lounge and bedrooms" },
-        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-second-floor.webp", alt: "Second floor plan for a typical Pebblebrooks terrace home, 98 square metres", caption: "Second floor", note: "98 sqm · main bedroom and bedroom three" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-ground-floor.webp", alt: "Ground floor plan for a Pebblebrooks terrace home, 83.5 square metres", caption: "Ground floor", note: "83.5 sqm · lounge, kitchen and maid’s room" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-first-floor.webp", alt: "First floor plan for a Pebblebrooks terrace home, 98 square metres", caption: "First floor", note: "98 sqm · family lounge and bedrooms" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-terrace-second-floor.webp", alt: "Second floor plan for a Pebblebrooks terrace home, 98 square metres", caption: "Second floor", note: "98 sqm · main bedroom and bedroom three" },
       ] },
       { label: "Semi-detached homes", heading: "Six homes with a separate one-bedroom basement apartment.", paragraphs: [
-        "The typical semi-detached home is shown with a 59 sqm basement, an 84 sqm ground floor and two 100 sqm upper floors. Each home is described as a four-bedroom residence with a one-bedroom basement apartment.",
+        "The semi-detached home is shown with a 59 sqm basement, an 84 sqm ground floor and two 100 sqm upper floors. Each home is described as a four-bedroom residence with a one-bedroom basement apartment.",
         "The basement plan includes a lounge, kitchen, bath, laundry and store. Above it, the ground floor contains the main living, dining and kitchen spaces; the upper floors add bedrooms, family lounge, cinema room, walk-in closets and balconies.",
       ], galleryLayout: "plans-landscape-pair", gallery: [
-        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-basement.webp", alt: "Basement floor plan for a typical Pebblebrooks semi-detached home, 59 square metres", caption: "Basement floor", note: "59 sqm · one-bedroom apartment layout" },
-        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-ground-floor.webp", alt: "Ground floor plan for a typical Pebblebrooks semi-detached home, 84 square metres", caption: "Ground floor", note: "84 sqm · living, dining and kitchen" },
-        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-first-floor.webp", alt: "First floor plan for a typical Pebblebrooks semi-detached home, 100 square metres", caption: "First floor", note: "100 sqm · bedrooms, lounge and cinema" },
-        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-second-floor.webp", alt: "Second floor plan for a typical Pebblebrooks semi-detached home, 100 square metres", caption: "Second floor", note: "100 sqm · main bedroom and bedroom three" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-basement.webp", alt: "Basement floor plan for a Pebblebrooks semi-detached home, 59 square metres", caption: "Basement floor", note: "59 sqm · one-bedroom apartment layout" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-ground-floor.webp", alt: "Ground floor plan for a Pebblebrooks semi-detached home, 84 square metres", caption: "Ground floor", note: "84 sqm · living, dining and kitchen" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-first-floor.webp", alt: "First floor plan for a Pebblebrooks semi-detached home, 100 square metres", caption: "First floor", note: "100 sqm · bedrooms, lounge and cinema" },
+        { image: "assets/pebblebrooks/plans/pebblebrooks-semi-second-floor.webp", alt: "Second floor plan for a Pebblebrooks semi-detached home, 100 square metres", caption: "Second floor", note: "100 sqm · main bedroom and bedroom three" },
       ] },
       { label: "Shared amenities", heading: "Everyday recreation has its own place.", paragraphs: [
         "The ancillary building drawings show a ground-floor green and play area beside a swimming pool, with parking and washroom facilities. The first floor contains a 38 sqm gym, while the second floor is arranged as an outdoor terrace and sit-out.",
@@ -618,17 +618,20 @@ if (mediaProjectAlbums) {
         ? "media-project-preview--one"
         : previewImages.length === 2 ? "media-project-preview--two" : "media-project-preview--three";
       const previewMarkup = previewImages.map((item, index) => `
-        <figure class="${isPlanImage(item) ? "media-project-preview-item--plan" : ""}">
-          <img src="${escapeMediaMarkup(item.image)}" alt="${escapeMediaMarkup(item.alt || item.caption || story.title)}" loading="lazy" decoding="async" />
-          <figcaption><small>${escapeMediaMarkup(story.number)} · ${escapeMediaMarkup(story.location)}</small><strong>${escapeMediaMarkup(item.caption || "Project view")}</strong><span>${String(index + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}</span></figcaption>
+        <figure class="media-project-placeholder-figure ${isPlanImage(item) ? "media-project-preview-item--plan" : ""}">
+          <div class="media-project-placeholder-art" aria-hidden="true">
+            <span class="media-project-placeholder-number">${String(index + 1).padStart(2, "0")}</span>
+            <span class="media-project-placeholder-monogram">DR</span>
+          </div>
+          <figcaption><small>PROJECT VISUAL · COMING SOON</small><strong>${escapeMediaMarkup(item.caption || "Project view")}</strong><span>${String(index + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}</span></figcaption>
         </figure>
       `).join("");
-      const galleryMarkup = projectImages.map((item) => `
-        <figure class="${isPlanImage(item) ? "media-project-gallery-item--plan" : ""}">
-          <img src="${escapeMediaMarkup(item.image)}" alt="${escapeMediaMarkup(item.alt || item.caption || story.title)}" loading="lazy" decoding="async" />
-          <figcaption><small>${escapeMediaMarkup(story.title)} · ${escapeMediaMarkup(story.location)}</small><strong>${escapeMediaMarkup(item.caption || "Project view")}</strong><span>${escapeMediaMarkup(item.note || (item.type === "plan" ? "Home plan" : "Project visualisation"))}</span></figcaption>
-        </figure>
-      `).join("");
+      const galleryMarkup = `
+        <div class="media-empty-state media-project-empty-state">
+          <span class="media-empty-index">${escapeMediaMarkup(story.number)}</span>
+          <div><h4>Project images coming soon.</h4><p>The photographs and plans for ${escapeMediaMarkup(story.title)} are being prepared. You can read the project story in the meantime.</p></div>
+        </div>
+      `;
       const projectTitle = escapeMediaMarkup(story.galleryTitle || story.title);
       const projectDescription = escapeMediaMarkup(story.deck || story.galleryNote || "Explore the images from this Dav-Ric project.");
       const projectLabel = escapeMediaMarkup(`${story.number} · ${story.category} · ${story.location}`);
@@ -638,10 +641,10 @@ if (mediaProjectAlbums) {
         <details class="media-album media-album--project">
           <summary class="media-album-summary media-album-summary--project">
             <div class="media-project-preview ${previewLayout}" role="group" aria-label="${escapeMediaMarkup(`Preview of ${story.title} project images`)}">${previewMarkup}</div>
-            <div class="media-album-copy"><p class="eyebrow">${projectLabel}</p><h4>${projectTitle}</h4><p>${projectDescription}</p><span class="media-album-action">Explore all ${count} views <span aria-hidden="true">↗</span></span></div>
+            <div class="media-album-copy"><p class="eyebrow">${projectLabel}</p><h4>${projectTitle}</h4><p>${projectDescription}</p><span class="media-album-action">Project images coming soon <span aria-hidden="true">↗</span></span></div>
           </summary>
           <div class="media-album-content">
-            <div class="media-image-grid media-image-grid--captioned media-project-gallery">${galleryMarkup}</div>
+            <div class="media-project-gallery media-project-gallery--empty">${galleryMarkup}</div>
             <a class="media-project-link" href="/projects/${escapeMediaMarkup(routeSlug)}">Read the ${escapeMediaMarkup(story.title)} project story <span aria-hidden="true">↗</span></a>
           </div>
         </details>
@@ -962,7 +965,13 @@ if (storyPage) {
           : section),
       pairedSections: [5, 6],
     }
-    : baseStory;
+    : storySlug === "pebblebrooks-estate"
+      ? {
+        ...baseStory,
+        sections: baseStory.sections.filter((section) => !["Terrace homes", "Semi-detached homes"].includes(section.label)),
+        pairedSections: [4, 5],
+      }
+      : baseStory;
   const title = storyPage.querySelector("[data-story-title]");
   const heading = storyPage.querySelector(".project-story-heading");
   const meta = storyPage.querySelector("[data-story-meta]");
