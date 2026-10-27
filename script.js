@@ -1167,7 +1167,9 @@ if (storyPage) {
     }
 
     if (body) {
-      const seenStoryImages = new Set(story.image ? [story.image] : []);
+      const seenStoryImages = new Set(
+        story.galleryLayout === "living-waters-gallery" || !story.image ? [] : [story.image],
+      );
       const uniqueStoryImages = (items = []) => items.filter((item) => {
         if (!item?.image || seenStoryImages.has(item.image)) return false;
         seenStoryImages.add(item.image);
