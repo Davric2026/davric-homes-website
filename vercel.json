@@ -1,3 +1,13 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/projects/pebblebrooks-terrace-home",
+      "destination": "/projects/pebblebrooks-estate.html"
+    },
+    {
+      "source": "/projects/pebblebrooks-semi-detached-building",
+      "destination": "/projects/pebblebrooks-estate.html"
+    }
+  ]
 }

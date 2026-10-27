@@ -574,6 +574,11 @@ const pebblebrooksHomeTypes = {
   },
 };
 
+const pebblebrooksHomeRoutes = {
+  "pebblebrooks-terrace-home": "terrace",
+  "pebblebrooks-semi-detached-building": "semi-detached",
+};
+
 const mediaProjectAlbums = document.querySelector("[data-media-project-albums]");
 if (mediaProjectAlbums) {
   const escapeMediaMarkup = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
@@ -932,10 +937,13 @@ if (storyPage) {
     "davric-towers": "davric-towers",
   };
   const storyRouteSlug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
+  const homeTypeFromRoute = pebblebrooksHomeRoutes[storyRouteSlug];
   const storySlug = storyRouteSlug
-    ? Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
+    ? homeTypeFromRoute
+      ? "pebblebrooks-estate"
+      : Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
     : new URLSearchParams(window.location.search).get("story");
-  const requestedHomeType = new URLSearchParams(window.location.search).get("home");
+  const requestedHomeType = homeTypeFromRoute || new URLSearchParams(window.location.search).get("home");
   const selectedHomeType = storySlug === "pebblebrooks-estate"
     ? pebblebrooksHomeTypes[requestedHomeType]
     : null;
@@ -997,7 +1005,9 @@ if (storyPage) {
     const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
     const pageDescription = story.seoDescription || story.deck;
     const routeSlug = projectRouteSlugs[storySlug] || storySlug;
-    const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(routeSlug)}${selectedHomeType ? `?home=${encodeURIComponent(requestedHomeType)}` : ""}`;
+    const homeTypeRouteSlug = Object.entries(pebblebrooksHomeRoutes).find(([, homeType]) => homeType === requestedHomeType)?.[0];
+    const canonicalSlug = selectedHomeType ? homeTypeRouteSlug || routeSlug : routeSlug;
+    const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(canonicalSlug)}`;
     const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/davric-towers-real.jpg");
     const imageUrl = new URL(imagePath, `${window.location.origin}/`).href;
     document.title = pageTitle;
