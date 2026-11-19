@@ -7299,6 +7299,7 @@ html[data-theme="dark"] .story-key-features .story-key-feature--priority {
 .media-album--signings .media-album-copy { padding: 19px 22px 18px; }
 .media-album--signings .media-album-copy h3 { margin-bottom: 10px; font-size: clamp(27px, 3vw, 40px); line-height: 1.02; }
 .media-album--signings .media-album-copy > p:not(.eyebrow) { margin-bottom: 14px; font-size: 13.23px; line-height: 1.55; }
+.media-album--site-visit .media-album-copy h3 { font-size: clamp(24px, 2.3vw, 31px); line-height: 1.08; }
 .media-album[open] .media-album-summary--mosaic {
   min-height: 0;
   grid-template-columns: minmax(0, 1fr);
@@ -7521,6 +7522,35 @@ html[data-theme="dark"] .story-key-features .story-key-feature--priority {
   .media-image-grid--editorial figure:nth-child(5n + 1) { grid-column: span 6; grid-row: span 4; }
   .media-project-gallery figure:nth-child(5n + 2),
   .media-image-grid--editorial figure:nth-child(5n + 2) { grid-column: span 3; grid-row: span 4; }
+}
+
+/* Keep the Living Waters album cards even and their galleries easy to scan. */
+.media-album-list { align-items: stretch; }
+.media-album-list > .media-album { display: flex; flex-direction: column; transition: border-color 180ms ease, box-shadow 180ms ease; }
+.media-album-list > .media-album:not([open]) > .media-album-summary { flex: 1; }
+.media-album-list > .media-album:hover { border-color: var(--gold-ink); box-shadow: 0 18px 42px rgb(13 40 87 / 12%); }
+.media-album-list > .media-album:focus-within { border-color: var(--gold-ink); }
+.media-album-list > .media-album .media-album-action { margin-top: auto; color: var(--gold-ink); }
+.media-album-list > .media-album .media-image-grid--editorial {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 12px;
+}
+.media-album-list > .media-album .media-image-grid--editorial figure {
+  grid-column: span 1;
+  grid-row: span 1;
+  aspect-ratio: 1;
+  border-radius: 12px;
+}
+.media-album-list .media-image-grid--preview figcaption,
+.media-album-list .media-album-content .media-image-grid--editorial figcaption { display: none; }
+.media-album-list .media-album-content .media-image-grid--editorial img { cursor: zoom-in; }
+.media-album-list .media-album-content .media-image-grid--editorial img:focus-visible { outline: 3px solid var(--gold-ink); outline-offset: -3px; }
+@media (max-width: 680px) {
+  .media-album-list > .media-album .media-image-grid--editorial { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .media-album-list > .media-album { transition: none; }
 }
 
 /* Header dropdowns for property types and direct home listings. */
