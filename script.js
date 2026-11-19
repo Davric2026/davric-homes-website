@@ -410,10 +410,10 @@ const projectStories = {
     ],
   },
   "project-beta": {
-    title: "Palm Harbour Estate Phase 1", seoTitle: "Palm Harbour Estate Phase 1 | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate Phase 1 in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
-    image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", imageAlt: "Palm Harbour Estate Phase 1 contemporary terrace homes viewed from the street in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
-    deck: "A fresh look at Palm Harbour Estate Phase 1, a residential community in Alalubosa, Ibadan.",
-    price: "On request", formValue: "Palm Harbour Estate Phase 1",
+    title: "Palm Harbour Estate", seoTitle: "Palm Harbour Estate | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
+    image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", imageAlt: "Palm Harbour Estate contemporary terrace homes viewed from the street in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
+    deck: "A fresh look at Palm Harbour Estate, a residential community in Alalubosa, Ibadan.",
+    price: "On request", formValue: "Palm Harbour Estate",
     facts: [["Location", "Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
     keyFeatures: [
       { title: "Two development stages", detail: "The project information lists five existing terrace homes and a separate new phase of five G+2 homes." },
@@ -422,15 +422,15 @@ const projectStories = {
       { title: "Alalubosa address", detail: "The estate is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site." },
     ],
     galleryAfter: 1, galleryTitle: "Exterior gallery", galleryLabel: "Architectural visualisations · Alalubosa, Ibadan", gallery: [
-      { image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", alt: "Palm Harbour Estate Phase 1 terrace homes viewed from the street with residents arriving", caption: "A welcoming street front", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-exterior-02.jpeg", alt: "A row of Palm Harbour Estate Phase 1 homes at sunset", caption: "The terrace row at sunset", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-exterior-03.jpeg", alt: "Palm Harbour Estate Phase 1 homes and landscaped entrances", caption: "Homes and landscaped entries", note: "Architectural visualisation" },
-      { image: "assets/palm-harbour/palm-harbour-exterior-04.jpeg", alt: "Palm Harbour Estate Phase 1 front elevation at dusk", caption: "An evening view of the homes", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", alt: "Palm Harbour Estate terrace homes viewed from the street with residents arriving", caption: "A welcoming street front", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-02.jpeg", alt: "A row of Palm Harbour Estate homes at sunset", caption: "The terrace row at sunset", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-03.jpeg", alt: "Palm Harbour Estate homes and landscaped entrances", caption: "Homes and landscaped entries", note: "Architectural visualisation" },
+      { image: "assets/palm-harbour/palm-harbour-exterior-04.jpeg", alt: "Palm Harbour Estate front elevation at dusk", caption: "An evening view of the homes", note: "Architectural visualisation" },
     ],
     pairedSections: [3, 4],
     sections: [
       { label: "The setting", heading: "An established Alalubosa address with a new phase.", paragraphs: [
-        "Palm Harbour Estate Phase 1 is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site. The published project information lists an existing row of five terrace homes and a separate new phase of five homes.",
+        "Palm Harbour Estate is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site. The published project information lists an existing row of five terrace homes and a separate new phase of five homes.",
         "The exterior visualisations show the homes, entrance and shared estate setting from several angles.",
       ] },
       { label: "Building plans", heading: "Ground- and upper-floor layouts, together.", paragraphs: [
