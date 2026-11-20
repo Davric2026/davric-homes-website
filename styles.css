@@ -7886,6 +7886,35 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   background: #f2f0eb;
 }
 
+.story-image-gallery--three-up {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: clamp(240px, 27vw, 370px);
+  gap: 12px;
+  margin: 0;
+}
+
+.story-image-gallery--three-up > .palm-gallery-tile {
+  grid-area: auto;
+  grid-column: span 2;
+  grid-row: auto;
+}
+
+.story-image-gallery--three-up > .palm-gallery-tile:nth-child(4):last-child { grid-column: 3 / span 2; }
+.story-image-gallery--three-up > .palm-gallery-tile:nth-child(4):not(:last-child) { grid-column: 2 / span 2; }
+.story-image-gallery--three-up > .palm-gallery-tile:nth-child(5):last-child { grid-column: 4 / span 2; }
+.story-image-gallery--three-up .palm-gallery-tile--plan .palm-gallery-open > img {
+  box-sizing: border-box;
+  padding: clamp(12px, 2vw, 24px);
+  object-fit: contain;
+  background: #f2f0eb;
+}
+.story-image-gallery--three-up .palm-gallery-caption > span:nth-child(2) small {
+  display: block;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 /* Keep the two headline lines within the hero copy at common desktop widths. */
 .hero h1 {
   max-width: 100%;
@@ -8060,6 +8089,17 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   .story-image-gallery--guzape-mosaic .palm-gallery-tile--1,
   .story-image-gallery--guzape-mosaic .palm-gallery-tile--2 { grid-column: 1 / -1; grid-row: span 3; }
   .story-image-gallery--guzape-mosaic .palm-gallery-tile--3 .palm-gallery-open > img { padding: 8px; }
+  .story-image-gallery--three-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(185px, 52vw, 290px);
+    gap: 8px;
+  }
+  .story-image-gallery--three-up > .palm-gallery-tile { grid-area: auto; grid-column: span 1; grid-row: auto; }
+  .story-image-gallery--three-up > .palm-gallery-tile:nth-child(4):last-child,
+  .story-image-gallery--three-up > .palm-gallery-tile:nth-child(4):not(:last-child) { grid-column: auto; }
+  .story-image-gallery--three-up > .palm-gallery-tile:nth-child(5):last-child { grid-column: 1 / -1; }
+  .story-image-gallery--three-up .palm-gallery-tile--plan .palm-gallery-open > img { padding: 8px; }
+  .story-image-gallery--three-up .palm-gallery-caption > span:nth-child(2) small { font-size: 8.27px; letter-spacing: .045em; }
   .media-tower-film { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 24px; border-radius: 22px; }
   .media-tower-film-copy h3 { font-size: clamp(36px, 8.5vw, 52px); }
 }

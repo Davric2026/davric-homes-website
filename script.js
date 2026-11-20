@@ -332,7 +332,7 @@ document.querySelectorAll("[data-project-save]").forEach((button) => {
 });
 const projectStories = {
   "pebblebrooks-estate": {
-    title: "Pebblebrooks Estate", seoTitle: "Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes", seoDescription: "Explore 13 gated homes in Jericho, Ibadan, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
+    title: "Pebblebrooks Estate", estateName: "Pebblebrooks Estate", seoTitle: "Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes", seoDescription: "Explore 13 gated homes in Jericho, Ibadan, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
     image: "assets/pebblebrooks-render.webp", imageAlt: "Architectural concept rendering of the Pebblebrooks Estate homes", visualNote: "Artist’s impression · design visualisation",
     deck: "13 gated homes in Jericho, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.",
     price: "On request", formValue: "Pebblebrooks Estate",
@@ -352,7 +352,7 @@ const projectStories = {
       { title: "Ensuite bathrooms" },
       { title: "Large balconies" },
     ],
-    galleryAfter: 1, galleryTitle: "Estate and exterior gallery", galleryLabel: "Architectural visualisations · Jericho, Ibadan", galleryLayout: "pebblebrooks-gallery",
+    galleryAfter: 1, galleryTitle: "Estate and exterior gallery", galleryLabel: "Pebblebrooks Estate · Jericho, Ibadan", galleryLayout: "pebblebrooks-gallery",
     galleryNote: "Architectural visualisations are illustrative; home layouts, materials and final specifications are subject to confirmation.",
     gallery: [
       { image: "assets/pebblebrooks-render.webp", alt: "Aerial architectural visualisation of the Pebblebrooks Estate homes and shared courtyard", caption: "The estate", size: "wide" },
@@ -410,18 +410,18 @@ const projectStories = {
     ],
   },
   "project-beta": {
-    title: "Palm Harbour Estate", seoTitle: "Palm Harbour Estate | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
+    title: "Palm Harbour Estate", estateName: "Palm Harbour Estate", seoTitle: "Palm Harbour Estate | Alalubosa, Ibadan", seoDescription: "Explore Palm Harbour Estate in Alalubosa, Ibadan, with project information, home plans and exterior views.", number: "04", category: "Residential · Ibadan", location: "Alalubosa, Ibadan", area: "Approx. 3,023 sqm",
     image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", imageAlt: "Palm Harbour Estate contemporary terrace homes viewed from the street in Alalubosa, Ibadan", visualNote: "Architectural visualisations · illustrative",
     deck: "A fresh look at Palm Harbour Estate, a residential community in Alalubosa, Ibadan.",
     price: "On request", formValue: "Palm Harbour Estate",
-    facts: [["Location", "Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
+    facts: [["Location", "Palm Harbour Estate · Alalubosa, Ibadan"], ["Site area", "Approx. 3,023 sqm"], ["Existing row", "5 terrace homes"], ["New phase", "5 homes · G+2"]],
     keyFeatures: [
       { title: "Two development stages", detail: "The project information lists five existing terrace homes and a separate new phase of five G+2 homes." },
       { title: "Everyday ground-floor spaces", detail: "The supplied plan shows a living room, dining area, kitchen, laundry, store, guest room and ante room." },
       { title: "Upper-floor rooms", detail: "The upper plan includes a master bedroom, other bedrooms, toilets, a lounge beside a void and a terrace." },
       { title: "Alalubosa address", detail: "The estate is located in Alalubosa, Ibadan, on an approximately 3,023 sqm site." },
     ],
-    galleryAfter: 1, galleryTitle: "Exterior gallery", galleryLabel: "Architectural visualisations · Alalubosa, Ibadan", gallery: [
+    galleryAfter: 1, galleryTitle: "Exterior gallery", galleryLabel: "Palm Harbour Estate · Alalubosa, Ibadan", galleryLayout: "three-up", gallery: [
       { image: "assets/palm-harbour/palm-harbour-exterior-01.jpeg", alt: "Palm Harbour Estate terrace homes viewed from the street with residents arriving", caption: "A welcoming street front", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-exterior-02.jpeg", alt: "A row of Palm Harbour Estate homes at sunset", caption: "The terrace row at sunset", note: "Architectural visualisation" },
       { image: "assets/palm-harbour/palm-harbour-exterior-03.jpeg", alt: "Palm Harbour Estate homes and landscaped entrances", caption: "Homes and landscaped entries", note: "Architectural visualisation" },
@@ -451,11 +451,11 @@ const projectStories = {
     ],
   },
   guzape: {
-    title: "Guzape · Abuja", seoTitle: "Guzape Main Project | Abuja | Dav-Ric Homes", seoDescription: "Explore the Guzape, Abuja terrace-home concept through its four-home site layout, three-level floor plans and architectural visualisations.", number: "03", category: "Residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
+    title: "Guzape · Abuja", estateName: "Guzape Main Project", seoTitle: "Guzape Main Project | Abuja | Dav-Ric Homes", seoDescription: "Explore the Guzape, Abuja terrace-home concept through its four-home site layout, three-level floor plans and architectural visualisations.", number: "03", category: "Residential · Abuja", location: "Guzape, Abuja, FCT", area: "Approx. 1,667 sqm",
     image: "assets/guzape/guzape-terrace-row-hero.jpg", imageAlt: "Architectural visualisation of a terrace-home row for the Guzape project in Abuja", visualNote: "Concept visualisation · subject to final design",
     deck: "A terrace-home concept for Guzape, Abuja, presented through a four-home site layout, three-level plans and exterior visualisations.",
     price: "On request", formValue: "Guzape Main Project",
-    facts: [["Location", "Guzape, Abuja"], ["Site area", "Approx. 1,667 sqm"], ["Homes shown", "4 terrace homes"], ["Plans", "Ground · first · second floors"], ["Stage", "Concept design"]],
+    facts: [["Location", "Guzape Main Project · Guzape, Abuja, FCT"], ["Site area", "Approx. 1,667 sqm"], ["Homes shown", "4 terrace homes"], ["Plans", "Ground · first · second floors"], ["Stage", "Concept design"]],
     keyFeatures: [
       { title: "Guzape, Abuja" },
       { title: "Approx. 1,667 sqm" },
@@ -464,7 +464,7 @@ const projectStories = {
       { title: "Terrace home designs" },
       { title: "Concept design" },
     ],
-    galleryTitle: "Guzape project presentation", galleryLabel: "Terrace homes · Guzape, Abuja", galleryLayout: "guzape-mosaic",
+    galleryTitle: "Guzape project presentation", galleryLabel: "Guzape Main Project · Guzape, Abuja", galleryLayout: "three-up",
     galleryNote: "Concept plans and architectural visualisations from the Abuja project presentation.",
     gallery: [
       { image: "assets/guzape/guzape-aerial-view.jpg", alt: "Aerial exterior visualisation of the Guzape terrace-home development", caption: "Aerial exterior view", size: "wide" },
@@ -490,18 +490,18 @@ const projectStories = {
   },
 
   "davric-towers": {
-    title: "Dav-Ric Towers", seoTitle: "Dav-Ric Towers | Oluyole, Ibadan | Dav-Ric Homes", seoDescription: "Visit Dav-Ric Towers, the completed Dav-Ric Group headquarters in Oluyole, Ibadan, and view exterior photography and project details.", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
+    title: "Dav-Ric Towers", estateName: "Dav-Ric Towers", seoTitle: "Dav-Ric Towers | Oluyole, Ibadan | Dav-Ric Homes", seoDescription: "Visit Dav-Ric Towers, the completed Dav-Ric Group headquarters in Oluyole, Ibadan, and view exterior photography and project details.", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
     image: "assets/davric-towers-real.jpg", imageAlt: "Real exterior photograph of completed Dav-Ric Towers in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
     deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
     price: "SOLD", formValue: "Dav-Ric Towers",
-    facts: [["Location", "Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
+    facts: [["Location", "Dav-Ric Towers · Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
     keyFeatures: [
       { title: "Group headquarters", detail: "Dav-Ric Towers serves as the Dav-Ric Group headquarters in Oluyole, Ibadan." },
       { title: "Commercial building", detail: "The completed project is presented as a commercial building in the Dav-Ric portfolio." },
       { title: "Red lattice facade", detail: "The exterior combines a bold red lattice screen with glazed openings and darker solid forms." },
       { title: "Completed", detail: "The portfolio lists Dav-Ric Towers as complete and its availability as sold." },
     ],
-    galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Completed headquarters · Oluyole, Ibadan", galleryLayout: "project-mosaic",
+    galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Dav-Ric Towers · Oluyole, Ibadan", galleryLayout: "project-mosaic",
     galleryNote: "Completed-building photography and architectural visualisations.",
     gallery: [
       { image: "assets/davric-towers-real.jpg", alt: "Real street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "Dav-Ric Towers · completed exterior", size: "wide" },
@@ -524,11 +524,11 @@ const projectStories = {
     ],
   },
   ajoda: {
-    title: "Living Waters Estate", seoTitle: "Living Waters Estate | Ajoda New Town, Ibadan", seoDescription: "Explore three home plan options for Living Waters Estate in Ajoda New Town, Ibadan, including three-bedroom, two-bedroom and flat-roof designs.", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
+    title: "Living Waters Estate", estateName: "Living Waters Estate", seoTitle: "Living Waters Estate | Ajoda New Town, Ibadan", seoDescription: "Explore three home plan options for Living Waters Estate in Ajoda New Town, Ibadan, including three-bedroom, two-bedroom and flat-roof designs.", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
     image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
     deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
     price: "On request", formValue: "Living Waters Estate",
-    galleryTitle: "The Living Waters home collection", galleryLabel: "Home plans and design visuals · Ajoda New Town, Ibadan", galleryLayout: "living-waters-gallery",
+    galleryTitle: "The Living Waters home collection", galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan", galleryLayout: "living-waters-gallery",
     galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
     gallery: [
       { image: "assets/ajoda/ajoda-three-bedroom-vision.png", alt: "Exterior visualisation of the three-bedroom Living Waters Estate home", caption: "Three-bedroom home" },
@@ -538,7 +538,7 @@ const projectStories = {
       { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters Estate home", caption: "Two-bedroom plan", type: "plan" },
       { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters Estate home", caption: "Flat-roof plan", type: "plan" },
     ],
-    facts: [["Location", "Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
+    facts: [["Location", "Living Waters Estate · Ajoda New Town, Ibadan"], ["Home types", "3-bedroom · 2-bedroom"], ["Roof option", "2-bedroom flat roof"]],
     keyFeatures: [
       { title: "Three-bedroom home", detail: "A three-bedroom home plan is supplied for Living Waters Estate." },
       { title: "Two-bedroom home", detail: "A separate two-bedroom home plan and exterior visualisation are supplied." },
@@ -652,7 +652,7 @@ if (mediaProjectAlbums) {
       `;
       const projectTitle = escapeMediaMarkup(story.galleryTitle || story.title);
       const projectDescription = escapeMediaMarkup(story.deck || story.galleryNote || "Explore the images from this Dav-Ric project.");
-      const projectLabel = escapeMediaMarkup(`${story.number} · ${story.category} · ${story.location}`);
+      const projectLabel = escapeMediaMarkup(`${story.number} · ${story.category} · ${story.estateName || story.title} · ${story.location}`);
       const routeSlug = mediaRouteSlugs[slug] || slug;
 
       return `
@@ -1202,6 +1202,7 @@ if (storyPage) {
         return true;
       });
       const storyGallery = uniqueStoryImages(story.gallery || []);
+      const galleryByline = `${story.estateName || story.title} · ${story.location}`;
       const galleryMarkup = story.galleryTitle
         ? `
           <section class="palm-gallery-section palm-gallery-section--${story.galleryLayout || "palm-harbour"}" data-story-reveal aria-label="${story.galleryTitle}">
@@ -1215,7 +1216,7 @@ if (storyPage) {
                   <button class="palm-gallery-open" type="button" data-gallery-open data-gallery-index="${index}" data-gallery-src="${item.image}" data-gallery-alt="${item.alt}" data-gallery-caption="${item.caption}" aria-label="View ${item.caption}">
                     <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async" />
                     <span class="palm-gallery-counter"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 9.5 3h5L16 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3Z"/><circle cx="12" cy="12" r="3.5"/></svg>${String(storyGallery.length).padStart(2, "0")} <i>views</i></span>
-                    <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${story.location}</small></span><span class="palm-gallery-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span>
+                    <span class="palm-gallery-caption"><span class="palm-gallery-brand"><strong>DAV-RIC</strong><small>HOMES</small></span><span><strong>${item.caption}</strong><small>${galleryByline}</small></span><span class="palm-gallery-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span>
                   </button>
                 </figure>
               `).join("")}
@@ -1401,7 +1402,7 @@ if (storyPage) {
           return `
             <a class="story-related-card" href="/projects/${encodeURIComponent(projectRouteSlugs[slug] || slug)}" aria-label="Read the ${related.title} project story">
               <div class="story-related-media">${preview}<span class="story-related-arrow" aria-hidden="true"><svg class="ui-arrow ui-arrow--up-right" viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M7 7h10v10" /></svg></span></div>
-              <div class="story-related-copy"><p>${related.category}</p><h3>${related.title}</h3><span>${related.location}</span></div>
+              <div class="story-related-copy"><p>${related.category}</p><h3>${related.estateName || related.title}</h3><span>${related.location}</span></div>
             </a>
           `;
         }).join("");
