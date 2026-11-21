@@ -241,8 +241,8 @@ function applyProjectFilters() {
     if (show) visible += 1;
   });
 
-  const noun = visible === 1 ? "property" : "properties";
-  if (projectCount) projectCount.textContent = "Showing " + visible + " " + noun;
+  const noun = projectCount?.dataset.countNoun || "property";
+  if (projectCount) projectCount.textContent = `Showing ${visible} ${noun}${visible === 1 ? "" : "s"}`;
   if (projectEmptyState) projectEmptyState.hidden = visible > 0;
   const hasFilters = location !== "all" || type !== "all" || bedrooms !== "all"
     || availability !== "all" || Boolean(minPrice || maxPrice);
