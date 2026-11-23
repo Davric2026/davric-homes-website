@@ -145,6 +145,14 @@ primaryNav?.addEventListener("keydown", (event) => {
 });
 
 const pageTransition = document.querySelector("[data-page-transition]");
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
+
+  // The back/forward cache restores the old DOM mid-transition. Reset its overlay.
+  document.documentElement.classList.remove("page-leaving", "page-arriving");
+  pageTransition?.classList.remove("is-active");
+});
+
 document.addEventListener("click", (event) => {
   const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
   if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
