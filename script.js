@@ -497,40 +497,6 @@ const projectStories = {
     ],
   },
 
-  "davric-towers": {
-    title: "Dav-Ric Towers", estateName: "Dav-Ric Towers", seoTitle: "Dav-Ric Towers | Oluyole, Ibadan | Dav-Ric Homes", seoDescription: "Visit Dav-Ric Towers, the completed Dav-Ric Group headquarters in Oluyole, Ibadan, and view exterior photography and project details.", number: "05", category: "Commercial building · Ibadan", location: "Oluyole, Ibadan",
-    image: "assets/davric-towers-real.jpg", imageAlt: "Real exterior photograph of completed Dav-Ric Towers in Oluyole, Ibadan", video: "assets/davric-towers-construction.mp4?v=img-9256-20260928", videoAlt: "Construction film showing Dav-Ric Towers in Oluyole, Ibadan",
-    deck: "Dav-Ric Towers is the completed Dav-Ric Group headquarters in Oluyole, Ibadan.",
-    price: "SOLD", formValue: "Dav-Ric Towers",
-    facts: [["Location", "Dav-Ric Towers · Oluyole, Ibadan"], ["Use", "Dav-Ric Group headquarters"], ["Project type", "Commercial building"]],
-    keyFeatures: [
-      { title: "Group headquarters", detail: "Dav-Ric Towers serves as the Dav-Ric Group headquarters in Oluyole, Ibadan." },
-      { title: "Commercial building", detail: "The completed project is presented as a commercial building in the Dav-Ric portfolio." },
-      { title: "Red lattice facade", detail: "The exterior combines a bold red lattice screen with glazed openings and darker solid forms." },
-      { title: "Completed", detail: "The portfolio lists Dav-Ric Towers as complete and its availability as sold." },
-    ],
-    galleryAfter: 2, galleryTitle: "Dav-Ric Towers, in detail", galleryLabel: "Dav-Ric Towers · Oluyole, Ibadan", galleryLayout: "project-mosaic",
-    galleryNote: "Completed-building photography and architectural visualisations.",
-    gallery: [
-      { image: "assets/davric-towers-real.jpg", alt: "Real street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "Dav-Ric Towers · completed exterior", size: "wide" },
-      { image: "assets/davric-towers-completed.jpg", alt: "Street-facing exterior photograph of Dav-Ric Towers with its red lattice facade", caption: "The street-facing exterior", size: "wide" },
-      { image: "assets/davric-towers.webp", alt: "Architectural visualisation of Dav-Ric Towers with its red lattice facade", caption: "Architectural visualisation" },
-      { image: "assets/davric-towers/gallery/davric-towers-new-view.webp", alt: "New architectural visualisation of Dav-Ric Towers with the red lattice facade", caption: "A new exterior view" },
-    ],
-    sections: [
-      { label: "The setting", heading: "A completed landmark in Oluyole, Ibadan.", paragraphs: [
-        "Dav-Ric Towers is the Dav-Ric Group headquarters in Oluyole, Ibadan. The updated project photograph shows the completed building at its Ibadan address.",
-        "Its place in the portfolio recognises the built work behind Dav-Ric’s wider real estate vision, alongside residential homes and communities across the two cities.",
-      ] },
-      { label: "The building", heading: "A distinct identity, carried through the facade.", paragraphs: [
-        "The building pairs a bold red lattice with glazed openings and darker solid forms. The facade gives the headquarters a clear architectural identity on its street.",
-        "The updated exterior photograph presents the completed facade, from its red lattice to the building’s glazed openings.",
-      ] },
-      { label: "Project status", heading: "Completed.", paragraphs: [
-        "Dav-Ric Towers is marked complete in the Dav-Ric Homes portfolio.",
-      ] },
-    ],
-  },
   ajoda: {
     title: "Living Waters Estate", estateName: "Living Waters Estate", seoTitle: "Living Waters Estate | Ajoda New Town, Ibadan", seoDescription: "Explore three home plan options for Living Waters Estate in Ajoda New Town, Ibadan, including three-bedroom, two-bedroom and flat-roof designs.", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
     image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
@@ -614,7 +580,6 @@ if (mediaProjectAlbums) {
     ajoda: "living-waters-estate",
     guzape: "guzape-abuja",
     "project-beta": "palm-harbour-estate-phase-1",
-    "davric-towers": "davric-towers",
   };
   const albumMarkup = Object.entries(projectStories)
     .sort(([, first], [, second]) => Number(first.number) - Number(second.number))
@@ -844,57 +809,6 @@ heroVideo?.addEventListener("error", () => {
   heroVideo.classList.remove("is-ready");
 });
 
-const towerSequence = document.querySelector("[data-tower-sequence]");
-const towerConstructionVideo = towerSequence?.querySelector("[data-tower-construction-video]");
-const towerSequenceStatus = towerSequence?.querySelector("[data-tower-sequence-status]");
-
-if (towerSequence && towerConstructionVideo) {
-  const showCompletedTower = (message = "Completed Dav-Ric Towers photograph shown.") => {
-    towerSequence.classList.remove("is-playing");
-    towerSequence.classList.add("is-complete");
-    if (towerSequenceStatus) towerSequenceStatus.textContent = message;
-    towerConstructionVideo.pause();
-  };
-
-  const playTowerSequence = () => {
-    if (towerConstructionVideo.ended) {
-      showCompletedTower();
-      return;
-    }
-    towerSequence.classList.remove("is-complete");
-    towerSequence.classList.add("is-playing");
-    if (towerSequenceStatus) towerSequenceStatus.textContent = "Playing Dav-Ric Towers construction footage.";
-    towerConstructionVideo.play()?.catch(() => showCompletedTower("Construction video could not start; completed Dav-Ric Towers photograph shown."));
-  };
-
-  towerConstructionVideo.addEventListener("ended", () => showCompletedTower("Construction video finished; showing completed Dav-Ric Towers photograph."), { once: true });
-  towerConstructionVideo.addEventListener("error", () => showCompletedTower("Construction video could not load; completed Dav-Ric Towers photograph shown."), { once: true });
-
-  if ("IntersectionObserver" in window) {
-    const towerSequenceObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
-          playTowerSequence();
-        } else if (!towerConstructionVideo.ended) {
-          towerConstructionVideo.pause();
-        }
-      });
-    }, { threshold: [0, 0.35] });
-    towerSequenceObserver.observe(towerSequence);
-  } else {
-    playTowerSequence();
-  }
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      towerConstructionVideo.pause();
-      return;
-    }
-    const bounds = towerSequence.getBoundingClientRect();
-    if (bounds.bottom > 0 && bounds.top < window.innerHeight) playTowerSequence();
-  });
-}
-
 const heroVisibilityObserver = heroSection && "IntersectionObserver" in window
   ? new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -955,7 +869,6 @@ if (storyPage) {
     ajoda: "living-waters-estate",
     guzape: "guzape-abuja",
     "project-beta": "palm-harbour-estate-phase-1",
-    "davric-towers": "davric-towers",
   };
   const storyRouteSlug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
   const homeTypeFromRoute = pebblebrooksHomeRoutes[storyRouteSlug];
@@ -1023,16 +936,13 @@ if (storyPage) {
   const relatedGrid = storyPage.querySelector("[data-story-related]");
 
   if (story) {
-    const isDavricTowers = storySlug === "davric-towers";
-    storyPage.classList.toggle("project-story-page--towers", isDavricTowers);
-    if (isDavricTowers) visualNote?.remove();
     const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
     const pageDescription = story.seoDescription || story.deck;
     const routeSlug = projectRouteSlugs[storySlug] || storySlug;
     const homeTypeRouteSlug = Object.entries(pebblebrooksHomeRoutes).find(([, homeType]) => homeType === requestedHomeType)?.[0];
     const canonicalSlug = selectedHomeType ? homeTypeRouteSlug || routeSlug : routeSlug;
     const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(canonicalSlug)}`;
-    const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/davric-towers-real.jpg");
+    const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/pebblebrooks-render.webp");
     const imageUrl = new URL(imagePath, `${window.location.origin}/`).href;
     document.title = pageTitle;
     const descriptionMeta = document.querySelector('meta[name="description"]');

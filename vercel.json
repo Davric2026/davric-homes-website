@@ -5,6 +5,11 @@
       "source": "/developments",
       "destination": "/communities",
       "permanent": true
+    },
+    {
+      "source": "/projects/davric-towers",
+      "destination": "/communities",
+      "permanent": true
     }
   ],
   "rewrites": [
