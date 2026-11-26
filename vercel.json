@@ -20,6 +20,14 @@
     {
       "source": "/projects/pebblebrooks-semi-detached-building",
       "destination": "/projects/pebblebrooks-estate"
+    },
+    {
+      "source": "/projects/living-waters-two-bedroom-home",
+      "destination": "/projects/living-waters-estate"
+    },
+    {
+      "source": "/projects/living-waters-three-bedroom-home",
+      "destination": "/projects/living-waters-estate"
     }
   ]
 }
