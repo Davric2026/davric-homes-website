@@ -341,7 +341,7 @@ document.querySelectorAll("[data-project-save]").forEach((button) => {
 const projectStories = {
   "pebblebrooks-estate": {
     title: "Pebblebrooks Estate", estateName: "Pebblebrooks Estate", seoTitle: "Pebblebrooks Estate | Jericho, Ibadan | Dav-Ric Homes", seoDescription: "Explore 13 gated homes in Jericho, Ibadan, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.", number: "01", category: "Residential · Ibadan", location: "Jericho, Ibadan", area: "Approx. 3,218 sqm",
-    image: "assets/pebblebrooks-render.webp", imageAlt: "Architectural concept rendering of the Pebblebrooks Estate homes", visualNote: "Artist’s impression · design visualisation",
+    image: "assets/pebblebrooks/gallery/pebblebrooks-home-05.webp", imageAlt: "Aerial architectural visualisation of Pebblebrooks Estate and its 13 homes", visualNote: "Pebblebrooks Estate · Jericho, Ibadan · Architectural visualisation",
     deck: "13 gated homes in Jericho, with a central gas system, estate security and a location close to the Police Commissioner’s Residence.",
     price: "On request", formValue: "Pebblebrooks Estate",
     facts: [["Homes", "13"], ["Home types", "7 terraces · 6 semi-detached"], ["Semi-detached homes", "6 with one-bedroom basement suites"], ["Site area", "Approx. 3,218 sqm"]],
@@ -651,9 +651,12 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
   const interestSelect = inquiryForm.querySelector('[name="interest"]');
   const projectSlug = new URLSearchParams(window.location.search).get("project");
   const requestedStory = projectStories[projectSlug];
+  const requestedPebblebrooksHomeType = {
+    "pebblebrooks-two-bedroom": "Terrace home",
+    "pebblebrooks-three-bedroom": "Semi-detached building",
+  }[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
-  if (interestSelect && projectSlug === "pebblebrooks-two-bedroom") interestSelect.value = "Terrace home · Pebblebrooks Estate";
-  if (interestSelect && projectSlug === "pebblebrooks-three-bedroom") interestSelect.value = "Semi-detached building · Pebblebrooks Estate";
+  if (interestSelect && requestedPebblebrooksHomeType) interestSelect.value = "Pebblebrooks Estate";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
@@ -667,6 +670,7 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
       `Interested in: ${formData.get("interest")}`,
       `Looking to: ${formData.get("intent")}`,
     ];
+    if (requestedPebblebrooksHomeType) lines.push(`Home type: ${requestedPebblebrooksHomeType}`);
     if (details) lines.push(`More details: ${details}`);
     return { formData, lines };
   };
@@ -934,8 +938,12 @@ if (storyPage) {
   const chapterNav = storyPage.querySelector("[data-story-chapters]");
   const readingTime = storyPage.querySelector("[data-story-reading-time]");
   const relatedGrid = storyPage.querySelector("[data-story-related]");
+  const pebblebrooksListings = storyPage.querySelector("[data-pebblebrooks-listings]");
 
   if (story) {
+    const isPebblebrooksHomeType = storySlug === "pebblebrooks-estate" && Boolean(selectedHomeType);
+    storyPage.classList.toggle("project-story-page--pebblebrooks-home", isPebblebrooksHomeType);
+    if (pebblebrooksListings) pebblebrooksListings.hidden = isPebblebrooksHomeType;
     const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
     const pageDescription = story.seoDescription || story.deck;
     const routeSlug = projectRouteSlugs[storySlug] || storySlug;
@@ -985,8 +993,14 @@ if (storyPage) {
       inLanguage: "en",
     });
     if (!projectStructuredData.isConnected) document.head.append(projectStructuredData);
-    if (title) title.textContent = story.title;
-    if (title && priceBox && heading) title.insertAdjacentElement("afterend", priceBox);
+    if (title) {
+      if (storySlug === "pebblebrooks-estate" && !selectedHomeType) {
+        title.innerHTML = "<span>Pebble</span><span>Brooks</span>";
+      } else {
+        title.textContent = story.title;
+      }
+    }
+    if (title && priceBox && heading && !storyPage.classList.contains("project-story-page--pebblebrooks-home") && storySlug !== "pebblebrooks-estate") title.insertAdjacentElement("afterend", priceBox);
     if (meta) meta.textContent = story.number + " / " + String(Object.keys(projectStories).length).padStart(2, "0") + " · " + story.category;
     if (deck) deck.textContent = story.deck;
     if (visualNote) visualNote.textContent = story.visualNote;
@@ -1157,7 +1171,10 @@ if (storyPage) {
           openingGallery.setAttribute("aria-label", "Project image gallery");
         }
         openingGallery.innerHTML = galleryMarkup;
-        storyPage.querySelector(".project-story-hero")?.insertAdjacentElement("afterend", openingGallery);
+        const galleryAnchor = storySlug === "pebblebrooks-estate" && !selectedHomeType
+          ? pebblebrooksListings
+          : storyPage.querySelector(".project-story-hero");
+        galleryAnchor?.insertAdjacentElement("afterend", openingGallery);
       }
 
       const pairedSections = new Set(story.pairedSections || []);

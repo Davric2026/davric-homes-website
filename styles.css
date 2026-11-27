@@ -8228,3 +8228,180 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   .community-story-copy h3 { font-size: 34px; }
   .community-story-link { gap: 10px; }
 }
+
+/* Pebblebrooks estate poster and residence finder. */
+.project-story-hero--pebblebrooks {
+  grid-template-columns: minmax(235px, .82fr) minmax(280px, 1fr) minmax(390px, 1.28fr);
+  min-height: clamp(620px, calc(100svh - 88px), 760px);
+  background: #f2eee5;
+}
+
+.project-story-hero--pebblebrooks .pebblebrooks-poster-brand {
+  min-height: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: clamp(27px, 3.6vw, 58px);
+  color: #f7f1e6;
+  background: #193b2f;
+}
+
+.pebblebrooks-poster-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0;
+  color: #d9ba7a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .25em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.pebblebrooks-poster-eyebrow > span {
+  width: 17px;
+  height: 1px;
+  background: #d9ba7a;
+}
+
+.project-story-hero--pebblebrooks .pebblebrooks-poster-brand h1 {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 5px;
+  color: #f7f1e6;
+  font-family: var(--display);
+  font-size: clamp(58px, 6.5vw, 104px);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: .79;
+  overflow-wrap: normal;
+}
+
+.project-story-hero--pebblebrooks .pebblebrooks-poster-brand h1 > span { display: block; }
+.pebblebrooks-poster-place { margin: 13px 0 0; color: #d9ba7a; font-size: 10px; font-weight: 800; letter-spacing: .42em; text-transform: uppercase; }
+.project-story-hero--pebblebrooks .project-story-deck { margin-top: 35px; color: rgb(247 241 230 / 78%); font-family: var(--display); font-size: 14px; font-style: italic; }
+.project-story-hero--pebblebrooks .story-back-link { margin-top: 32px; font-size: 12px; }
+
+.project-story-hero--pebblebrooks .pebblebrooks-poster-visual {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 3.1vw, 48px);
+  overflow: hidden;
+  background: #f2eee5;
+}
+
+.project-story-hero--pebblebrooks .project-story-visual {
+  position: relative;
+  inset: auto;
+  width: min(100%, 470px);
+  aspect-ratio: .94 / 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 48% 48% 37% 37% / 42% 42% 30% 30%;
+  background: #244436;
+  box-shadow: 0 25px 60px rgb(26 48 35 / 18%);
+}
+
+.project-story-hero--pebblebrooks .project-story-visual > img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.project-story-hero--pebblebrooks .project-story-visual::after { inset: 66% 0 0; background: linear-gradient(0deg, rgb(8 19 14 / 22%), transparent); }
+.pebblebrooks-image-stamp { position: absolute; z-index: 3; bottom: clamp(37px, 5vw, 76px); left: 50%; margin: 0; padding: 11px 18px; transform: translateX(-50%); border-radius: 99px; color: #1c2e24; background: #f7f3e9; font-size: 9px; font-weight: 850; letter-spacing: .13em; text-align: center; text-transform: uppercase; white-space: nowrap; }
+.pebblebrooks-image-stamp span { padding-inline: 4px; color: #a77c35; }
+
+.pebblebrooks-poster-residences {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: clamp(25px, 2.8vw, 44px);
+  color: #1e2a24;
+  background: #fbf9f3;
+}
+
+.pebblebrooks-poster-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.pebblebrooks-poster-heading .eyebrow { margin: 0 0 8px; color: #776f61; font-size: 9px; }
+.pebblebrooks-poster-heading h2 { margin: 0; font-family: var(--display); font-size: clamp(27px, 2.5vw, 39px); font-weight: 600; letter-spacing: -.06em; line-height: .98; }
+.pebblebrooks-poster-heading h2 em { color: #a17b3c; font-weight: 500; }
+.pebblebrooks-poster-heading > span { flex: 0 0 auto; padding-bottom: 4px; color: #79756c; font-size: 9px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.pebblebrooks-residence-list { display: grid; gap: 11px; }
+
+.pebblebrooks-residence-card {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 46px minmax(76px, 104px) minmax(0, 1fr) 27px;
+  align-items: center;
+  gap: 12px;
+  padding: 11px;
+  border: 1px solid #e5e0d5;
+  border-radius: 14px;
+  color: #1d2923;
+  background: #fff;
+  text-decoration: none;
+  transition: border-color 200ms ease, box-shadow 240ms ease, transform 240ms ease;
+}
+
+.pebblebrooks-residence-card:hover { transform: translateY(-2px); border-color: #c6a363; box-shadow: 0 10px 24px rgb(24 44 32 / 9%); }
+.pebblebrooks-residence-card:focus-visible { outline: 3px solid #b18b4b; outline-offset: 3px; }
+.pebblebrooks-residence-count { display: flex; flex-direction: column; align-items: center; color: #234235; }
+.pebblebrooks-residence-count strong { font-family: var(--display); font-size: 36px; font-weight: 600; letter-spacing: -.08em; line-height: .9; }
+.pebblebrooks-residence-count small { margin-top: 5px; color: #747167; font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.pebblebrooks-residence-card > img { width: 100%; height: 82px; border-radius: 9px; object-fit: cover; }
+.pebblebrooks-residence-copy { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
+.pebblebrooks-residence-copy small { color: #86734e; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.pebblebrooks-residence-copy strong { overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(16px, 1.4vw, 21px); font-weight: 650; letter-spacing: -.04em; line-height: 1.08; }
+.pebblebrooks-residence-copy > span { color: #6d6b64; font-size: 10px; line-height: 1.35; }
+.pebblebrooks-residence-arrow { display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid #d8d1c4; border-radius: 50%; color: #886b37; font-size: 15px; transition: color 180ms ease, background 180ms ease, border-color 180ms ease; }
+.pebblebrooks-residence-card:hover .pebblebrooks-residence-arrow { border-color: #193b2f; color: #fff; background: #193b2f; }
+.pebblebrooks-poster-amenities { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 3px; }
+.pebblebrooks-poster-amenities span { padding: 7px 9px; border: 1px solid #e8e2d7; border-radius: 99px; color: #526156; font-size: 8px; font-weight: 750; letter-spacing: .045em; }
+.pebblebrooks-listings-anchor { display: none; }
+.project-story-page--pebblebrooks-home .project-story-hero--pebblebrooks { grid-template-columns: minmax(240px, .82fr) minmax(0, 1.18fr); }
+.project-story-page--pebblebrooks-home .pebblebrooks-poster-residences { display: none; }
+
+@media (max-width: 1120px) {
+  .project-story-hero--pebblebrooks { grid-template-columns: minmax(220px, .85fr) minmax(260px, 1fr) minmax(320px, 1.25fr); }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-brand { padding: 30px 26px; }
+  .pebblebrooks-poster-residences { padding: 27px 23px; }
+  .pebblebrooks-residence-card { grid-template-columns: 40px 78px minmax(0, 1fr) 24px; gap: 9px; padding: 9px; }
+  .pebblebrooks-residence-card > img { height: 76px; }
+  .pebblebrooks-residence-copy > span { font-size: 9px; }
+}
+
+@media (max-width: 960px) {
+  .project-story-hero--pebblebrooks { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); min-height: 0; }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-brand { min-height: 510px; }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-visual { min-height: 510px; }
+  .pebblebrooks-poster-residences { grid-column: 1 / -1; padding: 30px clamp(25px, 5vw, 58px); }
+  .pebblebrooks-residence-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-story-page--pebblebrooks-home .project-story-hero--pebblebrooks { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); }
+}
+
+@media (max-width: 700px) {
+  .project-story-hero--pebblebrooks { grid-template-columns: minmax(0, 1fr); }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-brand { min-height: 420px; padding: 31px 27px 26px; }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-brand h1 { margin-top: 76px; font-size: clamp(66px, 16vw, 94px); }
+  .project-story-hero--pebblebrooks .project-story-deck { margin-top: 22px; }
+  .project-story-hero--pebblebrooks .story-back-link { margin-top: 22px; }
+  .project-story-hero--pebblebrooks .pebblebrooks-poster-visual { min-height: 0; padding: 27px 24px 35px; }
+  .project-story-hero--pebblebrooks .project-story-visual { width: min(100%, 430px); aspect-ratio: 1.04 / 1; }
+  .pebblebrooks-image-stamp { bottom: 50px; }
+  .pebblebrooks-poster-residences { grid-column: auto; gap: 20px; padding: 28px 22px 31px; }
+  .pebblebrooks-poster-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .pebblebrooks-poster-heading h2 { font-size: 35px; }
+  .pebblebrooks-residence-list { grid-template-columns: minmax(0, 1fr); }
+  .pebblebrooks-residence-card { grid-template-columns: 44px 94px minmax(0, 1fr) 25px; gap: 11px; padding: 10px; }
+  .pebblebrooks-residence-card > img { height: 82px; }
+  .pebblebrooks-residence-copy strong { font-size: 18px; }
+  .pebblebrooks-residence-copy > span { font-size: 10px; }
+  .project-story-page--pebblebrooks-home .project-story-hero--pebblebrooks { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 390px) {
+  .pebblebrooks-residence-card { grid-template-columns: 38px 74px minmax(0, 1fr) 22px; gap: 8px; padding: 8px; }
+  .pebblebrooks-residence-count strong { font-size: 31px; }
+  .pebblebrooks-residence-card > img { height: 72px; }
+  .pebblebrooks-residence-copy strong { font-size: 16px; }
+  .pebblebrooks-residence-copy > span { font-size: 9px; }
+}
