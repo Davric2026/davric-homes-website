@@ -6067,7 +6067,7 @@ html[data-theme="dark"] .inquiry-form select {
 }
 .featured-property-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: clamp(20px, 3vw, 40px);
 }
@@ -6246,16 +6246,12 @@ html[data-theme="dark"] .inquiry-form select {
 }
 @media (max-width: 900px) {
   .featured-property-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .featured-property-card:last-child { grid-column: 1 / -1; }
-  .featured-property-card:last-child .featured-property-gallery { aspect-ratio: 1.65 / 1; }
 }
 @media (max-width: 620px) {
   .featured-properties-section { padding-block: 70px; }
   .featured-properties-heading { margin-bottom: 30px; }
   .featured-properties-heading h2 { font-size: clamp(38.59px, 11.03vw, 57.33px); }
   .featured-property-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .featured-property-card:last-child { grid-column: auto; }
-  .featured-property-card:last-child .featured-property-gallery { aspect-ratio: 1.22 / 1; }
   .featured-property-gallery { border-radius: 23px; }
   .featured-property-info { padding: 18px 16px 16px; border-radius: 19px; }
   .featured-properties-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
@@ -7599,8 +7595,8 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
 }
 
 .story-image-gallery--living-waters-home-gallery {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: clamp(230px, 31vw, 390px);
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: auto;
   gap: 12px;
   margin: 0;
 }
@@ -7609,9 +7605,14 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   grid-area: auto;
   grid-column: auto;
   grid-row: auto;
+  aspect-ratio: 1.8 / 1;
   border: 1px solid rgb(23 21 20 / 10%);
   border-radius: 14px;
   background: #fff;
+}
+
+.story-image-gallery--living-waters-home-gallery .palm-gallery-tile--plan {
+  aspect-ratio: 1.4 / 1;
 }
 
 .story-image-gallery--living-waters-home-gallery .palm-gallery-tile--plan .palm-gallery-open > img {
@@ -7682,7 +7683,7 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
 
   .story-image-gallery--living-waters-home-gallery {
     grid-template-columns: minmax(0, 1fr);
-    grid-auto-rows: clamp(220px, 68vw, 320px);
+    grid-auto-rows: auto;
     gap: 9px;
   }
 
