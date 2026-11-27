@@ -500,7 +500,7 @@ const projectStories = {
   ajoda: {
     title: "Living Waters Estate", estateName: "Living Waters Estate", seoTitle: "Living Waters Estate | Ajoda New Town, Ibadan", seoDescription: "Explore three home plan options for Living Waters Estate in Ajoda New Town, Ibadan, including three-bedroom, two-bedroom and flat-roof designs.", number: "02", category: "Residential · Ibadan", location: "Ajoda New Town, Ibadan",
     image: "assets/ajoda/ajoda-three-bedroom-vision.png", imageAlt: "Architectural visualisation of a three-bedroom home design for Living Waters Estate in Ajoda New Town, Ibadan", visualNote: "Architectural visualisation · illustrative",
-    deck: "Three home plan options for Living Waters Estate in Ajoda New Town, Ibadan: a three-bedroom home, a two-bedroom home and a two-bedroom flat-roof design.",
+    deck: "Two and three-bedroom homes for Living Waters Estate in Ajoda New Town, Ibadan, including a two-bedroom flat-roof option.",
     price: "On request", formValue: "Living Waters Estate",
     galleryTitle: "The Living Waters home collection", galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan", galleryLayout: "living-waters-gallery",
     galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
@@ -564,6 +564,74 @@ const pebblebrooksHomeTypes = {
 const pebblebrooksHomeRoutes = {
   "pebblebrooks-terrace-home": "terrace",
   "pebblebrooks-semi-detached-building": "semi-detached",
+};
+
+const livingWatersHomeTypes = {
+  "two-bedroom": {
+    title: "Two-Bedroom Home",
+    seoTitle: "Two-Bedroom Home | Living Waters Estate, Ajoda, Ibadan | Dav-Ric Homes",
+    seoDescription: "Explore the two-bedroom home at Living Waters Estate in Ajoda New Town, including its exterior visualisation, floor plan and flat-roof option.",
+    deck: "A two-bedroom residence at Living Waters Estate in Ajoda New Town, Ibadan, with a separate flat-roof design option.",
+    contactSlug: "living-waters-two-bedroom",
+    image: "assets/ajoda/ajoda-two-bedroom-vision.png",
+    imageAlt: "Architectural visualisation of the two-bedroom Living Waters Estate home in Ajoda New Town, Ibadan",
+    visualNote: "Two-bedroom home · Living Waters Estate · Ajoda New Town",
+    price: "On request",
+    facts: [["Bedrooms", "2"], ["Design options", "Standard · flat roof"], ["Location", "Living Waters Estate · Ajoda New Town, Ibadan"]],
+    keyFeatures: [
+      { title: "Two-bedroom home plan" },
+      { title: "Standard and flat-roof designs" },
+      { title: "Living Waters Estate · Ajoda New Town" },
+    ],
+    galleryTitle: "Two-bedroom home and plans",
+    galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan",
+    galleryLayout: "living-waters-home-gallery",
+    galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
+    gallery: [
+      { image: "assets/ajoda/ajoda-two-bedroom-vision.png", alt: "Exterior visualisation of the standard two-bedroom Living Waters home", caption: "Two-bedroom home" },
+      { image: "assets/ajoda/ajoda-two-bedroom-plan.png", alt: "Architectural floor plan for the two-bedroom Living Waters home", caption: "Two-bedroom plan", type: "plan" },
+      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-vision.png", alt: "Exterior visualisation of the two-bedroom flat-roof Living Waters home", caption: "Flat-roof option" },
+      { image: "assets/ajoda/ajoda-two-bedroom-flat-roof-plan.png", alt: "Architectural floor plan for the two-bedroom flat-roof Living Waters home", caption: "Flat-roof plan", type: "plan" },
+    ],
+    sections: [{ label: "Two-bedroom home", heading: "A two-bedroom home with two design options.", paragraphs: [
+      "The Living Waters collection includes a standard two-bedroom home and a separate two-bedroom flat-roof design.",
+      "Compare each supplied exterior visualisation with its floor plan in the gallery above. Confirm final layouts and specifications with Dav-Ric Homes.",
+    ] }],
+  },
+  "three-bedroom": {
+    title: "Three-Bedroom Home",
+    seoTitle: "Three-Bedroom Home | Living Waters Estate, Ajoda, Ibadan | Dav-Ric Homes",
+    seoDescription: "Explore the three-bedroom home at Living Waters Estate in Ajoda New Town with its exterior visualisation and floor plan.",
+    deck: "A three-bedroom residence at Living Waters Estate in Ajoda New Town, Ibadan, with its own exterior visualisation and floor plan.",
+    contactSlug: "living-waters-three-bedroom",
+    image: "assets/ajoda/ajoda-three-bedroom-vision.png",
+    imageAlt: "Architectural visualisation of the three-bedroom Living Waters Estate home in Ajoda New Town, Ibadan",
+    visualNote: "Three-bedroom home · Living Waters Estate · Ajoda New Town",
+    price: "On request",
+    facts: [["Bedrooms", "3"], ["Plan", "Three-bedroom residence"], ["Location", "Living Waters Estate · Ajoda New Town, Ibadan"]],
+    keyFeatures: [
+      { title: "Three-bedroom home plan" },
+      { title: "Exterior design visualisation" },
+      { title: "Living Waters Estate · Ajoda New Town" },
+    ],
+    galleryTitle: "Three-bedroom home and plan",
+    galleryLabel: "Living Waters Estate · Ajoda New Town, Ibadan",
+    galleryLayout: "living-waters-home-gallery",
+    galleryNote: "Design visuals are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
+    gallery: [
+      { image: "assets/ajoda/ajoda-three-bedroom-vision.png", alt: "Exterior visualisation of the three-bedroom Living Waters home", caption: "Three-bedroom home" },
+      { image: "assets/ajoda/ajoda-three-bedroom-plan.png", alt: "Architectural floor plan for the three-bedroom Living Waters home", caption: "Three-bedroom plan", type: "plan" },
+    ],
+    sections: [{ label: "Three-bedroom home", heading: "A three-bedroom home for Living Waters Estate.", paragraphs: [
+      "Explore the supplied exterior visualisation alongside the three-bedroom floor plan.",
+      "The design images are illustrative. Confirm final layouts and specifications with Dav-Ric Homes.",
+    ] }],
+  },
+};
+
+const livingWatersHomeRoutes = {
+  "living-waters-two-bedroom-home": "two-bedroom",
+  "living-waters-three-bedroom-home": "three-bedroom",
 };
 
 const mediaProjectAlbums = document.querySelector("[data-media-project-albums]");
@@ -655,8 +723,13 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
     "pebblebrooks-two-bedroom": "Terrace home",
     "pebblebrooks-three-bedroom": "Semi-detached building",
   }[projectSlug];
+  const requestedLivingWatersHomeType = {
+    "living-waters-two-bedroom": "Two-bedroom home",
+    "living-waters-three-bedroom": "Three-bedroom home",
+  }[projectSlug];
   if (interestSelect && requestedStory) interestSelect.value = requestedStory.formValue;
   if (interestSelect && requestedPebblebrooksHomeType) interestSelect.value = "Pebblebrooks Estate";
+  if (interestSelect && requestedLivingWatersHomeType) interestSelect.value = "Living Waters Estate";
 
   const getEnquiryMessage = () => {
     const formData = new FormData(inquiryForm);
@@ -671,6 +744,7 @@ document.querySelectorAll("[data-inquiry-form]").forEach((inquiryForm) => {
       `Looking to: ${formData.get("intent")}`,
     ];
     if (requestedPebblebrooksHomeType) lines.push(`Home type: ${requestedPebblebrooksHomeType}`);
+    if (requestedLivingWatersHomeType) lines.push(`Home type: ${requestedLivingWatersHomeType}`);
     if (details) lines.push(`More details: ${details}`);
     return { formData, lines };
   };
@@ -876,44 +950,58 @@ if (storyPage) {
   };
   const storyRouteSlug = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1];
   const homeTypeFromRoute = pebblebrooksHomeRoutes[storyRouteSlug];
+  const livingWatersHomeTypeFromRoute = livingWatersHomeRoutes[storyRouteSlug];
   const storySlug = storyRouteSlug
     ? homeTypeFromRoute
       ? "pebblebrooks-estate"
-      : Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
+      : livingWatersHomeTypeFromRoute
+        ? "ajoda"
+        : Object.entries(projectRouteSlugs).find(([, routeSlug]) => routeSlug === storyRouteSlug)?.[0]
     : new URLSearchParams(window.location.search).get("story");
-  const requestedHomeType = homeTypeFromRoute || new URLSearchParams(window.location.search).get("home");
-  const selectedHomeType = storySlug === "pebblebrooks-estate"
+  const requestedHomeType = homeTypeFromRoute || livingWatersHomeTypeFromRoute || new URLSearchParams(window.location.search).get("home");
+  const selectedPebblebrooksHomeType = storySlug === "pebblebrooks-estate"
     ? pebblebrooksHomeTypes[requestedHomeType]
     : null;
-  const baseStory = projectStories[storySlug];
-  const selectedHomeSection = selectedHomeType
-    ? baseStory?.sections.find((section) => section.label === selectedHomeType.sectionLabel)
+  const selectedLivingWatersHomeType = storySlug === "ajoda"
+    ? livingWatersHomeTypes[requestedHomeType]
     : null;
-  const story = selectedHomeType && selectedHomeSection
+  const selectedHomeType = selectedPebblebrooksHomeType || selectedLivingWatersHomeType;
+  const baseStory = projectStories[storySlug];
+  const selectedHomeSection = selectedPebblebrooksHomeType
+    ? baseStory?.sections.find((section) => section.label === selectedPebblebrooksHomeType.sectionLabel)
+    : null;
+  const story = selectedPebblebrooksHomeType && selectedHomeSection
     ? {
       ...baseStory,
-      ...selectedHomeType,
-      seoTitle: selectedHomeType.pageTitle,
-      seoDescription: selectedHomeType.pageDescription,
+      ...selectedPebblebrooksHomeType,
+      seoTitle: selectedPebblebrooksHomeType.pageTitle,
+      seoDescription: selectedPebblebrooksHomeType.pageDescription,
       image: baseStory.image,
       imageAlt: baseStory.imageAlt,
       keyFeatures: requestedHomeType === "semi-detached"
         ? [...baseStory.keyFeatures, { title: "Dedicated cinema" }]
         : baseStory.keyFeatures,
-      visualNote: `${selectedHomeType.title} · Pebblebrooks Estate, Jericho, Ibadan`,
-      category: `${baseStory.category} · ${selectedHomeType.title}`,
+      visualNote: `${selectedPebblebrooksHomeType.title} · Pebblebrooks Estate, Jericho, Ibadan`,
+      category: `${baseStory.category} · ${selectedPebblebrooksHomeType.title}`,
       galleryLabel: "Pebblebrooks Estate · Jericho, Ibadan",
       galleryLayout: selectedHomeSection.gallery.length === 3 ? "three-up" : selectedHomeSection.galleryLayout,
       galleryNote: "Plan drawings supplied for the Pebblebrooks Estate home type. Confirm final specifications with Dav-Ric Homes.",
       gallery: selectedHomeSection.gallery.map((item) => ({ ...item, type: "plan" })),
       sections: baseStory.sections
         .filter((section) => !["Terrace homes", "Semi-detached homes"].includes(section.label)
-          || section.label === selectedHomeType.sectionLabel)
-        .map((section) => section.label === selectedHomeType.sectionLabel
-          ? { ...section, label: selectedHomeType.title, gallery: [] }
+          || section.label === selectedPebblebrooksHomeType.sectionLabel)
+        .map((section) => section.label === selectedPebblebrooksHomeType.sectionLabel
+          ? { ...section, label: selectedPebblebrooksHomeType.title, gallery: [] }
           : section),
       pairedSections: [5, 6],
     }
+    : selectedLivingWatersHomeType
+      ? {
+        ...baseStory,
+        ...selectedLivingWatersHomeType,
+        category: `${baseStory.category} · ${selectedLivingWatersHomeType.title}`,
+        pairedSections: [],
+      }
     : storySlug === "pebblebrooks-estate"
       ? {
         ...baseStory,
@@ -939,16 +1027,21 @@ if (storyPage) {
   const readingTime = storyPage.querySelector("[data-story-reading-time]");
   const relatedGrid = storyPage.querySelector("[data-story-related]");
   const pebblebrooksListings = storyPage.querySelector("[data-pebblebrooks-listings]");
+  const livingWatersListings = storyPage.querySelector("[data-living-waters-listings]");
 
   if (story) {
-    const isPebblebrooksHomeType = storySlug === "pebblebrooks-estate" && Boolean(selectedHomeType);
+    const isPebblebrooksHomeType = storySlug === "pebblebrooks-estate" && Boolean(selectedPebblebrooksHomeType);
+    const isLivingWatersHomeType = storySlug === "ajoda" && Boolean(selectedLivingWatersHomeType);
     storyPage.classList.toggle("project-story-page--pebblebrooks-home", isPebblebrooksHomeType);
+    storyPage.classList.toggle("project-story-page--living-waters-home", isLivingWatersHomeType);
     if (pebblebrooksListings) pebblebrooksListings.hidden = isPebblebrooksHomeType;
+    if (livingWatersListings) livingWatersListings.hidden = isLivingWatersHomeType;
     const pageTitle = story.seoTitle || `${story.title} in ${story.location} | Dav-Ric Homes`;
     const pageDescription = story.seoDescription || story.deck;
     const routeSlug = projectRouteSlugs[storySlug] || storySlug;
     const homeTypeRouteSlug = Object.entries(pebblebrooksHomeRoutes).find(([, homeType]) => homeType === requestedHomeType)?.[0];
-    const canonicalSlug = selectedHomeType ? homeTypeRouteSlug || routeSlug : routeSlug;
+    const livingWatersHomeRouteSlug = Object.entries(livingWatersHomeRoutes).find(([, homeType]) => homeType === requestedHomeType)?.[0];
+    const canonicalSlug = selectedHomeType ? homeTypeRouteSlug || livingWatersHomeRouteSlug || routeSlug : routeSlug;
     const pageUrl = `https://davrichomes.com/projects/${encodeURIComponent(canonicalSlug)}`;
     const imagePath = story.image || (storySlug === "guzape" ? "assets/davric-mark.png" : "assets/pebblebrooks-render.webp");
     const imageUrl = new URL(imagePath, `${window.location.origin}/`).href;
@@ -996,14 +1089,19 @@ if (storyPage) {
     if (title) {
       if (storySlug === "pebblebrooks-estate" && !selectedHomeType) {
         title.innerHTML = "<span>Pebble</span><span>Brooks</span>";
+      } else if (storySlug === "ajoda" && !selectedLivingWatersHomeType) {
+        title.innerHTML = "<span>Living</span><span>Waters</span>";
       } else {
         title.textContent = story.title;
       }
     }
-    if (title && priceBox && heading && !storyPage.classList.contains("project-story-page--pebblebrooks-home") && storySlug !== "pebblebrooks-estate") title.insertAdjacentElement("afterend", priceBox);
+    if (title && priceBox && heading && !storyPage.classList.contains("project-story-page--pebblebrooks-home") && storySlug !== "pebblebrooks-estate" && storySlug !== "ajoda") title.insertAdjacentElement("afterend", priceBox);
     if (meta) meta.textContent = story.number + " / " + String(Object.keys(projectStories).length).padStart(2, "0") + " · " + story.category;
     if (deck) deck.textContent = story.deck;
-    if (visualNote) visualNote.textContent = story.visualNote;
+    if (visualNote) {
+      visualNote.textContent = story.visualNote;
+      if (storySlug === "ajoda") visualNote.hidden = !selectedLivingWatersHomeType;
+    }
     if (price) price.textContent = story.price || "On request";
     if (priceLabel) priceLabel.textContent = story.price === "SOLD" ? "Availability" : "Price";
     if (priceBox) priceBox.classList.toggle("is-sold", story.price === "SOLD");
@@ -1126,7 +1224,7 @@ if (storyPage) {
 
     if (body) {
       const seenStoryImages = new Set(
-        story.galleryLayout === "living-waters-gallery" || !story.image ? [] : [story.image],
+        ["living-waters-gallery", "living-waters-home-gallery"].includes(story.galleryLayout) || !story.image ? [] : [story.image],
       );
       const uniqueStoryImages = (items = []) => items.filter((item) => {
         if (!item?.image || seenStoryImages.has(item.image)) return false;
