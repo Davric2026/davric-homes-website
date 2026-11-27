@@ -903,7 +903,7 @@ if (storyPage) {
       visualNote: `${selectedHomeType.title} · Pebblebrooks Estate, Jericho, Ibadan`,
       category: `${baseStory.category} · ${selectedHomeType.title}`,
       galleryLabel: "Pebblebrooks Estate · Jericho, Ibadan",
-      galleryLayout: selectedHomeSection.galleryLayout,
+      galleryLayout: selectedHomeSection.gallery.length === 3 ? "three-up" : selectedHomeSection.galleryLayout,
       galleryNote: "Plan drawings supplied for the Pebblebrooks Estate home type. Confirm final specifications with Dav-Ric Homes.",
       gallery: selectedHomeSection.gallery.map((item) => ({ ...item, type: "plan" })),
       sections: baseStory.sections

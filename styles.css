@@ -8330,10 +8330,10 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
 .pebblebrooks-residence-card {
   display: grid;
   min-width: 0;
-  grid-template-columns: 46px minmax(76px, 104px) minmax(0, 1fr) 27px;
+  grid-template-columns: 54px minmax(88px, 124px) minmax(0, 1fr) 30px;
   align-items: center;
-  gap: 12px;
-  padding: 11px;
+  gap: 14px;
+  padding: 14px;
   border: 1px solid #e5e0d5;
   border-radius: 14px;
   color: #1d2923;
@@ -8345,14 +8345,14 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
 .pebblebrooks-residence-card:hover { transform: translateY(-2px); border-color: #c6a363; box-shadow: 0 10px 24px rgb(24 44 32 / 9%); }
 .pebblebrooks-residence-card:focus-visible { outline: 3px solid #b18b4b; outline-offset: 3px; }
 .pebblebrooks-residence-count { display: flex; flex-direction: column; align-items: center; color: #234235; }
-.pebblebrooks-residence-count strong { font-family: var(--display); font-size: 36px; font-weight: 600; letter-spacing: -.08em; line-height: .9; }
-.pebblebrooks-residence-count small { margin-top: 5px; color: #747167; font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.pebblebrooks-residence-card > img { width: 100%; height: 82px; border-radius: 9px; object-fit: cover; }
+.pebblebrooks-residence-count strong { font-family: var(--display); font-size: 42px; font-weight: 600; letter-spacing: -.08em; line-height: .9; }
+.pebblebrooks-residence-count small { margin-top: 5px; color: #747167; font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.pebblebrooks-residence-card > img { width: 100%; height: 108px; border-radius: 10px; object-fit: cover; }
 .pebblebrooks-residence-copy { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
-.pebblebrooks-residence-copy small { color: #86734e; font-size: 8px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-.pebblebrooks-residence-copy strong { overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(16px, 1.4vw, 21px); font-weight: 650; letter-spacing: -.04em; line-height: 1.08; }
-.pebblebrooks-residence-copy > span { color: #6d6b64; font-size: 10px; line-height: 1.35; }
-.pebblebrooks-residence-arrow { display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid #d8d1c4; border-radius: 50%; color: #886b37; font-size: 15px; transition: color 180ms ease, background 180ms ease, border-color 180ms ease; }
+.pebblebrooks-residence-copy small { color: #86734e; font-size: 9px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.pebblebrooks-residence-copy strong { overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(18px, 1.5vw, 23px); font-weight: 650; letter-spacing: -.04em; line-height: 1.08; }
+.pebblebrooks-residence-copy > span { color: #6d6b64; font-size: 11px; line-height: 1.35; }
+.pebblebrooks-residence-arrow { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid #d8d1c4; border-radius: 50%; color: #886b37; font-size: 17px; transition: color 180ms ease, background 180ms ease, border-color 180ms ease; }
 .pebblebrooks-residence-card:hover .pebblebrooks-residence-arrow { border-color: #193b2f; color: #fff; background: #193b2f; }
 .pebblebrooks-poster-amenities { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 3px; }
 .pebblebrooks-poster-amenities span { padding: 7px 9px; border: 1px solid #e8e2d7; border-radius: 99px; color: #526156; font-size: 8px; font-weight: 750; letter-spacing: .045em; }
@@ -8364,9 +8364,11 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   .project-story-hero--pebblebrooks { grid-template-columns: minmax(220px, .85fr) minmax(260px, 1fr) minmax(320px, 1.25fr); }
   .project-story-hero--pebblebrooks .pebblebrooks-poster-brand { padding: 30px 26px; }
   .pebblebrooks-poster-residences { padding: 27px 23px; }
-  .pebblebrooks-residence-card { grid-template-columns: 40px 78px minmax(0, 1fr) 24px; gap: 9px; padding: 9px; }
-  .pebblebrooks-residence-card > img { height: 76px; }
-  .pebblebrooks-residence-copy > span { font-size: 9px; }
+  .pebblebrooks-residence-card { grid-template-columns: 48px 100px minmax(0, 1fr) 28px; gap: 10px; padding: 11px; }
+  .pebblebrooks-residence-count strong { font-size: 39px; }
+  .pebblebrooks-residence-card > img { height: 92px; }
+  .pebblebrooks-residence-copy strong { font-size: 20px; }
+  .pebblebrooks-residence-copy > span { font-size: 10px; }
 }
 
 @media (max-width: 960px) {
@@ -8387,21 +8389,25 @@ html[data-theme="dark"] .desktop-nav-dropdown-menu a:focus-visible { color: var(
   .project-story-hero--pebblebrooks .pebblebrooks-poster-visual { min-height: 0; padding: 27px 24px 35px; }
   .project-story-hero--pebblebrooks .project-story-visual { width: min(100%, 430px); aspect-ratio: 1.04 / 1; }
   .pebblebrooks-image-stamp { bottom: 50px; }
-  .pebblebrooks-poster-residences { grid-column: auto; gap: 20px; padding: 28px 22px 31px; }
+  .pebblebrooks-poster-residences { grid-column: auto; gap: 22px; padding: 37px 26px 40px; }
   .pebblebrooks-poster-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
-  .pebblebrooks-poster-heading h2 { font-size: 35px; }
+  .pebblebrooks-poster-heading h2 { font-size: 41px; }
   .pebblebrooks-residence-list { grid-template-columns: minmax(0, 1fr); }
-  .pebblebrooks-residence-card { grid-template-columns: 44px 94px minmax(0, 1fr) 25px; gap: 11px; padding: 10px; }
-  .pebblebrooks-residence-card > img { height: 82px; }
-  .pebblebrooks-residence-copy strong { font-size: 18px; }
-  .pebblebrooks-residence-copy > span { font-size: 10px; }
+  .pebblebrooks-residence-card { grid-template-columns: 52px 112px minmax(0, 1fr) 30px; gap: 12px; padding: 12px; }
+  .pebblebrooks-residence-count strong { font-size: 42px; }
+  .pebblebrooks-residence-card > img { height: 100px; }
+  .pebblebrooks-residence-copy small { font-size: 9px; }
+  .pebblebrooks-residence-copy strong { font-size: 21px; }
+  .pebblebrooks-residence-copy > span { font-size: 11px; }
   .project-story-page--pebblebrooks-home .project-story-hero--pebblebrooks { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 390px) {
-  .pebblebrooks-residence-card { grid-template-columns: 38px 74px minmax(0, 1fr) 22px; gap: 8px; padding: 8px; }
-  .pebblebrooks-residence-count strong { font-size: 31px; }
-  .pebblebrooks-residence-card > img { height: 72px; }
-  .pebblebrooks-residence-copy strong { font-size: 16px; }
+  .pebblebrooks-poster-residences { padding: 31px 20px 34px; }
+  .pebblebrooks-poster-heading h2 { font-size: 37px; }
+  .pebblebrooks-residence-card { grid-template-columns: 42px 84px minmax(0, 1fr) 25px; gap: 8px; padding: 9px; }
+  .pebblebrooks-residence-count strong { font-size: 35px; }
+  .pebblebrooks-residence-card > img { height: 82px; }
+  .pebblebrooks-residence-copy strong { font-size: 18px; }
   .pebblebrooks-residence-copy > span { font-size: 9px; }
 }
